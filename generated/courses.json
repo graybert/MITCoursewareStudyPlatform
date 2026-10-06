@@ -1,0 +1,974 @@
+[
+  {
+    "id": "9.01-fall-2007",
+    "title": "Introduction to Neuroscience",
+    "number": "9.01",
+    "description": "This course is an introduction to the mammalian nervous system, with emphasis on the structure and function of the human brain. Topics include the function of nerve cells, sensory systems, control of movement, learning and memory, and diseases of the brain.\n",
+    "instructors": [
+      "Prof. Mark Bear",
+      "Prof. Sebastian Seung"
+    ],
+    "department": "9",
+    "source": "https://ocw.mit.edu/courses/9-01-introduction-to-neuroscience-fall-2007",
+    "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "root": "9.01-fall-2007",
+    "items": [
+      {
+        "id": "orientation",
+        "title": "Welcome & syllabus",
+        "type": "orientation",
+        "section": "Getting started",
+        "html": "<h3>Course Meeting Times</h3>\n\n<p>Lectures: 2 sessions / week, 1.5 hours / session</p>\n<p>Recitations: 1 session / week, 1 hour / session</p>\n\n    <h3>Goals</h3>\n\n<ul>\n<li>To provide a systematic introduction to the mammalian nervous system, emphasizing the structural and functional organization of the human brain.</li>\n<li>To expose students to the field of neuroscience and some of the neuroscientists at MIT.</li>\n</ul>\n\n    <h3>Content</h3>\n\n<p>This course begins with the study of nerve cells: their structure, the propagation of nerve impulses and transfer of information between nerve cells, the effect of drugs on this process, and the development of nerve cells into the brain and spinal cord. We then move to the sensory systems such as olfaction, hearing, and vision and discuss how physical energy such as light is converted into neural signals, where these signals travel in the brain, and how they are processed. Next we study the control of voluntary movement. Finally, we cover the neurochemical bases of brain diseases and those systems which control motivation, emotion, learning and memory.</p>\n\n    <h3>Textbook</h3>\n\n<p>Bear, Mark F., Barry W. Connors, and Michael A. Paradiso. <em>Neuroscience: Exploring the Brain</em>, 3rd ed. Baltimore, MD: Lippincott Williams &amp; Wilkins, 2006. ISBN: 9780781760034. [<a target=\"_blank\" href=\"http://books.google.com/books?id=75NgwLzueikC&amp;pg=PAfrontcover\">Preview</a> in Google Books.]</p>\n<p><strong>It will be assumed by the lecturers that you have read the assigned readings before class, and you will be examined on material covered in the reading assignments.</strong> Warning: the reading assignments are substantial; do not put them off until just prior to an exam!</p>\n\n    <h3>Exams, Problem Sets, and Grades</h3>\n\n<p>There will be three problem sets. Collaboration is allowed. However, you must write up your answers independently, and document the names of your collaborators on your writeup.</p>\n<p>Exams will include multiple choice, short answer, and essay questions and will cover the material presented in lecture and in the assigned reading unless Prof. Bear or Prof. Seung state otherwise.</p>\n<p>Please note: Late problem sets will not be accepted. There are no make-up exams!</p>\n<p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><table>\n\n<thead>\n\n<tr>\n\n<th>\n\nACTIVITIES\n</th>\n\n<th>\n\nPERCENTAGES\n</th>\n\n</tr>\n\n</thead>\n\n<tbody><tr>\n\n<td>\n\nProblem sets\n</td>\n\n<td>\n\n10%\n</td>\n\n</tr>\n\n<tr>\n\n<td>\n\nQuiz - anatomy (in class Week #7)\n</td>\n\n<td>\n\n10%\n</td>\n\n</tr>\n\n<tr>\n\n<td>\n\nParticipation in recitation discussions\n</td>\n\n<td>\n\n5%\n</td>\n\n</tr>\n\n<tr>\n\n<td>\n\nExam 1\n</td>\n\n<td>\n\n20%\n</td>\n\n</tr>\n\n<tr>\n\n<td>\n\nExam 2\n</td>\n\n<td>\n\n20%\n</td>\n\n</tr>\n\n<tr>\n\n<td>\n\nFinal exam\n</td>\n\n<td>\n\n35%\n</td>\n\n</tr>\n\n</tbody></table>\n\n\n    <p></p><h3>Calendar</h3>\n\n<p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><table>\n\n<thead>\n\n<tr>\n\n<th>\n\nWEEK #\n</th>\n\n<th>\n\nTOPICS\n</th>\n\n<th>\n\nLECTURERS\n</th>\n\n<th>\n\nKEY DATES\n</th>\n\n</tr>\n\n</thead>\n\n<tbody><tr>\n\n<td>\n\n1\n</td>\n\n<td>\n\nIntroduction\n</td>\n\n<td>\n\nSeung\n</td>\n\n<td>\n\n \n</td>\n\n</tr>\n\n<tr>\n\n<td colspan=\"4\">\n\n<strong>Part 1: Neurons</strong>\n</td>\n\n</tr>\n\n<tr>\n\n<td rowspan=\"2\">\n\n2\n</td>\n\n<td>\n\nCellular neuroanatomy: neurons and glia\n</td>\n\n<td>\n\nBear\n</td>\n\n<td>\n\n \n</td>\n\n</tr>\n\n<tr>\n\n<td>\n\nNeurophysiology 1: resting potential\n</td>\n\n<td>\n\nBear\n</td>\n\n<td>\n\n \n</td>\n\n</tr>\n\n<tr>\n\n<td rowspan=\"2\">\n\n3\n</td>\n\n<td>\n\nNeurophysiology 2: action potential\n</td>\n\n<td>\n\nBear\n</td>\n\n<td rowspan=\"2\">\n\nProblem set 1 due\n</td>\n\n</tr>\n\n<tr>\n\n<td>\n\nSynaptic transmission 1: physiology\n</td>\n\n<td>\n\nBear\n</td>\n\n</tr>\n\n<tr>\n\n<td>\n\n4\n</td>\n\n<td>\n\nSynaptic transmission 2: chemistry\n</td>\n\n<td>\n\nCooke\n</td>\n\n<td>\n\n \n</td>\n\n</tr>\n\n<tr>\n\n<td>\n\n5\n</td>\n\n<td>\n\nExam 1\n</td>\n\n<td>\n\n \n</td>\n\n<td>\n\n \n</td>\n\n</tr>\n\n<tr>\n\n<td colspan=\"4\">\n\n<strong>Part 2: Neural systems</strong>\n</td>\n\n</tr>\n\n<tr>\n\n<td>\n\n5 (cont.)\n</td>\n\n<td>\n\nOrganization of the vertebrate brain\n</td>\n\n<td>\n\nGraybiel\n</td>\n\n<td>\n\n \n</td>\n\n</tr>\n\n<tr>\n\n<td>\n\n6\n</td>\n\n<td>\n\nVision 1: the eye\n</td>\n\n<td>\n\nSeung\n</td>\n\n<td>\n\n \n</td>\n\n</tr>\n\n<tr>\n\n<td rowspan=\"2\">\n\n7\n</td>\n\n<td>\n<p></p>\n<p>Anatomy quiz</p>\n<p>Vision 2: thalamus and V1 cortex</p>\n<p></p></td>\n\n<td>\n\nSeung\n</td>\n\n<td>\n\n \n</td>\n\n</tr>\n\n<tr>\n\n<td>\n\nVision 3: beyond V1\n</td>\n\n<td>\n\nSeung\n</td>\n\n<td>\n\n \n</td>\n\n</tr>\n\n<tr>\n\n<td rowspan=\"2\">\n\n8\n</td>\n\n<td>\n\nHearing\n</td>\n\n<td>\n\nSeung\n</td>\n\n<td rowspan=\"2\">\n\nProblem set 2 due\n</td>\n\n</tr>\n\n<tr>\n\n<td>\n\nOlfaction\n</td>\n\n<td>\n\nSeung\n</td>\n\n</tr>\n\n<tr>\n\n<td rowspan=\"2\">\n\n9\n</td>\n\n<td>\n\nMotor system 1\n</td>\n\n<td>\n\nSeung\n</td>\n\n<td>\n\n \n</td>\n\n</tr>\n\n<tr>\n\n<td>\n\nMotor system 2\n</td>\n\n<td>\n\nSeung\n</td>\n\n<td>\n\n \n</td>\n\n</tr>\n\n<tr>\n\n<td>\n\n10\n</td>\n\n<td>\n\nExam 2\n</td>\n\n<td>\n\n \n</td>\n\n<td>\n\n \n</td>\n\n</tr>\n\n<tr>\n\n<td colspan=\"4\">\n\n<strong>Part 3: Brain and behavior</strong>\n</td>\n\n</tr>\n\n<tr>\n\n<td>\n\n11\n</td>\n\n<td>\n\nChemical control of brain 1\n</td>\n\n<td>\n\nBear\n</td>\n\n<td>\n\n \n</td>\n\n</tr>\n\n<tr>\n\n<td>\n\n12\n</td>\n\n<td>\n\nBrain disorders\n</td>\n\n<td>\n\nTsai\n</td>\n\n<td>\n\n \n</td>\n\n</tr>\n\n<tr>\n\n<td rowspan=\"2\">\n\n13\n</td>\n\n<td>\n\nChemical control of brain 2 motivation\n</td>\n\n<td>\n\nBear\n</td>\n\n<td>\n\n \n</td>\n\n</tr>\n\n<tr>\n\n<td>\n\nLearning and memory 1\n</td>\n\n<td>\n\nSeung\n</td>\n\n<td>\n\n \n</td>\n\n</tr>\n\n<tr>\n\n<td rowspan=\"2\">\n\n14\n</td>\n\n<td>\n\nAttention\n</td>\n\n<td>\n\nDesimone\n</td>\n\n<td rowspan=\"2\">\n\nProblem set 3 due\n</td>\n\n</tr>\n\n<tr>\n\n<td>\n\nLearning and memory 2\n</td>\n\n<td>\n\nSeung\n</td>\n\n</tr>\n\n<tr>\n\n<td rowspan=\"2\">\n\n15\n</td>\n\n<td>\n\nEmotion\n</td>\n\n<td>\n\nSeung\n</td>\n\n<td>\n\n \n</td>\n\n</tr>\n\n<tr>\n\n<td>\n\nSleep\n</td>\n\n<td>\n\nHobson\n</td>\n\n<td>\n\n \n</td>\n\n</tr>\n\n<tr>\n\n<td>\n\n \n</td>\n\n<td>\n\nFinal exam\n</td>\n\n<td>\n\n \n</td>\n\n<td>\n\n \n</td>\n\n</tr>\n\n</tbody></table>\n\n<p></p>",
+        "resources": [],
+        "next": "introduction"
+      },
+      {
+        "id": "introduction",
+        "title": "Introduction",
+        "type": "lecture",
+        "section": "Course",
+        "week": 1,
+        "lecturer": "Seung",
+        "reading": "Chapter 1",
+        "resources": [],
+        "previous": "orientation",
+        "next": "cellular-neuroanatomy-neurons-and-glia"
+      },
+      {
+        "id": "cellular-neuroanatomy-neurons-and-glia",
+        "title": "Cellular neuroanatomy: neurons and glia",
+        "type": "lecture",
+        "section": "Part 1: Neurons",
+        "week": 2,
+        "lecturer": "Bear",
+        "reading": "Chapter 2",
+        "resources": [
+          "5d0a34d6-1307-6973-3815-477bf0a5978f",
+          "4577791f-4c87-b819-b3e3-4700eb7d3028"
+        ],
+        "previous": "introduction",
+        "next": "neurophysiology-1-resting-potential"
+      },
+      {
+        "id": "neurophysiology-1-resting-potential",
+        "title": "Neurophysiology 1: resting potential",
+        "type": "lecture",
+        "section": "Part 1: Neurons",
+        "week": 2,
+        "lecturer": "Bear",
+        "reading": "Chapter 3",
+        "resources": [
+          "5d0a34d6-1307-6973-3815-477bf0a5978f",
+          "4577791f-4c87-b819-b3e3-4700eb7d3028"
+        ],
+        "previous": "cellular-neuroanatomy-neurons-and-glia",
+        "next": "neurophysiology-2-action-potential"
+      },
+      {
+        "id": "neurophysiology-2-action-potential",
+        "title": "Neurophysiology 2: action potential",
+        "type": "lecture",
+        "section": "Part 1: Neurons",
+        "week": 3,
+        "lecturer": "Bear",
+        "reading": "Chapter 4",
+        "resources": [
+          "b4f9a58d-7ac3-f75f-1785-4685b5d84c04",
+          "3a2fa425-7849-9c13-587b-e8fa06437abe"
+        ],
+        "previous": "neurophysiology-1-resting-potential",
+        "next": "synaptic-transmission-1-physiology"
+      },
+      {
+        "id": "synaptic-transmission-1-physiology",
+        "title": "Synaptic transmission 1: physiology",
+        "type": "lecture",
+        "section": "Part 1: Neurons",
+        "week": 3,
+        "lecturer": "Bear",
+        "reading": "Chapter 5",
+        "resources": [
+          "b4f9a58d-7ac3-f75f-1785-4685b5d84c04",
+          "3a2fa425-7849-9c13-587b-e8fa06437abe"
+        ],
+        "previous": "neurophysiology-2-action-potential",
+        "next": "problem-set-1"
+      },
+      {
+        "id": "problem-set-1",
+        "title": "Problem set 1",
+        "type": "problem-set",
+        "section": "Part 1: Neurons",
+        "week": 3,
+        "resources": [
+          "f3de43b1-b3bc-1a94-3dbc-f0f8468b6ece"
+        ],
+        "previous": "synaptic-transmission-1-physiology",
+        "next": "synaptic-transmission-2-chemistry"
+      },
+      {
+        "id": "synaptic-transmission-2-chemistry",
+        "title": "Synaptic transmission 2: chemistry",
+        "type": "lecture",
+        "section": "Part 1: Neurons",
+        "week": 4,
+        "lecturer": "Cooke",
+        "reading": "Chapter 6",
+        "resources": [
+          "e03e6647-b289-df96-7f19-ec1e73b908c4",
+          "4f88df62-96f3-8f25-3574-cc41fff5a118"
+        ],
+        "previous": "problem-set-1",
+        "next": "exam-1"
+      },
+      {
+        "id": "exam-1",
+        "title": "Exam 1",
+        "type": "exam",
+        "section": "Part 1: Neurons",
+        "week": 5,
+        "lecturer": "",
+        "reading": "",
+        "resources": [
+          "a61ab05a-bd8e-0a58-1d03-eb275bbd5780"
+        ],
+        "html": "<p>This is a scheduled assessment. The download provides selected review materials, not the original exam paper.</p>",
+        "previous": "synaptic-transmission-2-chemistry",
+        "next": "organization-of-the-vertebrate-brain"
+      },
+      {
+        "id": "organization-of-the-vertebrate-brain",
+        "title": "Organization of the vertebrate brain",
+        "type": "lecture",
+        "section": "Part 2: Neural systems",
+        "week": 5,
+        "lecturer": "Graybiel",
+        "reading": "Chapter 7",
+        "resources": [],
+        "previous": "exam-1",
+        "next": "vision-1-the-eye"
+      },
+      {
+        "id": "vision-1-the-eye",
+        "title": "Vision 1: the eye",
+        "type": "lecture",
+        "section": "Part 2: Neural systems",
+        "week": 6,
+        "lecturer": "Seung",
+        "reading": "Chapter 9",
+        "resources": [
+          "918a3e33-ec70-9072-082f-742bdbac8c44"
+        ],
+        "previous": "organization-of-the-vertebrate-brain",
+        "next": "anatomy-quiz-vision-2-thalamus-and-v1-cortex"
+      },
+      {
+        "id": "anatomy-quiz-vision-2-thalamus-and-v1-cortex",
+        "title": "Anatomy quiz Vision 2: thalamus and V1 cortex",
+        "type": "lecture",
+        "section": "Part 2: Neural systems",
+        "week": 7,
+        "lecturer": "Seung",
+        "reading": "Chapter 10",
+        "resources": [
+          "e16c00ee-c1cc-935f-93dd-94f47b95b67e",
+          "ec0a36e0-eda2-be35-4518-1cd389369664",
+          "aeda0ca1-42a9-f4c0-062c-4b0e791027b4"
+        ],
+        "previous": "vision-1-the-eye",
+        "next": "vision-3-beyond-v1"
+      },
+      {
+        "id": "vision-3-beyond-v1",
+        "title": "Vision 3: beyond V1",
+        "type": "lecture",
+        "section": "Part 2: Neural systems",
+        "week": 7,
+        "lecturer": "Seung",
+        "reading": "Chapter 10",
+        "resources": [
+          "5e6f0adf-a8a0-e954-70df-9b9810a6be06",
+          "ec0a36e0-eda2-be35-4518-1cd389369664",
+          "aeda0ca1-42a9-f4c0-062c-4b0e791027b4"
+        ],
+        "previous": "anatomy-quiz-vision-2-thalamus-and-v1-cortex",
+        "next": "hearing"
+      },
+      {
+        "id": "hearing",
+        "title": "Hearing",
+        "type": "lecture",
+        "section": "Part 2: Neural systems",
+        "week": 8,
+        "lecturer": "Seung",
+        "reading": "Chapter 11",
+        "resources": [
+          "789180c4-f020-757d-cec7-5bdab822f590",
+          "33a524e1-06d8-016e-5b1b-870e0058a395",
+          "34922e7d-994f-f4c1-80ec-bca7817c1831",
+          "0f22ee8f-3f06-7dc4-bd80-88131a9485d3"
+        ],
+        "previous": "vision-3-beyond-v1",
+        "next": "olfaction"
+      },
+      {
+        "id": "olfaction",
+        "title": "Olfaction",
+        "type": "lecture",
+        "section": "Part 2: Neural systems",
+        "week": 8,
+        "lecturer": "Seung",
+        "reading": "Chapter 8",
+        "resources": [
+          "b1d56ee6-b5ba-bc13-55b5-273730ef62d3",
+          "33a524e1-06d8-016e-5b1b-870e0058a395",
+          "34922e7d-994f-f4c1-80ec-bca7817c1831",
+          "0f22ee8f-3f06-7dc4-bd80-88131a9485d3"
+        ],
+        "previous": "hearing",
+        "next": "problem-set-2"
+      },
+      {
+        "id": "problem-set-2",
+        "title": "Problem set 2",
+        "type": "problem-set",
+        "section": "Part 2: Neural systems",
+        "week": 8,
+        "resources": [
+          "ea8c0809-d429-22d2-4307-31bc6bfcf04f"
+        ],
+        "previous": "olfaction",
+        "next": "motor-system-1"
+      },
+      {
+        "id": "motor-system-1",
+        "title": "Motor system 1",
+        "type": "lecture",
+        "section": "Part 2: Neural systems",
+        "week": 9,
+        "lecturer": "Seung",
+        "reading": "Chapter 13",
+        "resources": [
+          "35fbc750-c2a6-2f7b-0d2d-15ccaf34b80a",
+          "c0918423-f3e0-e6f1-7407-36d49b2144d7",
+          "2efeec65-8566-4532-2f68-18d74cc3715d",
+          "5c288de1-be71-a31f-d849-b9f3c062dfd6"
+        ],
+        "previous": "problem-set-2",
+        "next": "motor-system-2"
+      },
+      {
+        "id": "motor-system-2",
+        "title": "Motor system 2",
+        "type": "lecture",
+        "section": "Part 2: Neural systems",
+        "week": 9,
+        "lecturer": "Seung",
+        "reading": "Chapter 14",
+        "resources": [
+          "b81b265b-817b-e0fe-cfb6-d534bbe55588",
+          "c0918423-f3e0-e6f1-7407-36d49b2144d7",
+          "2efeec65-8566-4532-2f68-18d74cc3715d",
+          "5c288de1-be71-a31f-d849-b9f3c062dfd6"
+        ],
+        "previous": "motor-system-1",
+        "next": "exam-2"
+      },
+      {
+        "id": "exam-2",
+        "title": "Exam 2",
+        "type": "exam",
+        "section": "Part 2: Neural systems",
+        "week": 10,
+        "lecturer": "",
+        "reading": "",
+        "resources": [
+          "c35d4299-b1b8-3cdc-878c-089e83c69fec",
+          "e0b32c32-9ed3-0286-fd62-e190b36e3420",
+          "e8842f30-b3a8-5503-cf8f-22174423599d"
+        ],
+        "html": "<p>This is a scheduled assessment. The download provides selected review materials, not the original exam paper.</p>",
+        "previous": "motor-system-2",
+        "next": "chemical-control-of-brain-1"
+      },
+      {
+        "id": "chemical-control-of-brain-1",
+        "title": "Chemical control of brain 1",
+        "type": "lecture",
+        "section": "Part 3: Brain and behavior",
+        "week": 11,
+        "lecturer": "Bear",
+        "reading": "Chapter 15",
+        "resources": [],
+        "previous": "exam-2",
+        "next": "brain-disorders"
+      },
+      {
+        "id": "brain-disorders",
+        "title": "Brain disorders",
+        "type": "lecture",
+        "section": "Part 3: Brain and behavior",
+        "week": 12,
+        "lecturer": "Tsai",
+        "reading": "Chapter 22",
+        "resources": [
+          "1339c1f0-8c60-e94e-ceb6-96358462d9f9",
+          "2ab25c71-8320-2407-406a-bd72a3a15b1d"
+        ],
+        "previous": "chemical-control-of-brain-1",
+        "next": "chemical-control-of-brain-2-motivation"
+      },
+      {
+        "id": "chemical-control-of-brain-2-motivation",
+        "title": "Chemical control of brain 2 motivation",
+        "type": "lecture",
+        "section": "Part 3: Brain and behavior",
+        "week": 13,
+        "lecturer": "Bear",
+        "reading": "Chapters 15 and 16",
+        "resources": [
+          "6434e1aa-333b-4c7e-11d0-419ae07611a6"
+        ],
+        "previous": "brain-disorders",
+        "next": "learning-and-memory-1"
+      },
+      {
+        "id": "learning-and-memory-1",
+        "title": "Learning and memory 1",
+        "type": "lecture",
+        "section": "Part 3: Brain and behavior",
+        "week": 13,
+        "lecturer": "Seung",
+        "reading": "Chapter 24",
+        "resources": [
+          "486d67fe-991c-0d6a-3836-601480b456f0",
+          "6434e1aa-333b-4c7e-11d0-419ae07611a6"
+        ],
+        "previous": "chemical-control-of-brain-2-motivation",
+        "next": "attention"
+      },
+      {
+        "id": "attention",
+        "title": "Attention",
+        "type": "lecture",
+        "section": "Part 3: Brain and behavior",
+        "week": 14,
+        "lecturer": "Desimone",
+        "reading": "Chapter 21",
+        "resources": [
+          "6434e1aa-333b-4c7e-11d0-419ae07611a6",
+          "d3f598d5-68d2-3b69-a3ca-832bcd1d693c"
+        ],
+        "previous": "learning-and-memory-1",
+        "next": "learning-and-memory-2"
+      },
+      {
+        "id": "learning-and-memory-2",
+        "title": "Learning and memory 2",
+        "type": "lecture",
+        "section": "Part 3: Brain and behavior",
+        "week": 14,
+        "lecturer": "Seung",
+        "reading": "Chapter 25",
+        "resources": [
+          "213b7615-4caa-fa7c-1970-30c08e5bca33",
+          "6434e1aa-333b-4c7e-11d0-419ae07611a6",
+          "d3f598d5-68d2-3b69-a3ca-832bcd1d693c"
+        ],
+        "previous": "attention",
+        "next": "problem-set-3"
+      },
+      {
+        "id": "problem-set-3",
+        "title": "Problem set 3",
+        "type": "problem-set",
+        "section": "Part 3: Brain and behavior",
+        "week": 14,
+        "resources": [
+          "77600741-adc3-d76a-8330-709757929578"
+        ],
+        "previous": "learning-and-memory-2",
+        "next": "emotion"
+      },
+      {
+        "id": "emotion",
+        "title": "Emotion",
+        "type": "lecture",
+        "section": "Part 3: Brain and behavior",
+        "week": 15,
+        "lecturer": "Seung",
+        "reading": "Chapter 18",
+        "resources": [
+          "5025b44f-121b-e4c9-e979-778c54842b73",
+          "63c9fdd7-7ffa-e961-c933-2b8574413d97"
+        ],
+        "previous": "problem-set-3",
+        "next": "sleep"
+      },
+      {
+        "id": "sleep",
+        "title": "Sleep",
+        "type": "lecture",
+        "section": "Part 3: Brain and behavior",
+        "week": 15,
+        "lecturer": "Hobson",
+        "reading": "Chapter 19",
+        "resources": [
+          "63c9fdd7-7ffa-e961-c933-2b8574413d97"
+        ],
+        "previous": "emotion",
+        "next": "final-exam"
+      },
+      {
+        "id": "final-exam",
+        "title": "Final exam",
+        "type": "exam",
+        "section": "Part 3: Brain and behavior",
+        "lecturer": "",
+        "reading": "",
+        "resources": [
+          "6d65403d-1e25-4cba-43e8-94a57b9ae309"
+        ],
+        "html": "<p>This is a scheduled assessment. The download provides selected review materials, not the original exam paper.</p>",
+        "previous": "sleep"
+      }
+    ],
+    "resources": [
+      {
+        "id": "49ce116a-8617-053b-d222-140c80b46a0f",
+        "title": "Neurotransmitters",
+        "type": "lecture notes",
+        "path": "static_resources/49ce116a8617053bd222140c80b46a0f_05_ch6_neuro_lec.pdf",
+        "mime": "application/pdf",
+        "description": "Lecture presentation on neurotransmitters.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "ad26337e-97ce-9619-0b12-5bd88d0bab75",
+        "title": "Synaptic Transmission",
+        "type": "lecture notes",
+        "path": "static_resources/ad26337e97ce96190b125bd88d0bab75_06_ch6_neur_lecb.pdf",
+        "mime": "application/pdf",
+        "description": "Lecture presentation on synaptic transmission.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "918a3e33-ec70-9072-082f-742bdbac8c44",
+        "title": "Vision 1: The Eye",
+        "type": "lecture notes",
+        "path": "static_resources/918a3e33ec709072082f742bdbac8c44_09_vision1.pdf",
+        "mime": "application/pdf",
+        "description": "Lecture presentation on neural systems, the anatomy of the eye, the optic nerve, and reality versus perception.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "e16c00ee-c1cc-935f-93dd-94f47b95b67e",
+        "title": "Vision 2: Thalamus and V1 Cortex",
+        "type": "lecture notes",
+        "path": "static_resources/e16c00eec1cc935f93dd94f47b95b67e_10_vision2.pdf",
+        "mime": "application/pdf",
+        "description": "Lecture notes on neural systems, vision, illusions, reflectance, light, and color.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "5e6f0adf-a8a0-e954-70df-9b9810a6be06",
+        "title": "Vision 3: Beyond V1",
+        "type": "lecture notes",
+        "path": "static_resources/5e6f0adfa8a0e95470df9b9810a6be06_11_vision3.pdf",
+        "mime": "application/pdf",
+        "description": "Lecture notes on neural systems, vision, complex cells, direction selectivity, retinotopy, cortical maps, orientation maps, columnar organization, laminar organization, the Hubel-Wiesel model, dorsal and ventral streams, the inferotemporal cortex, face-evoked brain activity, human neurophysiology, dorsal and ventral streams, motion sensitive areas, double dissociation, a random dot stereogram, different monocular images, the lateral geniculate nucleus, LGN input, and ocular dominance columns.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "789180c4-f020-757d-cec7-5bdab822f590",
+        "title": "Hearing",
+        "type": "lecture notes",
+        "path": "static_resources/789180c4f020757dcec75bdab822f590_12_hearing.pdf",
+        "mime": "application/pdf",
+        "description": "Lecture notes on neural systems, hearing, anatomy of the ear, the auditory nerve, pure tones, auditory nerve responses, sound waves, the properties of the basilar membrane, place code for frequency, Fourier analysis, measures of frequency content, periodic signals, the TRPA1 channel, hair cells, tonotopic maps, the primary auditory cortex, interaural time delay, superior olive neurons, axonal delay lines, and vertical localization.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "b1d56ee6-b5ba-bc13-55b5-273730ef62d3",
+        "title": "Taste and Smell",
+        "type": "lecture notes",
+        "path": "static_resources/b1d56ee6b5babc1355b5273730ef62d3_13_tastesmell.pdf",
+        "mime": "application/pdf",
+        "description": "Lecture presentation on sensory transduction, psychology of taste, central taste pathways, gustatory axons, taste receptor cells, genetic manipulations, labeled line encoding, genetic variation in taste, perception of flavor, olfaction, olfactory epithelium, the olfactory receptor neuron, olfactory transduction, odorant receptor genes, olfactory glomeruli, central olfactory pathways, pheromones, and the accessory olfactory system.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "35fbc750-c2a6-2f7b-0d2d-15ccaf34b80a",
+        "title": "Movement I",
+        "type": "lecture notes",
+        "path": "static_resources/35fbc750c2a62f7b0d2d15ccaf34b80a_14_motor1.pdf",
+        "mime": "application/pdf",
+        "description": "Lecture notes on neural systems, motor systems, movement, actin/myosin, skeletal muscle, steps in a muscle twitch, lower motor neurons, the\r\nspinal cord, the motor neuron pool, control of muscle force, reflex behavior, DRG cells, muscle spindles, mono-synaptic reflex arcs, the myotatic reflex, intrafusal fibers, gamma motor neurons, the Golgi tendon organs, the flexor reflex, reciprocal inhibition of flexors and extensors, rhythmic behaviors, central pattern generators, intrinsic oscillators, and mutual inhibition.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "b81b265b-817b-e0fe-cfb6-d534bbe55588",
+        "title": "Movement II",
+        "type": "lecture notes",
+        "path": "static_resources/b81b265b817be0fecfb6d534bbe55588_15_motor2.pdf",
+        "mime": "application/pdf",
+        "description": "Lecture notes on neural systems, the motor system, movement, supraspinal motor areas, extraocular muscles and eye movement, the vestibulo-ocular reflex, vestibular organs, the map of saccade vectors on the superior colliculus, upper motor neurons, corticospinal pathways, motor cortical areas, center-out reaching task, M1 cells, complex actions evoked by electrical stimulation, the final common pathway, basal ganglia, Parkinson’s disease, Huntington’s disease, and cerebellar function.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "1339c1f0-8c60-e94e-ceb6-96358462d9f9",
+        "title": "Age-depedent neurodegenerative disorder with cortical dementia - Alzheimer’s disease",
+        "type": "lecture notes",
+        "path": "static_resources/1339c1f08c60e94eceb696358462d9f9_17_bcs_lec_11_19.pdf",
+        "mime": "application/pdf",
+        "description": "Lecture presentation on the pathological features, pathogenesis, diagnosis, and therapeutic intervention of Alzheimer’s disease.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "486d67fe-991c-0d6a-3836-601480b456f0",
+        "title": "Declarative Memory",
+        "type": "lecture notes",
+        "path": "static_resources/486d67fe991c0d6a3836601480b456f0_19_declarative.pdf",
+        "mime": "application/pdf",
+        "description": "Lecture notes on declarative memory, temporal lobe epilepsy, bilateral medial temporal lobectomy, short-term versus long-term memory, medial temporal lobe lesion in monkeys, lesion of perirhinal cortex, the hypothesis that long-term memories are stored by synaptic modifications, Hebbian synaptic plasticity, brain slice preparation, a synaptic plasticity experiment, long-term potentiation (LTP), long-term depression (LTD), glutamate receptor subtypes, the NMDA receptor, the Morris water maze, NR1 knockout, pattern completion, and interference.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "a4f3665f-7c98-664b-8353-88ff6678f165",
+        "title": "Attention",
+        "type": "lecture notes",
+        "path": "static_resources/a4f3665f7c98664b835388ff6678f165_20_desimonelec.pdf",
+        "mime": "application/pdf",
+        "description": "Lecture presentation on attention, selective attention characterized by capacity limits and selectivity, the effects of attention on visual processing and awareness, the ventral object recognition stream, and its \"top-down\" control by attention, the fronto-parietal system for top-down attentional control, , and interactions between prefrontal cortex and visual cortex.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "213b7615-4caa-fa7c-1970-30c08e5bca33",
+        "title": "Learning and Memory 2",
+        "type": "lecture notes",
+        "path": "static_resources/213b76154caafa7c197030c08e5bca33_21_nondeclarativ.pdf",
+        "mime": "application/pdf",
+        "description": "Lecture notes on learning and memory, working memory, short-term memory, active manipulation of information, and nondeclarative memory.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "5025b44f-121b-e4c9-e979-778c54842b73",
+        "title": "Emotion",
+        "type": "lecture notes",
+        "path": "static_resources/5025b44f121be4c9e979778c54842b73_22_emotion.pdf",
+        "mime": "application/pdf",
+        "description": "Lecture presentation on emotion, emotional expression in animals, emotional expression in humans, emotional expression in robots, the neural basis of fear learning, aggression, brain transections and sham rage, rage from electrical stimulation, a neural circuit for aggression, attachment, the vole as a model system for pair-bonding, oxytocin and vasopressin, and partner preference formation.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "a61ab05a-bd8e-0a58-1d03-eb275bbd5780",
+        "title": "Review",
+        "type": "exams",
+        "path": "static_resources/a61ab05abd8e0a581d03eb275bbd5780_9_01_ex1rev_al.pdf",
+        "mime": "application/pdf",
+        "description": "Review materials for an exam on neuroscience.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "c35d4299-b1b8-3cdc-878c-089e83c69fec",
+        "title": "Chapters 9 and 10 Review",
+        "type": "document",
+        "path": "static_resources/c35d4299b1b83cdc878c089e83c69fec_9_01_ex2rev_al.pdf",
+        "mime": "application/pdf",
+        "description": "Review materials for an exam on neuroscience.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "6d65403d-1e25-4cba-43e8-94a57b9ae309",
+        "title": "Final Exam Review",
+        "type": "exams",
+        "path": "static_resources/6d65403d1e254cba43e894a57b9ae309_9_01_final_rev.pdf",
+        "mime": "application/pdf",
+        "description": "Review materials for an exam on neuroscience. Topics include chemical control of the brain, brain disorders and Alzheimer’s disease, eating and motivation, and attention.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "29eda4c6-5c28-0528-6068-412b63b2ad5b",
+        "title": "Primary visual cortex of the brain for human and monkey",
+        "type": "image",
+        "path": "static_resources/29eda4c65c2805286068412b63b2ad5b_9-01f07.jpg",
+        "mime": "image/jpeg",
+        "description": "Cortical area 17 also known as the primary visual cortex of the brain shown for both human and monkey. (Figure by MIT OpenCourseWare. After figure 10.12 in: Bear, Mark F., Barry W. Connors, and Michael A. Paradiso. Neuroscience: Exploring the Brain. 2nd ed. Baltimore, Md.: Lippincott Williams & Wilkins, 2001. ISBN: 9780683305968.)",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "bf103e73-788d-6a0a-93e7-3889de160460",
+        "title": "Primary visual cortex of the brain for human and monkey",
+        "type": "image",
+        "path": "static_resources/bf103e73788d6a0a93e73889de160460_9-01f07-th.jpg",
+        "mime": "image/jpeg",
+        "description": "Cortical area 17 also known as the primary visual cortex of the brain shown for both human and monkey. (Figure by MIT OpenCourseWare. After figure 10.12 in: Bear, Mark F., Barry W. Connors, and Michael A. Paradiso. Neuroscience: Exploring the Brain. 2nd ed. Baltimore, MD: Lippincott Williams & Wilkins, 2001. ISBN: 9780683305968.)",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "e8842f30-b3a8-5503-cf8f-22174423599d",
+        "title": "Comparison Chart",
+        "type": "exams",
+        "path": "static_resources/e8842f30b3a85503cf8f22174423599d_ex2_comp_chrt.pdf",
+        "mime": "application/pdf",
+        "description": "Review materials on vision, audition, olfaction, and gustation for the second exam of the course.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "e0b32c32-9ed3-0286-fd62-e190b36e3420",
+        "title": "Chapters 9 and 10 Review",
+        "type": "supplemental exam materials",
+        "path": "static_resources/e0b32c329ed30286fd62e190b36e3420_exam2_review.pdf",
+        "mime": "application/pdf",
+        "description": "Review materials for an exam on neuroscience.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "a6eafa79-eebf-a273-cbe2-fcc9f08aff1e",
+        "title": "Emotion",
+        "type": "exams",
+        "path": "static_resources/a6eafa79eebfa273cbe2fcc9f08aff1e_finalrev_emotn.pdf",
+        "mime": "application/pdf",
+        "description": "Review material for the final exam of the course. Topics include theories of emotion, the anatomical basis for emotion, aggression, serotonin, and attachment.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "b609be50-b5de-39ea-40e6-b03fb8b83c5c",
+        "title": "Neuroscience Experiments",
+        "type": "exams",
+        "path": "static_resources/b609be50b5de39ea40e6b03fb8b83c5c_finalrev_experi.pdf",
+        "mime": "application/pdf",
+        "description": "Review materials for a final exam. Topics include neuroscience experiments, neurophysiology, neurochemistry, pharmacology, lesions, behavioral studies, and visualizing brain structures.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "60bf27db-a042-fb55-bb2b-12e2771150e3",
+        "title": "Learning and Memory",
+        "type": "exams",
+        "path": "static_resources/60bf27dba042fb55bb2b12e2771150e3_finalrev_memory.pdf",
+        "mime": "application/pdf",
+        "description": "Review materials for an exam on neuroscience. Topics include learning and memory, types of memory, length of memory, amnesia, engrams, the temporal lobe, the diencephalon, place cells, and place cells.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "fd623d63-6d5b-f894-f3d8-90a0bff38197",
+        "title": "What you wish you were doing right now...sleep",
+        "type": "supplemental exam materials",
+        "path": "static_resources/fd623d636d5bf894f3d890a0bff38197_finalrev_sleep.pdf",
+        "mime": "application/pdf",
+        "description": "Review materials for an exam on neuroscience. Topics include sleep, brain rhythms, the sleep cycle, NREM sleep, REM sleep, the neural mechanisms of sleep, and circadian rhythms.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "f3de43b1-b3bc-1a94-3dbc-f0f8468b6ece",
+        "title": "Problem Set 1: Cellular Neurophysiology",
+        "type": "problem sets",
+        "path": "static_resources/f3de43b1b3bc1a943dbcf0f8468b6ece_pset1.pdf",
+        "mime": "application/pdf",
+        "description": "Problem set on cellular neurophysiology, the action potential, the Nernst potential, activation and inactivation of the voltage-gated sodium channel, activation of the voltage-gated potassium channel, action potential, and repolarization.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "11112692-31ab-7ef0-dc1f-ca1e185ddb0f",
+        "title": "The Simulation Program HHsim",
+        "type": "problem sets",
+        "path": "static_resources/1111269231ab7ef0dc1fca1e185ddb0f_pset1_hhsim.pdf",
+        "mime": "application/pdf",
+        "description": "Instructions on how to use the computer program HHsim to simulate a variant of the Hodgkin-Huxley model.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "ea8c0809-d429-22d2-4307-31bc6bfcf04f",
+        "title": "Problem Set 2: Visual Neuroscience",
+        "type": "problem sets",
+        "path": "static_resources/ea8c0809d42922d2430731bc6bfcf04f_pset2.pdf",
+        "mime": "application/pdf",
+        "description": "Problem set on the visual system, bipolar cell responses, the center-surround interpretation of Chevreul’s illusion, and neural coding of color.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "77600741-adc3-d76a-8330-709757929578",
+        "title": "Problem Set 3: Learning and Memory",
+        "type": "problem sets",
+        "path": "static_resources/77600741adc3d76a8330709757929578_pset3.pdf",
+        "mime": "application/pdf",
+        "description": "Problem set on neural network models of memory, the McCulloch-Pitts model neuron, pattern completion by a Hebbian cell assembly, and voltage dependence of the NMDA receptor.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "4577791f-4c87-b819-b3e3-4700eb7d3028",
+        "title": "Week 2, Recitation 2",
+        "type": "recitations",
+        "path": "static_resources/4577791f4c87b819b3e34700eb7d3028_wk02_9_01_r01.pdf",
+        "mime": "application/pdf",
+        "description": "Recitation notes with an introduction to the course and a review of the brain, neurons, and glia, ",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "5d0a34d6-1307-6973-3815-477bf0a5978f",
+        "title": "Week 2, Recitation 1",
+        "type": "recitations",
+        "path": "static_resources/5d0a34d6130769733815477bf0a5978f_wk02_sechand0910.pdf",
+        "mime": "application/pdf",
+        "description": "Recitation notes on cellular neuroanatomy, neurons, and glia.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "3a2fa425-7849-9c13-587b-e8fa06437abe",
+        "title": "Week 3, Recitation 2",
+        "type": "recitations",
+        "path": "static_resources/3a2fa42578499c13587be8fa06437abe_wk03_9_01_r02.pdf",
+        "mime": "application/pdf",
+        "description": "Recitation notes on exploiting axoplasmic transport, types of glia, the resting membrane potential, and the action potential.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "b4f9a58d-7ac3-f75f-1785-4685b5d84c04",
+        "title": "Week 3, Recitation 1",
+        "type": "recitations",
+        "path": "static_resources/b4f9a58d7ac3f75f17854685b5d84c04_wk03_sechand0917.pdf",
+        "mime": "application/pdf",
+        "description": "Recitation notes on resting membrane potential and action potential.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "4f88df62-96f3-8f25-3574-cc41fff5a118",
+        "title": "Week 4, Recitation 2",
+        "type": "recitations",
+        "path": "static_resources/4f88df6296f38f253574cc41fff5a118_wk04_9_01_r03.pdf",
+        "mime": "application/pdf",
+        "description": "Recitation notes on synaptic transmission, electrical synapses, chemical synapses, and synaptic integration.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "e03e6647-b289-df96-7f19-ec1e73b908c4",
+        "title": "Week 4, Recitation 1",
+        "type": "recitations",
+        "path": "static_resources/e03e6647b289df967f19ec1e73b908c4_wk04_sechand0924.pdf",
+        "mime": "application/pdf",
+        "description": "Recitation notes with review questions on synaptic transmission chemistry.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "aeda0ca1-42a9-f4c0-062c-4b0e791027b4",
+        "title": "Week 7, Recitation 2",
+        "type": "recitations",
+        "path": "static_resources/aeda0ca142a9f4c0062c4b0e791027b4_wk07_9_01_r04.pdf",
+        "mime": "application/pdf",
+        "description": "Recitation notes on vision, the eye and retina, the structure of the eye, anatomy of retina, phototransduction, receptive fields, color perception, and the visual pathway.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "cf44a0a9-2374-294c-07d5-cf273aef0fb1",
+        "title": "Week 7, Recitation 3",
+        "type": "recitations",
+        "path": "static_resources/cf44a0a92374294c07d5cf273aef0fb1_wk07_hand101707.pdf",
+        "mime": "application/pdf",
+        "description": "Recitation notes on eye anatomy, retinal anatomy, phototransduction, and receptive fields.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "ec0a36e0-eda2-be35-4518-1cd389369664",
+        "title": "Week 7, Recitation 1",
+        "type": "recitations",
+        "path": "static_resources/ec0a36e0eda2be3545181cd389369664_wk07_sechand1015.pdf",
+        "mime": "application/pdf",
+        "description": "Recitation notes on the central nervous system, the peripheral nervous system, the anatomy of the eye, image formation by the eye, anatomy of the retina, phototransduction, and dark and light adaptation.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "34922e7d-994f-f4c1-80ec-bca7817c1831",
+        "title": "Week 8, Recitation 2",
+        "type": "recitations",
+        "path": "static_resources/34922e7d994ff4c180ecbca7817c1831_wk08_9_01_r05.pdf",
+        "mime": "application/pdf",
+        "description": "Recitation notes on vision, color perception, the pathway of visual perception, the auditory system, and the pathway of auditory perception.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "0f22ee8f-3f06-7dc4-bd80-88131a9485d3",
+        "title": "Week 8, Recitation 3",
+        "type": "recitations",
+        "path": "static_resources/0f22ee8f3f067dc4bd8088131a9485d3_wk08_hand102407.pdf",
+        "mime": "application/pdf",
+        "description": "Recitation notes on retinofugal pathway lesions, targets of the optic tract, the lateral geniculate nucleus (LGN), and the primary visual cortex.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "33a524e1-06d8-016e-5b1b-870e0058a395",
+        "title": "Week 8, Recitation 1",
+        "type": "recitations",
+        "path": "static_resources/33a524e106d8016e5b1b870e0058a395_wk08_sechand1022.pdf",
+        "mime": "application/pdf",
+        "description": "Recitation notes on the eye, the optic nerve, chiasm, and tract, the lateral geniculate nucleus, and the striate cortex.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "2efeec65-8566-4532-2f68-18d74cc3715d",
+        "title": "Week 9, Recitation 2",
+        "type": "recitations",
+        "path": "static_resources/2efeec65856645322f6818d74cc3715d_wk09_9_01_r06.pdf",
+        "mime": "application/pdf",
+        "description": "Recitation notes on neural systems, taste, olfaction, and the somatic motor systems.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "5c288de1-be71-a31f-d849-b9f3c062dfd6",
+        "title": "Week 9, Recitation 3",
+        "type": "recitations",
+        "path": "static_resources/5c288de1be71a31fd849b9f3c062dfd6_wk09_hand103107.pdf",
+        "mime": "application/pdf",
+        "description": "Recitation notes on audition, inner hair cells, outer hair cells, the auditory pathway, neural coding, sound localization, the motor system, lower motor neurons, reflexes, the central pattern generator, descending spinal tracts, cortical control, the basal ganglia, and the cerebellum.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "c0918423-f3e0-e6f1-7407-36d49b2144d7",
+        "title": "Week 9, Recitation 1",
+        "type": "recitations",
+        "path": "static_resources/c0918423f3e0e6f1740736d49b2144d7_wk09_sechand1029.pdf",
+        "mime": "application/pdf",
+        "description": "Recitation handout on vision, audition, gustation, and olfaction.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "2ab25c71-8320-2407-406a-bd72a3a15b1d",
+        "title": "Week 12, Recitation 1",
+        "type": "recitations",
+        "path": "static_resources/2ab25c7183202407406abd72a3a15b1d_wk12_sechand1119.pdf",
+        "mime": "application/pdf",
+        "description": "Recitation notes on chemical control of the brain and behavior.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "6434e1aa-333b-4c7e-11d0-419ae07611a6",
+        "title": "Week 13, Recitation 2",
+        "type": "recitations",
+        "path": "static_resources/6434e1aa333b4c7e11d0419ae07611a6_wk13_9_01_r08.pdf",
+        "mime": "application/pdf",
+        "description": "Recitation notes on chemical control of the brain, Alzheimer's disease, eating, and motivation.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "5bf39ae1-111b-657e-5d9e-4426a572835a",
+        "title": "Week 13, Recitation 3",
+        "type": "recitations",
+        "path": "static_resources/5bf39ae1111b657e5d9e4426a572835a_wk13_hand112807.pdf",
+        "mime": "application/pdf",
+        "description": "Recitation notes on chemical control of the brain, point to point systems, hormones, the autonomic nervous system, and diffuse modulatory systems.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "d3f598d5-68d2-3b69-a3ca-832bcd1d693c",
+        "title": "Week 14, Recitation 3",
+        "type": "recitations",
+        "path": "static_resources/d3f598d568d23b69a3ca832bcd1d693c_wk14_hand120507.pdf",
+        "mime": "application/pdf",
+        "description": "Recitation notes on memory, types of memory, amnesia, memory storage, and memory mechanisms.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "7a1683d2-c782-0418-c8df-95c1fe95d0b9",
+        "title": "Week 14, Recitation 2",
+        "type": "recitations",
+        "path": "static_resources/7a1683d2c7820418c8df95c1fe95d0b9_wk14_sechand1203.pdf",
+        "mime": "application/pdf",
+        "description": "Recitation notes on mental illness, anxiety disorders, affective disorders, and schizophrenia.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      },
+      {
+        "id": "63c9fdd7-7ffa-e961-c933-2b8574413d97",
+        "title": "Week 15, Recitation 2",
+        "type": "recitations",
+        "path": "static_resources/63c9fdd77ffae961c9332b8574413d97_wk15_9_01_r09.pdf",
+        "mime": "application/pdf",
+        "description": "Recitation notes on learning, memory, and attention.",
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/"
+      }
+    ],
+    "metadata": {
+      "course_description": "This course is an introduction to the mammalian nervous system, with emphasis on the structure and function of the human brain. Topics include the function of nerve cells, sensory systems, control of movement, learning and memory, and diseases of the brain.\n",
+      "course_description_html": "This course is an introduction to the mammalian nervous system, with emphasis on the structure and function of the human brain. Topics include the function of nerve cells, sensory systems, control of movement, learning and memory, and diseases of the brain.",
+      "course_image": {
+        "content": "29eda4c6-5c28-0528-6068-412b63b2ad5b",
+        "website": "9-01-introduction-to-neuroscience-fall-2007"
+      },
+      "course_image_metadata": {
+        "content_type": "resource",
+        "description": "Cortical area 17 also known as the primary visual cortex of the brain shown for both human and monkey. (Figure by MIT OpenCourseWare. After figure 10.12 in: Bear, Mark F., Barry W. Connors, and Michael A. Paradiso. Neuroscience: Exploring the Brain. 2nd ed. Baltimore, Md.: Lippincott Williams & Wilkins, 2001. ISBN: 9780683305968.)",
+        "draft": false,
+        "file": "/courses/9-01-introduction-to-neuroscience-fall-2007/29eda4c65c2805286068412b63b2ad5b_9-01f07.jpg",
+        "file_size": 21167,
+        "file_type": "image/jpeg",
+        "image_metadata": {
+          "caption": "Cortical area 17 also known as the primary visual cortex of the brain shown for both human and monkey. (Figure by MIT OpenCourseWare. After figure 10.12 in: Bear, Mark F., Barry W. Connors, and Michael A. Paradiso. _Neuroscience: Exploring the Brain_. 2nd ed. Baltimore, MD: Lippincott Williams & Wilkins, 2001. ISBN: 9780683305968.)",
+          "credit": "",
+          "image-alt": "Primary visual cortex of the brain for human and monkey."
+        },
+        "iscjklanguage": false,
+        "learning_resource_types": [],
+        "license": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+        "ocw_type": "OCWImage",
+        "resourcetype": "Image",
+        "title": "Primary visual cortex of the brain for human and monkey",
+        "uid": "29eda4c6-5c28-0528-6068-412b63b2ad5b"
+      },
+      "course_image_thumbnail": {
+        "content": "bf103e73-788d-6a0a-93e7-3889de160460",
+        "website": "9-01-introduction-to-neuroscience-fall-2007"
+      },
+      "course_title": "Introduction to Neuroscience",
+      "department_numbers": [
+        "9"
+      ],
+      "extra_course_numbers": "",
+      "image_src": "./static_resources/29eda4c65c2805286068412b63b2ad5b_9-01f07.jpg",
+      "instructors": [
+        {
+          "first_name": "Mark",
+          "last_name": "Bear",
+          "middle_initial": "",
+          "salutation": "Prof.",
+          "title": "Prof. Mark Bear",
+          "uid": "585f5a89-4d71-ab83-a20f-e02b1b4e86b6",
+          "url": "https://ocw.mit.edu/search/?q=Prof.+Mark+Bear"
+        },
+        {
+          "first_name": "Sebastian",
+          "last_name": "Seung",
+          "middle_initial": "",
+          "salutation": "Prof.",
+          "title": "Prof. Sebastian Seung",
+          "uid": "5495d010-5847-b8a1-2542-edb7a456bbed",
+          "url": "https://ocw.mit.edu/search/?q=Prof.+Sebastian+Seung"
+        }
+      ],
+      "learning_resource_types": [
+        "Problem Sets"
+      ],
+      "legacy_uid": "920c2be4-d5f5-1276-6277-3b8f4c3dc0ab",
+      "level": [
+        "Undergraduate"
+      ],
+      "mit_learn_topics": [
+        [
+          "Science & Math",
+          "Biology"
+        ]
+      ],
+      "primary_course_number": "9.01",
+      "site_short_id": "9.01-fall-2007",
+      "site_uid": "3cfbb2b5-711f-4a60-bf51-3226c1e0520a",
+      "site_url_path": "courses/9-01-introduction-to-neuroscience-fall-2007",
+      "term": "Fall",
+      "title": "Course Metadata",
+      "topics": [
+        [
+          "Science",
+          "Biology",
+          "Neuroscience"
+        ]
+      ],
+      "year": "2007"
+    }
+  }
+]
