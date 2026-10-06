@@ -25,6 +25,8 @@ export interface CourseItem {
   type: ItemType;
   section: string;
   week?: number;
+  date?: string;
+  lectureNumber?: number;
   lecturer?: string;
   reading?: string;
   html?: string;

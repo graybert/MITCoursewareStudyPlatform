@@ -233,3 +233,33 @@ test("providers encode filenames and preserve original external links", async ()
   assert.equal(studyContext(c, "b", "pdf").previous?.id, "a");
   assert.equal(studyContext(c, "b", "pdf").next?.id, "c");
 });
+
+test("repeated calendar titles get deterministic distinct IDs", () => {
+  const base = fs.mkdtempSync(path.join(os.tmpdir(), "ocw-repeat-"));
+  try {
+    fs.mkdirSync(path.join(base, "pages", "calendar"), { recursive: true });
+    fs.writeFileSync(
+      path.join(base, "data.json"),
+      JSON.stringify({
+        course_title: "Repeated topics",
+        site_short_id: "repeated",
+      }),
+    );
+    fs.writeFileSync(
+      path.join(base, "pages", "calendar", "data.json"),
+      JSON.stringify({
+        title: "Calendar",
+        content:
+          "<table><tr><th>Date</th><th>Topics</th></tr><tr><td>Sep 1</td><td>Fourier transforms</td></tr><tr><td>Sep 3</td><td>Fourier transforms</td></tr></table>",
+      }),
+    );
+    const c = importCourse(base, "courses/repeated").course;
+    assert.deepEqual(
+      c.items.map((i) => i.id),
+      ["orientation", "fourier-transforms", "fourier-transforms-2"],
+    );
+    assert.equal(c.items[1].next, "fourier-transforms-2");
+  } finally {
+    fs.rmSync(base, { recursive: true, force: true });
+  }
+});

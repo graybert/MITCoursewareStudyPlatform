@@ -153,6 +153,19 @@ export function importCourse(root: string, relativeRoot: string) {
     if (candidates.length > 1)
       warnings.push(`Ambiguous asset filename: ${m.file}`);
     const youtube = m.video_metadata?.youtube_id;
+    const extension = path.extname(m.file || "").toLowerCase();
+    const mimeByExtension: Record<string, string> = {
+      ".pdf": "application/pdf",
+      ".mp4": "video/mp4",
+      ".webm": "video/webm",
+      ".mp3": "audio/mpeg",
+      ".html": "text/html",
+      ".jpg": "image/jpeg",
+      ".jpeg": "image/jpeg",
+      ".png": "image/png",
+      ".svg": "image/svg+xml",
+      ".txt": "text/plain",
+    };
     const r: Resource = {
       id: m.uid || stableId(f),
       title: m.title || path.basename(f),
@@ -168,7 +181,10 @@ export function importCourse(root: string, relativeRoot: string) {
           ? m.file
           : undefined,
       mime:
-        m.file_type || (youtube ? "video/youtube" : "application/octet-stream"),
+        m.file_type ||
+        (youtube
+          ? "video/youtube"
+          : mimeByExtension[extension] || "application/octet-stream"),
       description: m.description || "",
       license: m.license,
     };
@@ -228,6 +244,7 @@ export function importCourse(root: string, relativeRoot: string) {
   const matchTitle = (s: string) =>
     clean(s.replace(/\(PDF[^)]*\)|\(Courtesy[\s\S]*$/gi, "")).toLowerCase();
 
+  const topicIds = new Map<string, number>();
   for (const row of schedule) {
     const topicColumn = row.headers.findIndex((h) =>
       /topics?|lecture title/i.test(h),
@@ -242,9 +259,19 @@ export function importCourse(root: string, relativeRoot: string) {
     const weekColumn = row.headers.findIndex((h) => /week/i.test(h));
     const week =
       parseInt(row.cells[weekColumn < 0 ? 0 : weekColumn]) || undefined;
-    const reading = readingRows.find(
-      (r) => matchTitle(r.cells[1] || "") === matchTitle(title),
-    )?.cells[3];
+    const dateColumn = row.headers.findIndex((h) => /date/i.test(h));
+    const lectureColumn = row.headers.findIndex(
+      (h) => /lec(?:ture)?|session/i.test(h) && !/lecturer/i.test(h),
+    );
+    const lecturerColumn = row.headers.findIndex((h) =>
+      /lecturer|instructor/i.test(h),
+    );
+    const readingColumn = row.headers.findIndex((h) => /readings?/i.test(h));
+    const reading =
+      readingRows.find(
+        (r) => matchTitle(r.cells[1] || "") === matchTitle(title),
+      )?.cells[3] ||
+      (readingColumn >= 0 ? row.cells[readingColumn] : undefined);
     const rs = [
       ...links(
         row.html.join(" "),
@@ -274,13 +301,26 @@ export function importCourse(root: string, relativeRoot: string) {
         }
       });
     }
+    const baseId = stableId(title);
+    const occurrence = (topicIds.get(baseId) || 0) + 1;
+    topicIds.set(baseId, occurrence);
     items.push({
-      id: stableId(title),
+      id: occurrence === 1 ? baseId : `${baseId}-${occurrence}`,
       title,
       type: exam ? "exam" : "lecture",
       section: row.section,
       week,
-      lecturer: row.cells[2],
+      date: dateColumn >= 0 ? row.cells[dateColumn] : undefined,
+      lectureNumber:
+        lectureColumn >= 0
+          ? parseInt(row.cells[lectureColumn]) || undefined
+          : undefined,
+      lecturer:
+        lecturerColumn >= 0
+          ? row.cells[lecturerColumn]
+          : row.headers.length
+            ? undefined
+            : row.cells[2],
       reading,
       resources: [...new Set(rs)],
       html: exam
@@ -437,6 +477,7 @@ export function importCourse(root: string, relativeRoot: string) {
           a: ["href", "target", "rel"],
           td: ["colspan", "rowspan"],
           th: ["colspan", "rowspan"],
+          h3: ["id"],
         },
       });
     }
@@ -490,7 +531,9 @@ export function importCourse(root: string, relativeRoot: string) {
   const registered = new Set(resources.map((r) => r.path));
   const unresolved = files.filter(
     (f) =>
-      f.startsWith("static_resources/") &&
+      (f.startsWith("static_resources/") ||
+        /\.(pdf|mp4|webm|mp3|zip|docx?|pptx?|xlsx?)$/i.test(f)) &&
+      !f.startsWith("static_shared/") &&
       !registered.has(f) &&
       !/(index.html|data.json)$/.test(f),
   );
@@ -539,6 +582,7 @@ export function importCourse(root: string, relativeRoot: string) {
         "Problem sets placed after final topic in due week.",
       ],
       overrideApplied: fs.existsSync(overridePath),
+      websiteAssets: files.filter((f) => f.startsWith("static_shared/")),
       inventory: files,
       pages: pages.map((p) => ({
         title: p.title,
