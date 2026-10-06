@@ -85,6 +85,345 @@
     "year": "2007"
   },
   "detectedLectures": 22,
+  "lectures": [
+    {
+      "id": "introduction",
+      "title": "Introduction",
+      "type": "lecture",
+      "section": "Course",
+      "week": 1,
+      "lecturer": "Seung",
+      "reading": "Chapter 1",
+      "resources": [],
+      "previous": "orientation",
+      "next": "cellular-neuroanatomy-neurons-and-glia"
+    },
+    {
+      "id": "cellular-neuroanatomy-neurons-and-glia",
+      "title": "Cellular neuroanatomy: neurons and glia",
+      "type": "lecture",
+      "section": "Part 1: Neurons",
+      "week": 2,
+      "lecturer": "Bear",
+      "reading": "Chapter 2",
+      "resources": [
+        "5d0a34d6-1307-6973-3815-477bf0a5978f",
+        "4577791f-4c87-b819-b3e3-4700eb7d3028"
+      ],
+      "previous": "introduction",
+      "next": "neurophysiology-1-resting-potential"
+    },
+    {
+      "id": "neurophysiology-1-resting-potential",
+      "title": "Neurophysiology 1: resting potential",
+      "type": "lecture",
+      "section": "Part 1: Neurons",
+      "week": 2,
+      "lecturer": "Bear",
+      "reading": "Chapter 3",
+      "resources": [
+        "5d0a34d6-1307-6973-3815-477bf0a5978f",
+        "4577791f-4c87-b819-b3e3-4700eb7d3028"
+      ],
+      "previous": "cellular-neuroanatomy-neurons-and-glia",
+      "next": "neurophysiology-2-action-potential"
+    },
+    {
+      "id": "neurophysiology-2-action-potential",
+      "title": "Neurophysiology 2: action potential",
+      "type": "lecture",
+      "section": "Part 1: Neurons",
+      "week": 3,
+      "lecturer": "Bear",
+      "reading": "Chapter 4",
+      "resources": [
+        "b4f9a58d-7ac3-f75f-1785-4685b5d84c04",
+        "3a2fa425-7849-9c13-587b-e8fa06437abe"
+      ],
+      "previous": "neurophysiology-1-resting-potential",
+      "next": "synaptic-transmission-1-physiology"
+    },
+    {
+      "id": "synaptic-transmission-1-physiology",
+      "title": "Synaptic transmission 1: physiology",
+      "type": "lecture",
+      "section": "Part 1: Neurons",
+      "week": 3,
+      "lecturer": "Bear",
+      "reading": "Chapter 5",
+      "resources": [
+        "b4f9a58d-7ac3-f75f-1785-4685b5d84c04",
+        "3a2fa425-7849-9c13-587b-e8fa06437abe"
+      ],
+      "previous": "neurophysiology-2-action-potential",
+      "next": "problem-set-1"
+    },
+    {
+      "id": "synaptic-transmission-2-chemistry",
+      "title": "Synaptic transmission 2: chemistry",
+      "type": "lecture",
+      "section": "Part 1: Neurons",
+      "week": 4,
+      "lecturer": "Cooke",
+      "reading": "Chapter 6",
+      "resources": [
+        "e03e6647-b289-df96-7f19-ec1e73b908c4",
+        "4f88df62-96f3-8f25-3574-cc41fff5a118"
+      ],
+      "previous": "problem-set-1",
+      "next": "exam-1"
+    },
+    {
+      "id": "organization-of-the-vertebrate-brain",
+      "title": "Organization of the vertebrate brain",
+      "type": "lecture",
+      "section": "Part 2: Neural systems",
+      "week": 5,
+      "lecturer": "Graybiel",
+      "reading": "Chapter 7",
+      "resources": [],
+      "previous": "exam-1",
+      "next": "vision-1-the-eye"
+    },
+    {
+      "id": "vision-1-the-eye",
+      "title": "Vision 1: the eye",
+      "type": "lecture",
+      "section": "Part 2: Neural systems",
+      "week": 6,
+      "lecturer": "Seung",
+      "reading": "Chapter 9",
+      "resources": [
+        "918a3e33-ec70-9072-082f-742bdbac8c44"
+      ],
+      "previous": "organization-of-the-vertebrate-brain",
+      "next": "anatomy-quiz-vision-2-thalamus-and-v1-cortex"
+    },
+    {
+      "id": "anatomy-quiz-vision-2-thalamus-and-v1-cortex",
+      "title": "Anatomy quiz Vision 2: thalamus and V1 cortex",
+      "type": "lecture",
+      "section": "Part 2: Neural systems",
+      "week": 7,
+      "lecturer": "Seung",
+      "reading": "Chapter 10",
+      "resources": [
+        "e16c00ee-c1cc-935f-93dd-94f47b95b67e",
+        "ec0a36e0-eda2-be35-4518-1cd389369664",
+        "aeda0ca1-42a9-f4c0-062c-4b0e791027b4",
+        "cf44a0a9-2374-294c-07d5-cf273aef0fb1"
+      ],
+      "previous": "vision-1-the-eye",
+      "next": "vision-3-beyond-v1"
+    },
+    {
+      "id": "vision-3-beyond-v1",
+      "title": "Vision 3: beyond V1",
+      "type": "lecture",
+      "section": "Part 2: Neural systems",
+      "week": 7,
+      "lecturer": "Seung",
+      "reading": "Chapter 10",
+      "resources": [
+        "5e6f0adf-a8a0-e954-70df-9b9810a6be06",
+        "ec0a36e0-eda2-be35-4518-1cd389369664",
+        "aeda0ca1-42a9-f4c0-062c-4b0e791027b4",
+        "cf44a0a9-2374-294c-07d5-cf273aef0fb1"
+      ],
+      "previous": "anatomy-quiz-vision-2-thalamus-and-v1-cortex",
+      "next": "hearing"
+    },
+    {
+      "id": "hearing",
+      "title": "Hearing",
+      "type": "lecture",
+      "section": "Part 2: Neural systems",
+      "week": 8,
+      "lecturer": "Seung",
+      "reading": "Chapter 11",
+      "resources": [
+        "789180c4-f020-757d-cec7-5bdab822f590",
+        "33a524e1-06d8-016e-5b1b-870e0058a395",
+        "34922e7d-994f-f4c1-80ec-bca7817c1831",
+        "0f22ee8f-3f06-7dc4-bd80-88131a9485d3"
+      ],
+      "previous": "vision-3-beyond-v1",
+      "next": "olfaction"
+    },
+    {
+      "id": "olfaction",
+      "title": "Olfaction",
+      "type": "lecture",
+      "section": "Part 2: Neural systems",
+      "week": 8,
+      "lecturer": "Seung",
+      "reading": "Chapter 8",
+      "resources": [
+        "b1d56ee6-b5ba-bc13-55b5-273730ef62d3",
+        "33a524e1-06d8-016e-5b1b-870e0058a395",
+        "34922e7d-994f-f4c1-80ec-bca7817c1831",
+        "0f22ee8f-3f06-7dc4-bd80-88131a9485d3"
+      ],
+      "previous": "hearing",
+      "next": "problem-set-2"
+    },
+    {
+      "id": "motor-system-1",
+      "title": "Motor system 1",
+      "type": "lecture",
+      "section": "Part 2: Neural systems",
+      "week": 9,
+      "lecturer": "Seung",
+      "reading": "Chapter 13",
+      "resources": [
+        "35fbc750-c2a6-2f7b-0d2d-15ccaf34b80a",
+        "c0918423-f3e0-e6f1-7407-36d49b2144d7",
+        "2efeec65-8566-4532-2f68-18d74cc3715d",
+        "5c288de1-be71-a31f-d849-b9f3c062dfd6"
+      ],
+      "previous": "problem-set-2",
+      "next": "motor-system-2"
+    },
+    {
+      "id": "motor-system-2",
+      "title": "Motor system 2",
+      "type": "lecture",
+      "section": "Part 2: Neural systems",
+      "week": 9,
+      "lecturer": "Seung",
+      "reading": "Chapter 14",
+      "resources": [
+        "b81b265b-817b-e0fe-cfb6-d534bbe55588",
+        "c0918423-f3e0-e6f1-7407-36d49b2144d7",
+        "2efeec65-8566-4532-2f68-18d74cc3715d",
+        "5c288de1-be71-a31f-d849-b9f3c062dfd6"
+      ],
+      "previous": "motor-system-1",
+      "next": "exam-2"
+    },
+    {
+      "id": "chemical-control-of-brain-1",
+      "title": "Chemical control of brain 1",
+      "type": "lecture",
+      "section": "Part 3: Brain and behavior",
+      "week": 11,
+      "lecturer": "Bear",
+      "reading": "Chapter 15",
+      "resources": [],
+      "previous": "exam-2",
+      "next": "brain-disorders"
+    },
+    {
+      "id": "brain-disorders",
+      "title": "Brain disorders",
+      "type": "lecture",
+      "section": "Part 3: Brain and behavior",
+      "week": 12,
+      "lecturer": "Tsai",
+      "reading": "Chapter 22",
+      "resources": [
+        "1339c1f0-8c60-e94e-ceb6-96358462d9f9",
+        "2ab25c71-8320-2407-406a-bd72a3a15b1d"
+      ],
+      "previous": "chemical-control-of-brain-1",
+      "next": "chemical-control-of-brain-2-motivation"
+    },
+    {
+      "id": "chemical-control-of-brain-2-motivation",
+      "title": "Chemical control of brain 2 motivation",
+      "type": "lecture",
+      "section": "Part 3: Brain and behavior",
+      "week": 13,
+      "lecturer": "Bear",
+      "reading": "Chapters 15 and 16",
+      "resources": [
+        "6434e1aa-333b-4c7e-11d0-419ae07611a6",
+        "5bf39ae1-111b-657e-5d9e-4426a572835a"
+      ],
+      "previous": "brain-disorders",
+      "next": "learning-and-memory-1"
+    },
+    {
+      "id": "learning-and-memory-1",
+      "title": "Learning and memory 1",
+      "type": "lecture",
+      "section": "Part 3: Brain and behavior",
+      "week": 13,
+      "lecturer": "Seung",
+      "reading": "Chapter 24",
+      "resources": [
+        "486d67fe-991c-0d6a-3836-601480b456f0",
+        "6434e1aa-333b-4c7e-11d0-419ae07611a6",
+        "5bf39ae1-111b-657e-5d9e-4426a572835a"
+      ],
+      "previous": "chemical-control-of-brain-2-motivation",
+      "next": "attention"
+    },
+    {
+      "id": "attention",
+      "title": "Attention",
+      "type": "lecture",
+      "section": "Part 3: Brain and behavior",
+      "week": 14,
+      "lecturer": "Desimone",
+      "reading": "Chapter 21",
+      "resources": [
+        "6434e1aa-333b-4c7e-11d0-419ae07611a6",
+        "d3f598d5-68d2-3b69-a3ca-832bcd1d693c",
+        "a4f3665f-7c98-664b-8353-88ff6678f165",
+        "7a1683d2-c782-0418-c8df-95c1fe95d0b9"
+      ],
+      "previous": "learning-and-memory-1",
+      "next": "learning-and-memory-2"
+    },
+    {
+      "id": "learning-and-memory-2",
+      "title": "Learning and memory 2",
+      "type": "lecture",
+      "section": "Part 3: Brain and behavior",
+      "week": 14,
+      "lecturer": "Seung",
+      "reading": "Chapter 25",
+      "resources": [
+        "213b7615-4caa-fa7c-1970-30c08e5bca33",
+        "6434e1aa-333b-4c7e-11d0-419ae07611a6",
+        "d3f598d5-68d2-3b69-a3ca-832bcd1d693c",
+        "7a1683d2-c782-0418-c8df-95c1fe95d0b9"
+      ],
+      "previous": "attention",
+      "next": "problem-set-3"
+    },
+    {
+      "id": "emotion",
+      "title": "Emotion",
+      "type": "lecture",
+      "section": "Part 3: Brain and behavior",
+      "week": 15,
+      "lecturer": "Seung",
+      "reading": "Chapter 18",
+      "resources": [
+        "5025b44f-121b-e4c9-e979-778c54842b73",
+        "63c9fdd7-7ffa-e961-c933-2b8574413d97",
+        "a6eafa79-eebf-a273-cbe2-fcc9f08aff1e"
+      ],
+      "previous": "problem-set-3",
+      "next": "sleep"
+    },
+    {
+      "id": "sleep",
+      "title": "Sleep",
+      "type": "lecture",
+      "section": "Part 3: Brain and behavior",
+      "week": 15,
+      "lecturer": "Hobson",
+      "reading": "Chapter 19",
+      "resources": [
+        "63c9fdd7-7ffa-e961-c933-2b8574413d97"
+      ],
+      "previous": "emotion",
+      "next": "final-exam"
+    }
+  ],
   "readings": [
     {
       "item": "introduction",
@@ -183,7 +522,8 @@
       "section": "Part 1: Neurons",
       "week": 3,
       "resources": [
-        "f3de43b1-b3bc-1a94-3dbc-f0f8468b6ece"
+        "f3de43b1-b3bc-1a94-3dbc-f0f8468b6ece",
+        "11112692-31ab-7ef0-dc1f-ca1e185ddb0f"
       ],
       "previous": "synaptic-transmission-1-physiology",
       "next": "synaptic-transmission-2-chemistry"
@@ -254,7 +594,11 @@
       "lecturer": "",
       "reading": "",
       "resources": [
-        "6d65403d-1e25-4cba-43e8-94a57b9ae309"
+        "6d65403d-1e25-4cba-43e8-94a57b9ae309",
+        "a6eafa79-eebf-a273-cbe2-fcc9f08aff1e",
+        "b609be50-b5de-39ea-40e6-b03fb8b83c5c",
+        "60bf27db-a042-fb55-bb2b-12e2771150e3",
+        "fd623d63-6d5b-f894-f3d8-90a0bff38197"
       ],
       "html": "<p>This is a scheduled assessment. The download provides selected review materials, not the original exam paper.</p>",
       "previous": "sleep"
@@ -263,24 +607,15 @@
   "unassociatedResources": [
     "49ce116a-8617-053b-d222-140c80b46a0f",
     "ad26337e-97ce-9619-0b12-5bd88d0bab75",
-    "a4f3665f-7c98-664b-8353-88ff6678f165",
     "29eda4c6-5c28-0528-6068-412b63b2ad5b",
-    "bf103e73-788d-6a0a-93e7-3889de160460",
-    "a6eafa79-eebf-a273-cbe2-fcc9f08aff1e",
-    "b609be50-b5de-39ea-40e6-b03fb8b83c5c",
-    "60bf27db-a042-fb55-bb2b-12e2771150e3",
-    "fd623d63-6d5b-f894-f3d8-90a0bff38197",
-    "11112692-31ab-7ef0-dc1f-ca1e185ddb0f",
-    "cf44a0a9-2374-294c-07d5-cf273aef0fb1",
-    "5bf39ae1-111b-657e-5d9e-4426a572835a",
-    "7a1683d2-c782-0418-c8df-95c1fe95d0b9"
+    "bf103e73-788d-6a0a-93e7-3889de160460"
   ],
   "unresolvedFiles": [],
   "duplicateResources": [],
   "warnings": [
-    "13 resources lack a reliable calendar association; retained in library.",
+    "4 resources lack a reliable calendar association; retained in library.",
     "No lecture videos in this download.",
-    "Textbook chapter references are reading instructions; textbook is not included."
+    "Reading references may require material not included in this download."
   ],
   "heuristics": [
     "Syllabus/calendar table order is authoritative; rowspan cells expanded.",
@@ -315,8 +650,18 @@
     "resources/05_ch6_neuro_lec/index.html",
     "resources/06_ch6_neur_lecb/data.json",
     "resources/06_ch6_neur_lecb/index.html",
+    "resources/9_01_ex1rev_al/data.json",
+    "resources/9_01_ex1rev_al/index.html",
+    "resources/9_01_ex2rev_al/data.json",
+    "resources/9_01_ex2rev_al/index.html",
+    "resources/9_01_final_rev/data.json",
+    "resources/9_01_final_rev/index.html",
     "resources/09_vision1/data.json",
     "resources/09_vision1/index.html",
+    "resources/9-01f07/data.json",
+    "resources/9-01f07/index.html",
+    "resources/9-01f07-th/data.json",
+    "resources/9-01f07-th/index.html",
     "resources/10_vision2/data.json",
     "resources/10_vision2/index.html",
     "resources/11_vision3/data.json",
@@ -339,16 +684,6 @@
     "resources/21_nondeclarativ/index.html",
     "resources/22_emotion/data.json",
     "resources/22_emotion/index.html",
-    "resources/9_01_ex1rev_al/data.json",
-    "resources/9_01_ex1rev_al/index.html",
-    "resources/9_01_ex2rev_al/data.json",
-    "resources/9_01_ex2rev_al/index.html",
-    "resources/9_01_final_rev/data.json",
-    "resources/9_01_final_rev/index.html",
-    "resources/9-01f07/data.json",
-    "resources/9-01f07/index.html",
-    "resources/9-01f07-th/data.json",
-    "resources/9-01f07-th/index.html",
     "resources/assignments/index.html",
     "resources/assignments/index.xml",
     "resources/ex2_comp_chrt/data.json",
@@ -428,50 +763,50 @@
     "robots.txt",
     "sitemap.xml",
     "static_resources/0f22ee8f3f067dc4bd8088131a9485d3_wk08_hand102407.pdf",
-    "static_resources/1111269231ab7ef0dc1fca1e185ddb0f_pset1_hhsim.pdf",
-    "static_resources/1339c1f08c60e94eceb696358462d9f9_17_bcs_lec_11_19.pdf",
-    "static_resources/213b76154caafa7c197030c08e5bca33_21_nondeclarativ.pdf",
-    "static_resources/29eda4c65c2805286068412b63b2ad5b_9-01f07.jpg",
     "static_resources/2ab25c7183202407406abd72a3a15b1d_wk12_sechand1119.pdf",
     "static_resources/2efeec65856645322f6818d74cc3715d_wk09_9_01_r06.pdf",
-    "static_resources/33a524e106d8016e5b1b870e0058a395_wk08_sechand1022.pdf",
-    "static_resources/34922e7d994ff4c180ecbca7817c1831_wk08_9_01_r05.pdf",
-    "static_resources/35fbc750c2a62f7b0d2d15ccaf34b80a_14_motor1.pdf",
     "static_resources/3a2fa42578499c13587be8fa06437abe_wk03_9_01_r02.pdf",
-    "static_resources/4577791f4c87b819b3e34700eb7d3028_wk02_9_01_r01.pdf",
-    "static_resources/486d67fe991c0d6a3836601480b456f0_19_declarative.pdf",
-    "static_resources/49ce116a8617053bd222140c80b46a0f_05_ch6_neuro_lec.pdf",
     "static_resources/4f88df6296f38f253574cc41fff5a118_wk04_9_01_r03.pdf",
-    "static_resources/5025b44f121be4c9e979778c54842b73_22_emotion.pdf",
     "static_resources/5bf39ae1111b657e5d9e4426a572835a_wk13_hand112807.pdf",
     "static_resources/5c288de1be71a31fd849b9f3c062dfd6_wk09_hand103107.pdf",
     "static_resources/5d0a34d6130769733815477bf0a5978f_wk02_sechand0910.pdf",
     "static_resources/5e6f0adfa8a0e95470df9b9810a6be06_11_vision3.pdf",
+    "static_resources/6d65403d1e254cba43e894a57b9ae309_9_01_final_rev.pdf",
+    "static_resources/7a1683d2c7820418c8df95c1fe95d0b9_wk14_sechand1203.pdf",
+    "static_resources/29eda4c65c2805286068412b63b2ad5b_9-01f07.jpg",
+    "static_resources/33a524e106d8016e5b1b870e0058a395_wk08_sechand1022.pdf",
+    "static_resources/35fbc750c2a62f7b0d2d15ccaf34b80a_14_motor1.pdf",
+    "static_resources/49ce116a8617053bd222140c80b46a0f_05_ch6_neuro_lec.pdf",
     "static_resources/60bf27dba042fb55bb2b12e2771150e3_finalrev_memory.pdf",
     "static_resources/63c9fdd77ffae961c9332b8574413d97_wk15_9_01_r09.pdf",
-    "static_resources/6434e1aa333b4c7e11d0419ae07611a6_wk13_9_01_r08.pdf",
-    "static_resources/6d65403d1e254cba43e894a57b9ae309_9_01_final_rev.pdf",
-    "static_resources/77600741adc3d76a8330709757929578_pset3.pdf",
-    "static_resources/789180c4f020757dcec75bdab822f590_12_hearing.pdf",
-    "static_resources/7a1683d2c7820418c8df95c1fe95d0b9_wk14_sechand1203.pdf",
+    "static_resources/213b76154caafa7c197030c08e5bca33_21_nondeclarativ.pdf",
+    "static_resources/486d67fe991c0d6a3836601480b456f0_19_declarative.pdf",
     "static_resources/918a3e33ec709072082f742bdbac8c44_09_vision1.pdf",
+    "static_resources/1339c1f08c60e94eceb696358462d9f9_17_bcs_lec_11_19.pdf",
+    "static_resources/5025b44f121be4c9e979778c54842b73_22_emotion.pdf",
+    "static_resources/6434e1aa333b4c7e11d0419ae07611a6_wk13_9_01_r08.pdf",
+    "static_resources/34922e7d994ff4c180ecbca7817c1831_wk08_9_01_r05.pdf",
+    "static_resources/789180c4f020757dcec75bdab822f590_12_hearing.pdf",
+    "static_resources/4577791f4c87b819b3e34700eb7d3028_wk02_9_01_r01.pdf",
+    "static_resources/77600741adc3d76a8330709757929578_pset3.pdf",
+    "static_resources/1111269231ab7ef0dc1fca1e185ddb0f_pset1_hhsim.pdf",
     "static_resources/a4f3665f7c98664b835388ff6678f165_20_desimonelec.pdf",
-    "static_resources/a61ab05abd8e0a581d03eb275bbd5780_9_01_ex1rev_al.pdf",
     "static_resources/a6eafa79eebfa273cbe2fcc9f08aff1e_finalrev_emotn.pdf",
+    "static_resources/a61ab05abd8e0a581d03eb275bbd5780_9_01_ex1rev_al.pdf",
     "static_resources/ad26337e97ce96190b125bd88d0bab75_06_ch6_neur_lecb.pdf",
     "static_resources/aeda0ca142a9f4c0062c4b0e791027b4_wk07_9_01_r04.pdf",
     "static_resources/b1d56ee6b5babc1355b5273730ef62d3_13_tastesmell.pdf",
     "static_resources/b4f9a58d7ac3f75f17854685b5d84c04_wk03_sechand0917.pdf",
-    "static_resources/b609be50b5de39ea40e6b03fb8b83c5c_finalrev_experi.pdf",
     "static_resources/b81b265b817be0fecfb6d534bbe55588_15_motor2.pdf",
+    "static_resources/b609be50b5de39ea40e6b03fb8b83c5c_finalrev_experi.pdf",
     "static_resources/bf103e73788d6a0a93e73889de160460_9-01f07-th.jpg",
-    "static_resources/c0918423f3e0e6f1740736d49b2144d7_wk09_sechand1029.pdf",
     "static_resources/c35d4299b1b83cdc878c089e83c69fec_9_01_ex2rev_al.pdf",
+    "static_resources/c0918423f3e0e6f1740736d49b2144d7_wk09_sechand1029.pdf",
     "static_resources/cf44a0a92374294c07d5cf273aef0fb1_wk07_hand101707.pdf",
     "static_resources/d3f598d568d23b69a3ca832bcd1d693c_wk14_hand120507.pdf",
     "static_resources/data.json",
-    "static_resources/e03e6647b289df967f19ec1e73b908c4_wk04_sechand0924.pdf",
     "static_resources/e0b32c329ed30286fd62e190b36e3420_exam2_review.pdf",
+    "static_resources/e03e6647b289df967f19ec1e73b908c4_wk04_sechand0924.pdf",
     "static_resources/e16c00eec1cc935f93dd94f47b95b67e_10_vision2.pdf",
     "static_resources/e8842f30b3a85503cf8f22174423599d_ex2_comp_chrt.pdf",
     "static_resources/ea8c0809d42922d2430731bc6bfcf04f_pset2.pdf",
@@ -504,8 +839,8 @@
     "static_shared/fonts/Cardo-Regular.a0c1dc80c66cc03bfa1e.ttf",
     "static_shared/fonts/Helvetica-Light.70359849afb40079a1c8.ttf",
     "static_shared/fonts/MaterialIcons-Regular.subset.0beb27f30d92440091b4.ttf",
-    "static_shared/fonts/MaterialIcons-Regular.subset.8167faf7e3a9170d282a.woff",
     "static_shared/fonts/MaterialIcons-Regular.subset.84f45410d085472240e2.woff2",
+    "static_shared/fonts/MaterialIcons-Regular.subset.8167faf7e3a9170d282a.woff",
     "static_shared/fonts/MaterialIconsRound-Regular.subset.7154eae1d0e60e0dabe4.woff2",
     "static_shared/images/2c6f79ea9578979deb06.png",
     "static_shared/images/a_logo_17.070ebe0244db38bbb10c.gif",
@@ -551,11 +886,11 @@
     "static_shared/images/x-formerly-twitter-black.f8c75ad9f42902726d25.png",
     "static_shared/images/youtube.1e55fc2f8fc09d36a1a6.svg",
     "static_shared/images/Youtube.7c9f62c4f1dc9515ebb4.png",
-    "static_shared/js/117.21a26.js",
     "static_shared/js/27.21a26.js",
+    "static_shared/js/77.21a26.js",
+    "static_shared/js/117.21a26.js",
     "static_shared/js/303.21a26.js",
     "static_shared/js/658.21a26.js",
-    "static_shared/js/77.21a26.js",
     "static_shared/js/common.21a26.js",
     "static_shared/js/course_offline_v3.21a26.js",
     "static_shared/js/course_offline.21a26.js",
