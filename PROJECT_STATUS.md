@@ -1,5 +1,26 @@
 # Project status
 
+## Current stage — ready for local study (2026-10-07)
+
+The complete local MIT OCW study flow is implemented and verified. Open MIT 9.01, Start/Resume, study original PDFs/readings in syllabus order, complete items, and keep persistent notes/bookmarks. All significant milestones are committed and pushed to `origin/main`. Downloaded assets remain local; only the small override is tracked.
+
+Current import: 29 items, 22 lecture topics, 3 problem sets, 3 exams; 50 resources including all 48 PDFs. All educational PDFs have sequence associations. Only two course images remain unassociated and available in the library. No unresolved learning files.
+
+Final verification: clean Node 22 `npm ci`; formatting check; lint with no warnings; strict typecheck; 9/9 unit tests; production build; 4/4 desktop/mobile browser tests against the production server; actual PDF page rendering, page navigation, zoom, notes/bookmarks/progress/theme persistence and byte ranges. Runtime audit: zero vulnerabilities. Major screenshots, including actual lecture PDF content on page 2, inspected.
+
+No input is required to use the local application. Optional Supabase accounts require the environment variables and SQL migration documented in README; live cloud verification was not possible without credentials. Remote state uses last-write-wins and loads on sign-in/reload. Offline content caching, exact PDF/video-position persistence and legacy HTML-only imports are future improvements. Development-only ESLint glob/braces advisory remains upstream; runtime dependencies are clean.
+
+Run `nvm use`, then `npm run dev`; open http://localhost:3000. Production: `npm run build` then `npm start`. See README for full setup and course imports.
+
+## Recommended next steps
+
+1. Study the real initial course and refine personal course overrides if desired.
+2. Add another modern OCW download and inspect its report; date and repeated-topic synthetic fixtures already pass.
+3. Configure Supabase and verify live email sign-in and two-device sync before public account rollout.
+4. Extend normalized cloud tables/conflict resolution and optional PDF/video-position bookmarks when needed.
+
+## Implementation journal
+
 ## Plan and source inspection
 
 Build a deterministic metadata/HTML importer, normalized manifests and full inventory reports; then a Next.js player with local persistence, optional Supabase synchronization, themes, notes, bookmarks and search. Verify parser/security/state behavior, production build and browser flows.
@@ -13,9 +34,9 @@ The repository initially contains only `9.01-fall-2007` (56 MB). Inventory: 68 H
 - Keep missing-material notices and distinguish scheduled exams from available review sheets.
 - Shared generated manifests are separate from private study state.
 
-## Work in progress
+## Initial stage (historical)
 
-Initial scaffolding and importer. No verification completed yet.
+Initial scaffolding and importer; subsequent milestones below record verification and completion.
 
 ## Milestone 1 — source mapping and initial importer
 
@@ -52,3 +73,7 @@ Visual QA found the native PDF iframe was blank in headless Chromium despite suc
 ## Milestone 9 — clean installation and content separation audit
 
 Fresh `npm ci` successfully generates PDF.js worker/fonts through postinstall; production build passes with the PDF viewer. Removed the remaining course-specific textbook string from the player: bibliographic text is now extracted from the original course reading/syllabus metadata and stored in the manifest. Added production-server mode for browser smoke tests. No course title, textbook or course number is hardcoded into presentation components. Final production browser run remains before handoff.
+
+## Final handoff
+
+Production browser tests pass (4/4). Final generated manifest includes the original reading citation. Source remains unchanged except the declarative override. No AI features or APIs are present. Repository is runnable, documented and pushed; remaining work is optional enhancement/live backend setup, not a blocker to local study.
