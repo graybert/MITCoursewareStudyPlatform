@@ -24,6 +24,9 @@ export async function GET(
         .at(-1)
         ?.replace(/[^a-zA-Z0-9_.-]/g, "_")}"`,
     };
+    if (/html|svg/i.test(r.mime))
+      headers["Content-Security-Policy"] =
+        "sandbox; default-src 'none'; style-src 'unsafe-inline'; img-src 'self' data:";
     const range = request.headers.get("range");
     let start = 0,
       end = size - 1,

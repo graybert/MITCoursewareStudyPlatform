@@ -193,3 +193,43 @@ test("a second synthetic course imports without course-specific assumptions", ()
     fs.rmSync(base, { recursive: true, force: true });
   }
 });
+
+test("local persistence separates guest and account state and rejects corrupt data", async () => {
+  const { createLocalStorageAdapter, parseStudyState } =
+    await import("../lib/study");
+  const data = new Map<string, string>();
+  const storage = {
+    getItem: (key: string) => data.get(key) || null,
+    setItem: (key: string, value: string) => {
+      data.set(key, value);
+    },
+  };
+  const guest = createLocalStorageAdapter("guest", storage);
+  const account = createLocalStorageAdapter("user:alice", storage);
+  const s = emptyState();
+  s.theme = "light";
+  await guest.save(s);
+  assert.equal((await account.load()).theme, "dark");
+  assert.equal((await guest.load()).theme, "light");
+  data.set("user:alice", "broken");
+  await assert.rejects(account.load(), /could not be read/);
+  assert.throws(() => parseStudyState({ notes: "bad" }));
+  assert.throws(() => parseStudyState({ notes: [{ id: "x" }] }));
+});
+test("providers encode filenames and preserve original external links", async () => {
+  const { localProvider, staticProvider, studyContext } =
+    await import("../lib/resource-provider");
+  const c = applyOverride(fixture(), {});
+  assert.equal(localProvider.url(c, c.resources[0]), "/api/resources/test/pdf");
+  const r = { ...c.resources[0], path: "static_resources/file #1.pdf" };
+  assert.equal(
+    staticProvider("https://assets.example/").url(c, r),
+    "https://assets.example/courses/test/static_resources/file%20%231.pdf",
+  );
+  assert.equal(
+    localProvider.url(c, { ...r, url: "https://ocw.mit.edu/source.pdf" }),
+    "https://ocw.mit.edu/source.pdf",
+  );
+  assert.equal(studyContext(c, "b", "pdf").previous?.id, "a");
+  assert.equal(studyContext(c, "b", "pdf").next?.id, "c");
+});

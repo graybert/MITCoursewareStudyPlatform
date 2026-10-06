@@ -70,7 +70,7 @@ Shared manifests live in `generated/`; progress and personal study data do not. 
 
 Progress tracks item completion, current position and last-opened/completed timestamps. Navigation is always unlocked. Resume returns the current unfinished item, or the first remaining item when the current one is complete. Notes may be attached to a course, item and active resource; bookmarks link back to an item/resource. The Saved page gathers both.
 
-Optional Supabase mode uses Auth plus a private `study_state` row per user. Its versioned JSON document is the first-pass storage shape: individual notes/progress can later migrate to normalized tables without changing the player data contract. Writes are debounced. Account state loads on sign-in, and changes sync to the same account from another device on sign-in/reload. Simultaneous edits on multiple devices use last-write-wins; realtime conflict merging is future work. Export local work before first signing in because account state becomes the active workspace. Sign out when finished on a shared computer; local browser data is still present in this first version.
+Optional Supabase mode uses Auth plus a private `study_state` row per user. Its versioned JSON document is the first-pass storage shape: individual notes/progress can later migrate to normalized tables without changing the player data contract. Local writes are immediate; cloud writes are debounced and serialized. Account browser caches use separate user IDs. Signing out restores the guest workspace, and pending saves are guarded against identity changes. Account state loads on sign-in, and changes sync to the same account from another device on sign-in/reload. Simultaneous edits on multiple devices use last-write-wins; realtime conflict merging is future work. Export local work before first signing in because account state becomes the active workspace. Sign out when finished on a shared computer. Account caches remain in browser storage for offline recovery, but are never shown as another learner's guest workspace.
 
 ## Supabase setup
 
@@ -98,7 +98,7 @@ Use the project's public anon key, never a service-role key. RLS limits every ro
 - `generated/courses.json`: prebuilt shared course catalog; not parsed on every render.
 - `lib/resource-provider.ts`: URL-provider contract, local/static URL providers and a current study-context boundary for future extensions.
 - `lib/resolver.ts`, `app/api/resources/...`: manifest-registered local assets; normalized canonical paths reject traversal and symlink escapes. Files stream on demand with byte ranges and inline/download headers.
-- `lib/study.ts`, `lib/supabase.ts`: local storage and optional authenticated cloud adapter.
+- `lib/study.ts`, `lib/supabase.ts`, `lib/use-study-workspace.ts`: storage contracts, local/account caches, authentication lifecycle and serialized cloud persistence.
 - `app/study-app.tsx`: dashboard, course map, player and personal workspace.
 - `app/globals.css`: responsive layouts and theme tokens. Plain CSS avoids a second component styling framework for this compact first version.
 - `supabase/migrations/`: private state schema and RLS.
@@ -122,7 +122,7 @@ Browser tests launch the development server on port 3000 if necessary. They exer
 
 ## Future improvements
 
-- Normalized Supabase notes/bookmarks/progress tables, account-isolated local caches and conflict-aware realtime sync.
+- Normalized Supabase notes/bookmarks/progress tables and conflict-aware realtime sync.
 - PDF.js page controls, persistent PDF page/video timestamps and split video/notes view.
 - HTML-only legacy OCW adapter and more real-course fixtures for varied calendar columns and nested lecture pages.
 - A fully offline PWA shell with explicit opt-in per-resource download quotas. The manifest/icon make the app PWA-ready; no service worker caches large course assets.

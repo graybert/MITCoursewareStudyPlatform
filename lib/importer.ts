@@ -456,12 +456,35 @@ export function importCourse(root: string, relativeRoot: string) {
     warnings.push(
       `${unmatched.length} resources lack a reliable calendar association; retained in library.`,
     );
+  for (const i of course.items)
+    i.resources = [...new Set(i.resources)].sort(
+      (a, b) =>
+        Number(
+          !/lecture|video/i.test(
+            course.resources.find((r) => r.id === a)?.type || "",
+          ),
+        ) -
+        Number(
+          !/lecture|video/i.test(
+            course.resources.find((r) => r.id === b)?.type || "",
+          ),
+        ),
+    );
   const hashes = new Map<string, string[]>();
   for (const r of resources.filter((r) => r.path)) {
-    const hash = crypto
-      .createHash("sha256")
-      .update(fs.readFileSync(path.join(root, r.path!)))
-      .digest("hex");
+    const hasher = crypto.createHash("sha256");
+    const descriptor = fs.openSync(path.join(root, r.path!), "r");
+    const buffer = Buffer.alloc(1024 * 1024);
+    try {
+      let length;
+      while (
+        (length = fs.readSync(descriptor, buffer, 0, buffer.length, null)) > 0
+      )
+        hasher.update(buffer.subarray(0, length));
+    } finally {
+      fs.closeSync(descriptor);
+    }
+    const hash = hasher.digest("hex");
     hashes.set(hash, [...(hashes.get(hash) || []), r.id]);
   }
   const registered = new Set(resources.map((r) => r.path));

@@ -60,19 +60,61 @@ export interface StudyStorage {
   load(): Promise<StudyState>;
   save(state: StudyState): Promise<void>;
 }
-export const localStorageAdapter: StudyStorage = {
-  async load() {
-    const raw = localStorage.getItem("ocw-study-v1");
-    if (!raw) return emptyState();
-    try {
-      return { ...emptyState(), ...JSON.parse(raw) };
-    } catch {
-      throw Error(
-        "Saved study data could not be read. Export or repair browser storage before saving.",
-      );
-    }
-  },
-  async save(state) {
-    localStorage.setItem("ocw-study-v1", JSON.stringify(state));
-  },
-};
+export function parseStudyState(raw: unknown): StudyState {
+  if (!raw || typeof raw !== "object" || Array.isArray(raw))
+    throw Error("Invalid saved study document.");
+  const state = { ...emptyState(), ...raw } as StudyState;
+  if (
+    !state.progress ||
+    typeof state.progress !== "object" ||
+    Array.isArray(state.progress) ||
+    !state.positions ||
+    typeof state.positions !== "object" ||
+    Array.isArray(state.positions) ||
+    !Array.isArray(state.notes) ||
+    !Array.isArray(state.bookmarks) ||
+    !["dark", "light", "oled", "sage"].includes(state.theme)
+  )
+    throw Error("Invalid saved study document.");
+  if (
+    state.notes.some(
+      (n) =>
+        !n ||
+        typeof n.id !== "string" ||
+        typeof n.courseId !== "string" ||
+        typeof n.text !== "string" ||
+        typeof n.updatedAt !== "string",
+    ) ||
+    state.bookmarks.some(
+      (b) =>
+        !b ||
+        typeof b.id !== "string" ||
+        typeof b.courseId !== "string" ||
+        typeof b.label !== "string",
+    )
+  )
+    throw Error("Invalid saved study entries.");
+  return state;
+}
+export function createLocalStorageAdapter(
+  key = "ocw-study-v1",
+  storage?: Pick<Storage, "getItem" | "setItem">,
+): StudyStorage {
+  return {
+    async load() {
+      const raw = (storage || globalThis.localStorage).getItem(key);
+      if (!raw) return emptyState();
+      try {
+        return parseStudyState(JSON.parse(raw));
+      } catch {
+        throw Error(
+          "Saved study data could not be read. Export or repair browser storage before saving.",
+        );
+      }
+    },
+    async save(state) {
+      (storage || globalThis.localStorage).setItem(key, JSON.stringify(state));
+    },
+  };
+}
+export const localStorageAdapter = createLocalStorageAdapter();

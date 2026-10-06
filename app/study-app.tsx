@@ -18,22 +18,14 @@ import {
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import { Course, CourseItem, Resource } from "../lib/schema";
-import {
-  emptyState,
-  localStorageAdapter,
-  percentage,
-  progressKey,
-  resumeItem,
-  StudyState,
-} from "../lib/study";
-import { cloudStorage, supabase } from "../lib/supabase";
+import { percentage, progressKey, resumeItem } from "../lib/study";
+import { supabase } from "../lib/supabase";
+import { useStudyWorkspace } from "../lib/use-study-workspace";
 import { resourceUrl } from "../lib/resource-provider";
 type View = "dashboard" | "course" | "player" | "saved" | "settings";
 export default function StudyApp({ courses }: { courses: Course[] }) {
-  const [state, setState] = useState<StudyState>(emptyState);
-  const [ready, setReady] = useState(false);
-  const [error, setError] = useState("");
-  const [sync, setSync] = useState(false);
+  const { state, setState, ready, error, setError, sync, saved, setSaved } =
+    useStudyWorkspace();
   const [view, setView] = useState<View>("dashboard");
   const [courseId, setCourseId] = useState(courses[0]?.id || "");
   const [itemId, setItemId] = useState("orientation");
@@ -45,18 +37,10 @@ export default function StudyApp({ courses }: { courses: Course[] }) {
   const [email, setEmail] = useState("");
   const [noteId, setNoteId] = useState("");
   const [preview, setPreview] = useState(false);
-  const [saved, setSaved] = useState("");
   const stateRef = useRef(state);
   stateRef.current = state;
   useEffect(() => {
     if (window.matchMedia("(max-width: 700px)").matches) setNav(false);
-    localStorageAdapter
-      .load()
-      .then((s) => {
-        setState(s);
-        setReady(true);
-      })
-      .catch((e) => setError(e.message));
     const hash = () => {
       let parts: string[];
       try {
@@ -87,47 +71,8 @@ export default function StudyApp({ courses }: { courses: Course[] }) {
     return () => window.removeEventListener("hashchange", hash);
   }, [courses]);
   useEffect(() => {
-    if (!ready) return;
-    // Save local changes immediately so refresh cannot race a debounce timer.
-    localStorageAdapter
-      .save(state)
-      .then(() => setSaved("Saved on this device"))
-      .catch((e) => setError(e.message));
-    if (!sync) return;
-    const timer = setTimeout(
-      () =>
-        cloudStorage
-          .save(state)
-          .then(() => setSaved("Synced to your account"))
-          .catch((e) => setError(e.message)),
-      350,
-    );
-    return () => clearTimeout(timer);
-  }, [state, ready, sync]);
-  useEffect(() => {
     document.documentElement.dataset.theme = state.theme;
   }, [state.theme]);
-  useEffect(() => {
-    if (!supabase) return;
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, session) => {
-      if (event === "SIGNED_OUT") setSync(false);
-      if (session && (event === "SIGNED_IN" || event === "INITIAL_SESSION"))
-        setTimeout(
-          () =>
-            cloudStorage
-              .load()
-              .then((cloud) => {
-                setState(cloud);
-                setSync(true);
-              })
-              .catch((e) => setError(e.message)),
-          0,
-        );
-    });
-    return () => subscription.unsubscribe();
-  }, []);
   const course = courses.find((c) => c.id === courseId);
   const item = course?.items.find((i) => i.id === itemId) || course?.items[0];
   useEffect(() => {
@@ -145,7 +90,7 @@ export default function StudyApp({ courses }: { courses: Course[] }) {
         },
       },
     }));
-  }, [ready, view, course, item]);
+  }, [ready, view, course, item, setState]);
   function open(c: Course, i: CourseItem, r = "") {
     setCourseId(c.id);
     setItemId(i.id);
