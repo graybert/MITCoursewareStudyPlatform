@@ -27,9 +27,7 @@ import {
   StudyState,
 } from "../lib/study";
 import { cloudStorage, supabase } from "../lib/supabase";
-const resourceUrl = (c: Course, r: Resource) =>
-  r.url ||
-  `/api/resources/${encodeURIComponent(c.id)}/${encodeURIComponent(r.id)}`;
+import { resourceUrl } from "../lib/resource-provider";
 type View = "dashboard" | "course" | "player" | "saved" | "settings";
 export default function StudyApp({ courses }: { courses: Course[] }) {
   const [state, setState] = useState<StudyState>(emptyState);
@@ -51,6 +49,7 @@ export default function StudyApp({ courses }: { courses: Course[] }) {
   const stateRef = useRef(state);
   stateRef.current = state;
   useEffect(() => {
+    if (window.matchMedia("(max-width: 700px)").matches) setNav(false);
     localStorageAdapter
       .load()
       .then((s) => {
@@ -59,7 +58,12 @@ export default function StudyApp({ courses }: { courses: Course[] }) {
       })
       .catch((e) => setError(e.message));
     const hash = () => {
-      const parts = location.hash.slice(1).split("/").map(decodeURIComponent);
+      let parts: string[];
+      try {
+        parts = location.hash.slice(1).split("/").map(decodeURIComponent);
+      } catch {
+        return;
+      }
       if (
         parts[0] === "study" &&
         courses.some(
@@ -84,18 +88,20 @@ export default function StudyApp({ courses }: { courses: Course[] }) {
   }, [courses]);
   useEffect(() => {
     if (!ready) return;
-    const timer = setTimeout(() => {
-      localStorageAdapter
-        .save(state)
-        .then(() => {
-          setSaved("Saved on this device");
-          if (sync)
-            return cloudStorage
-              .save(state)
-              .then(() => setSaved("Synced to your account"));
-        })
-        .catch((e) => setError(e.message));
-    }, 350);
+    // Save local changes immediately so refresh cannot race a debounce timer.
+    localStorageAdapter
+      .save(state)
+      .then(() => setSaved("Saved on this device"))
+      .catch((e) => setError(e.message));
+    if (!sync) return;
+    const timer = setTimeout(
+      () =>
+        cloudStorage
+          .save(state)
+          .then(() => setSaved("Synced to your account"))
+          .catch((e) => setError(e.message)),
+      350,
+    );
     return () => clearTimeout(timer);
   }, [state, ready, sync]);
   useEffect(() => {
@@ -243,8 +249,7 @@ export default function StudyApp({ courses }: { courses: Course[] }) {
         </div>
         <button
           onClick={() => {
-            setResourceId(r.id);
-            setTab("content");
+            if (item) open(c, item, r.id);
           }}
           aria-label={`View ${r.title}`}
         >
@@ -333,7 +338,11 @@ export default function StudyApp({ courses }: { courses: Course[] }) {
             </h2>
             <span className="muted">Original materials. Your own pace.</span>
           </div>
-          <div className="course-grid">
+          <div
+            className={
+              "course-grid " + (courses.length === 1 ? "single-course" : "")
+            }
+          >
             {courses.map((c) => {
               const pct = percentage(c, state);
               const next = resumeItem(c, state);
@@ -726,7 +735,7 @@ export default function StudyApp({ courses }: { courses: Course[] }) {
                           <select
                             aria-label="Select resource"
                             value={selected.id}
-                            onChange={(e) => setResourceId(e.target.value)}
+                            onChange={(e) => open(course, item, e.target.value)}
                           >
                             {[
                               ...new Map(
@@ -1139,7 +1148,14 @@ function ResourceViewer({
   if (r.mime.startsWith("image/"))
     return (
       <div className="resource-image">
-        <Image src={url} alt={r.title} width={1000} height={700} unoptimized style={{height:"auto"}} />
+        <Image
+          src={url}
+          alt={r.title}
+          width={1000}
+          height={700}
+          unoptimized
+          style={{ height: "auto" }}
+        />
       </div>
     );
   return (

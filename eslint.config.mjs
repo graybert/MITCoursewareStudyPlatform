@@ -1,7 +1,19 @@
-import { createRequire } from 'node:module';
+import { createRequire } from "node:module";
 const require = createRequire(import.meta.url);
-const { FlatCompat } = require('@eslint/eslintrc');
+const { FlatCompat } = require("@eslint/eslintrc");
 const compat = new FlatCompat({ baseDirectory: import.meta.dirname });
-const config = [...compat.extends('next/core-web-vitals', 'next/typescript'), { ignores: ['9.01-fall-2007/**','courses/**','generated/**','.next/**','node_modules/**','next-env.d.ts'] }];
+const config = [
+  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  {
+    ignores: [
+      "9.01-fall-2007/**",
+      "courses/**",
+      "generated/**",
+      ".next/**",
+      "node_modules/**",
+      "next-env.d.ts",
+    ],
+  },
+];
 
 export default config;

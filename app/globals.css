@@ -1185,3 +1185,44 @@ progress::-webkit-progress-value {
     padding: 20px;
   }
 }
+@media (min-width: 701px) {
+  .single-course {
+    grid-template-columns: 1fr;
+  }
+  .single-course .course-card {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
+  }
+  .single-course .course-art {
+    height: 100%;
+    min-height: 350px;
+  }
+  .single-course .card-body {
+    padding: 30px 35px;
+  }
+  .single-course .title-button h2 {
+    font-size: 28px;
+  }
+  .single-course .orbital {
+    width: 220px;
+    height: 180px;
+    top: 27%;
+    right: calc(50% - 110px);
+  }
+  .single-course .orbital span {
+    width: 220px;
+    height: 130px;
+  }
+  .single-course .course-number {
+    font-size: 46px;
+    bottom: 22px;
+    left: 27px;
+  }
+  .single-course .art-label {
+    left: 27px;
+    top: 25px;
+  }
+  .single-course .card-body p {
+    margin-bottom: 22px;
+  }
+}

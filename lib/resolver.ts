@@ -1,14 +1,5 @@
 import fs from "node:fs";
 import path from "node:path";
-import { Course, Resource } from "./schema";
-export interface ResourceProvider {
-  url(course: Course, resource: Resource): string;
-}
-export const localProvider: ResourceProvider = {
-  url: (c, r) =>
-    r.url ||
-    `/api/resources/${encodeURIComponent(c.id)}/${encodeURIComponent(r.id)}`,
-};
 export function resolveResource(base: string, root: string, relative: string) {
   if (path.isAbsolute(relative) || relative.split(/[\\/]/).includes(".."))
     throw Error("Invalid resource path");

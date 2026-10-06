@@ -25,18 +25,29 @@ export function inventory(root: string): string[] {
 }
 export function tableRows(html: string) {
   const $ = cheerio.load(html);
-  const result: { cells: string[]; html: string[]; section: string; headers: string[] }[] = [];
+  const result: {
+    cells: string[];
+    html: string[];
+    section: string;
+    headers: string[];
+  }[] = [];
   $("table").each((_, table) => {
     const spans = new Map<
       number,
       { text: string; html: string; left: number }
     >();
     let section = "Course";
-    let headers:string[]=[];
+    let headers: string[] = [];
     $(table)
       .find("tr")
       .each((_, tr) => {
-        if($(tr).children("th").length){headers=$(tr).children("th").map((_,h)=>clean($(h).text())).get();return;}
+        if ($(tr).children("th").length) {
+          headers = $(tr)
+            .children("th")
+            .map((_, h) => clean($(h).text()))
+            .get();
+          return;
+        }
         const tds = $(tr).children("td");
         if (!tds.length) return;
         if (Number(tds.first().attr("colspan")) > 1) {
@@ -163,7 +174,7 @@ export function importCourse(root: string, relativeRoot: string) {
     };
     resources.push(r);
     byPage.set(f.replace("data.json", "index.html"), r.id);
-    if(local)byPage.set(local,r.id);
+    if (local) byPage.set(local, r.id);
     if (!local && !r.url) warnings.push(`Missing asset: ${m.file}`);
   }
   const pages = files
@@ -193,7 +204,13 @@ export function importCourse(root: string, relativeRoot: string) {
   const schedule = tableRows(
     calendar?.content || syllabus?.content || "",
   ).filter(
-    (r) => /^\d/.test(r.cells[0] || "") || /final exam/i.test(r.cells[1] || "") || (r.headers.some(h=>/topics?|lecture title/i.test(h)) && !!r.cells[r.headers.findIndex(h=>/topics?|lecture title/i.test(h))]),
+    (r) =>
+      /^\d/.test(r.cells[0] || "") ||
+      /final exam/i.test(r.cells[1] || "") ||
+      (r.headers.some((h) => /topics?|lecture title/i.test(h)) &&
+        !!r.cells[
+          r.headers.findIndex((h) => /topics?|lecture title/i.test(h))
+        ]),
   );
   const items: CourseItem[] = [
     {
@@ -212,24 +229,36 @@ export function importCourse(root: string, relativeRoot: string) {
     clean(s.replace(/\(PDF[^)]*\)|\(Courtesy[\s\S]*$/gi, "")).toLowerCase();
   let lecture = 0;
   for (const row of schedule) {
-    const topicColumn=row.headers.findIndex(h=>/topics?|lecture title/i.test(h));
+    const topicColumn = row.headers.findIndex((h) =>
+      /topics?|lecture title/i.test(h),
+    );
     const title = clean(
-      (row.cells[topicColumn<0?1:topicColumn] || "").replace(/\(PDF[^)]*\)|\(Courtesy[\s\S]*$/gi, ""),
+      (row.cells[topicColumn < 0 ? 1 : topicColumn] || "").replace(
+        /\(PDF[^)]*\)|\(Courtesy[\s\S]*$/gi,
+        "",
+      ),
     );
     const exam = /^(exam\b|final exam\b|midterm\b|quiz\b)|quiz$/i.test(title);
-    const weekColumn=row.headers.findIndex(h=>/week/i.test(h));
-    const week = parseInt(row.cells[weekColumn<0?0:weekColumn]) || undefined;
+    const weekColumn = row.headers.findIndex((h) => /week/i.test(h));
+    const week =
+      parseInt(row.cells[weekColumn < 0 ? 0 : weekColumn]) || undefined;
     const reading = readingRows.find(
       (r) => matchTitle(r.cells[1] || "") === matchTitle(title),
     )?.cells[3];
-    const rs = [...links(row.html.join(" "),calendar?.file||syllabus?.file||"pages/index.html"), ...[...noteRows, ...recRows]
-      .filter((r) => matchTitle(r.cells[1] || "") === matchTitle(title))
-      .flatMap((r) =>
-        links(
-          r.html.join(" "),
-          (noteRows.includes(r) ? notes : recitations)?.file || "",
+    const rs = [
+      ...links(
+        row.html.join(" "),
+        calendar?.file || syllabus?.file || "pages/index.html",
+      ),
+      ...[...noteRows, ...recRows]
+        .filter((r) => matchTitle(r.cells[1] || "") === matchTitle(title))
+        .flatMap((r) =>
+          links(
+            r.html.join(" "),
+            (noteRows.includes(r) ? notes : recitations)?.file || "",
+          ),
         ),
-      )];
+    ];
     if (exam && exams) {
       const $ = cheerio.load(exams.content);
       const h = $("h3").filter((_, e) =>
@@ -266,7 +295,9 @@ export function importCourse(root: string, relativeRoot: string) {
         (r, n) =>
           n > schedule.indexOf(row) &&
           r.cells[0] === row.cells[0] &&
-          new RegExp(`problem set ${due[1]}\\s*due`,"i").test(r.cells.join(" ")),
+          new RegExp(`problem set ${due[1]}\\s*due`, "i").test(
+            r.cells.join(" "),
+          ),
       )
     ) {
       const n = due[1];
@@ -320,7 +351,8 @@ export function importCourse(root: string, relativeRoot: string) {
     }
   }
   for (const p of pages.filter(
-    (p) => schedule.length > 0 &&
+    (p) =>
+      schedule.length > 0 &&
       ![
         syllabus,
         calendar,
@@ -341,7 +373,16 @@ export function importCourse(root: string, relativeRoot: string) {
     });
   }
   // Metadata keeps all files discoverable even when the source HTML does not link them.
-  for(const i of items)i.resources.sort((a,b)=>Number(!/lecture|video/i.test(resources.find(r=>r.id===a)?.type||""))-Number(!/lecture|video/i.test(resources.find(r=>r.id===b)?.type||"")));
+  for (const i of items)
+    i.resources.sort(
+      (a, b) =>
+        Number(
+          !/lecture|video/i.test(resources.find((r) => r.id === a)?.type || ""),
+        ) -
+        Number(
+          !/lecture|video/i.test(resources.find((r) => r.id === b)?.type || ""),
+        ),
+    );
   const used = new Set(items.flatMap((i) => i.resources));
   const unmatched = resources.filter((r) => !used.has(r.id));
   if (unmatched.length)
@@ -377,7 +418,16 @@ export function importCourse(root: string, relativeRoot: string) {
       $("a[href]").each((_, a) => {
         const href = $(a).attr("href")!;
         const id = byPage.get(
-          path.posix.normalize(path.posix.join(path.posix.dirname(pages.find(p=>stableId(p.title)===i.id)?.file||syllabus?.file||"pages/index.html"), href.split("#")[0])),
+          path.posix.normalize(
+            path.posix.join(
+              path.posix.dirname(
+                pages.find((p) => stableId(p.title) === i.id)?.file ||
+                  syllabus?.file ||
+                  "pages/index.html",
+              ),
+              href.split("#")[0],
+            ),
+          ),
         );
         if (id) $(a).attr("href", `/api/resources/${course.id}/${id}`);
         else if (!/^https?:|^#/.test(href)) $(a).removeAttr("href");
@@ -415,7 +465,21 @@ export function importCourse(root: string, relativeRoot: string) {
     warnings.push(
       `${unresolved.length} asset files have no resource metadata; inspect unresolvedFiles.`,
     );
-  for(const i of course.items){if(i.html)i.html=sanitize(i.html,{allowedTags:sanitize.defaults.allowedTags,allowedAttributes:{a:["href","target","rel"],td:["colspan","rowspan"],th:["colspan","rowspan"],h3:["id"]}});for(const id of i.resources)if(!course.resources.some(r=>r.id===id))throw Error(`Unknown item resource ${id}`);}
+  for (const i of course.items) {
+    if (i.html)
+      i.html = sanitize(i.html, {
+        allowedTags: sanitize.defaults.allowedTags,
+        allowedAttributes: {
+          a: ["href", "target", "rel"],
+          td: ["colspan", "rowspan"],
+          th: ["colspan", "rowspan"],
+          h3: ["id"],
+        },
+      });
+    for (const id of i.resources)
+      if (!course.resources.some((r) => r.id === id))
+        throw Error(`Unknown item resource ${id}`);
+  }
   const ids = course.items.map((i) => i.id);
   if (new Set(ids).size !== ids.length)
     throw Error(
