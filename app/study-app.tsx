@@ -16,6 +16,11 @@ import {
   X,
 } from "lucide-react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
+const PdfViewer = dynamic(() => import("./components/pdf-viewer"), {
+  ssr: false,
+  loading: () => <p className="muted">Opening PDF viewer…</p>,
+});
 import ReactMarkdown from "react-markdown";
 import { Course, CourseItem, Resource } from "../lib/schema";
 import { percentage, progressKey, resumeItem } from "../lib/study";
@@ -1070,13 +1075,7 @@ function ResourceViewer({
 }) {
   const url = resourceUrl(course, r);
   if (r.mime.includes("pdf"))
-    return (
-      <iframe
-        className="pdf-viewer"
-        title={r.title}
-        src={url + "#toolbar=1&view=FitH"}
-      />
-    );
+    return <PdfViewer key={r.id} url={url} title={r.title} />;
   if (r.mime === "video/youtube") {
     const id = new URL(url).searchParams.get("v");
     return (

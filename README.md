@@ -100,6 +100,7 @@ Use the project's public anon key, never a service-role key. RLS limits every ro
 - `lib/resolver.ts`, `app/api/resources/...`: manifest-registered local assets; normalized canonical paths reject traversal and symlink escapes. Files stream on demand with byte ranges and inline/download headers.
 - `lib/study.ts`, `lib/supabase.ts`, `lib/use-study-workspace.ts`: storage contracts, local/account caches, authentication lifecycle and serialized cloud persistence.
 - `app/study-app.tsx`: dashboard, course map, player and personal workspace.
+- `app/components/pdf-viewer.tsx`: lazy-loaded PDF.js worker/canvas rendering, page navigation, zoom and original text for screen readers. `scripts/prepare-pdf.mjs` installs licensed PDF.js worker/font files during `npm ci`.
 - `app/globals.css`: responsive layouts and theme tokens. Plain CSS avoids a second component styling framework for this compact first version.
 - `supabase/migrations/`: private state schema and RLS.
 - `tests/`: importer, security, state and desktop/mobile browser coverage.
@@ -118,12 +119,12 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
-Browser tests launch the development server on port 3000 if necessary. They exercise desktop/mobile dashboard → course map → player → complete → next → note/bookmark → refresh, themes, search, PDF response/ranges and viewport overflow. Screenshots and failure traces appear in ignored `test-results/`. Unit tests skip the real-course assertions when that local source folder is absent, while synthetic-course/security tests still run.
+Browser tests launch the development server on port 3000 if necessary. They exercise desktop/mobile dashboard → course map → player → complete → next → note/bookmark → refresh, themes, search, PDF page rendering/navigation/zoom, response/ranges and viewport overflow. Screenshots and failure traces appear in ignored `test-results/`. Unit tests skip the real-course assertions when that local source folder is absent, while synthetic-course/security tests still run.
 
 ## Future improvements
 
 - Normalized Supabase notes/bookmarks/progress tables and conflict-aware realtime sync.
-- PDF.js page controls, persistent PDF page/video timestamps and split video/notes view.
+- Persistent PDF page/video timestamps and split video/notes view.
 - HTML-only legacy OCW adapter and more real-course fixtures for varied calendar columns and nested lecture pages.
 - A fully offline PWA shell with explicit opt-in per-resource download quotas. The manifest/icon make the app PWA-ready; no service worker caches large course assets.
 - A **future** reactive AI tutor may consume `studyContext()` and explicitly selected resources/notes. No AI API, AI UI, summaries, quizzes, flashcards or embeddings are implemented now.
@@ -131,7 +132,7 @@ Browser tests launch the development server on port 3000 if necessary. They exer
 ## Known limitations
 
 - Downloaded course omissions cannot be supplied by the player. The first introduction lecture has a reading reference but no supplied lecture PDF/video; recitation material starts later.
-- Native PDF embedding depends on the browser; mobile browsers may use their own inline PDF behavior. Open externally is always available. Page and zoom controls belong to the native viewer.
+- PDF.js renders one page at a time with page navigation and zoom on desktop/mobile; Open externally remains available. External PDF providers must allow browser CORS access for in-app rendering. PDF position is not persisted yet.
 - Import inference is deliberately conservative. Unknown calendar layouts may need declarative overrides; broader OCW coverage needs additional real course fixtures.
 - Search covers titles, reading labels and resource types, not full PDF text.
 - Notes and bookmarks can reference resources but not exact PDF pages/video timestamps yet.

@@ -12,6 +12,7 @@ const config = [
       ".next/**",
       "node_modules/**",
       "next-env.d.ts",
+      "public/pdfjs/**",
     ],
   },
 ];

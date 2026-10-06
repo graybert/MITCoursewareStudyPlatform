@@ -87,8 +87,11 @@ test("PDF is served safely with byte ranges and topic search works", async ({
       name: "Vision 1: the eye lecture · Week 6 · Chapter 9",
     })
     .click();
-  await expect(page.locator("iframe.pdf-viewer")).toBeVisible();
-  const src = await page.locator("iframe.pdf-viewer").getAttribute("src");
+  await expect(page.locator(".pdf-viewer canvas")).toHaveAttribute(
+    "data-rendered-page",
+    "1",
+  );
+  const src = await page.locator(".tabs .external").getAttribute("href");
   const result = await request.get(src!.split("#")[0], {
     headers: { range: "bytes=0-99" },
   });
@@ -101,6 +104,22 @@ test("PDF is served safely with byte ranges and topic search works", async ({
   );
   await page.screenshot({
     path: `test-results/${test.info().project.name}-pdf.png`,
+    fullPage: true,
+  });
+  await page
+    .getByRole("button", { name: "Next PDF page", exact: true })
+    .click();
+  await expect(page.locator(".pdf-viewer canvas")).toHaveAttribute(
+    "data-rendered-page",
+    "2",
+  );
+  await page.getByRole("combobox", { name: "PDF zoom" }).selectOption("1.25");
+  await expect(page.locator(".pdf-viewer canvas")).toHaveAttribute(
+    "data-rendered-page",
+    "2",
+  );
+  await page.screenshot({
+    path: `test-results/${test.info().project.name}-pdf-page2.png`,
     fullPage: true,
   });
   const overflow = await page.evaluate(

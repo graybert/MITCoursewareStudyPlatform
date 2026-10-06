@@ -1,0 +1,7 @@
+node_modules/
+.next/
+generated/
+public/pdfjs/
+9.01-fall-2007/
+courses/
+next-env.d.ts

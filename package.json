@@ -10,15 +10,17 @@
     "inspect:course": "tsx scripts/import.ts --inspect",
     "typecheck": "tsc --noEmit",
     "lint": "eslint .",
-    "format": "prettier --write app lib scripts tests *.json *.md",
+    "format": "prettier --write app lib scripts tests *.json *.md *.ts *.mjs",
     "test": "tsx --test tests/*.test.ts",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "postinstall": "node scripts/prepare-pdf.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.0",
     "cheerio": "^1.1.2",
     "lucide-react": "^0.468.0",
     "next": "^15.5.27",
+    "pdfjs-dist": "^6.4.299",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-markdown": "^10.1.0",
