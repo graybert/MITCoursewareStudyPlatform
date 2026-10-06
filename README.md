@@ -39,7 +39,7 @@ Each course has its own sequence and resources; private study state uses course 
 
 The report contains original metadata, detected lectures/readings/problem sets/exams, unassociated resources, unresolved asset files, SHA-256 duplicates, section links, heuristics and the full file inventory. Bundled website CSS/JS/fonts are inventoried separately from learning resources and are not executed by the player. Inspect warnings before assuming a new course imports perfectly. Repeated topic IDs and invalid overrides fail explicitly.
 
-The initial course imports **29 sequence items**, **22 lecture topics**, **3 problem sets**, **3 scheduled exams**, and **50 resources (48 PDFs + 2 images)**. MIT supplies selected notes and exam reviews, not videos, textbook chapters or exam papers. The combined anatomy quiz/vision calendar row remains combined. Source link errors are preserved; metadata provides missing recitation resources by week, and uncertain files stay in the library.
+The initial course imports **29 sequence items**, **22 lecture topics**, **3 problem sets**, **3 scheduled exams**, and **50 resources (48 PDFs + 2 images)**. MIT supplies selected notes and exam reviews, not videos, textbook chapters or exam papers. The combined anatomy quiz/vision calendar row remains combined. Source link errors are preserved; metadata provides missing recitation resources by week. The tracked course override attaches two unlinked Chapter 6 presentations to synaptic transmission chemistry; the source metadata and filenames support this editorial grouping. The two course images remain available in the library.
 
 ## Course override files
 
@@ -62,7 +62,7 @@ Create `course.override.json` next to the course's root `data.json`. Obtain exac
 
 `after` moves an item immediately after another item. Resource `itemId` moves that resource out of all prior groups and into the target item. `items[id].resources` can specify an exact list for a group; share attachments by listing IDs in multiple items. `order` places listed items first in that order and preserves the order of all unlisted items. Hidden items leave the sequence; hidden resources leave both attachments and the library. Previous/next pointers rebuild automatically. Override IDs must exist. Do not rename IDs to change titles; change the `title` field instead. Reimport after editing.
 
-Source-specific exceptions belong in overrides, never in UI components or parser conditionals. An override file is local with its course; save a separate copy if you need to version it privately.
+Source-specific exceptions belong in overrides, never in UI components or parser conditionals. Override files can be versioned: `.gitignore` allows `course.override.json` while excluding downloaded content. The initial course includes a small override for two unlinked Chapter 6 presentations.
 
 ## Storage
 

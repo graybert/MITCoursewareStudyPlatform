@@ -227,7 +227,7 @@ export function importCourse(root: string, relativeRoot: string) {
   const recRows = tableRows(recitations?.content || "");
   const matchTitle = (s: string) =>
     clean(s.replace(/\(PDF[^)]*\)|\(Courtesy[\s\S]*$/gi, "")).toLowerCase();
-  let lecture = 0;
+
   for (const row of schedule) {
     const topicColumn = row.headers.findIndex((h) =>
       /topics?|lecture title/i.test(h),
@@ -287,7 +287,6 @@ export function importCourse(root: string, relativeRoot: string) {
         ? "<p>This is a scheduled assessment. The download provides selected review materials, not the original exam paper.</p>"
         : undefined,
     });
-    if (!exam) lecture++;
     const due = row.cells.join(" ").match(/problem set\s*(\d+)\s*due/i);
     if (
       due &&
@@ -384,7 +383,7 @@ export function importCourse(root: string, relativeRoot: string) {
         ),
     );
   const used = new Set(items.flatMap((i) => i.resources));
-  const unmatched = resources.filter((r) => !used.has(r.id));
+  let unmatched = resources.filter((r) => !used.has(r.id));
   if (unmatched.length)
     warnings.push(
       `${unmatched.length} resources lack a reliable calendar association; retained in library.`,
@@ -446,6 +445,17 @@ export function importCourse(root: string, relativeRoot: string) {
     course,
     fs.existsSync(overridePath) ? read("course.override.json") : {},
   );
+  unmatched = course.resources.filter(
+    (r) => !r.hidden && !course.items.some((i) => i.resources.includes(r.id)),
+  );
+  const associationWarning = warnings.findIndex((w) =>
+    w.includes("resources lack a reliable calendar association"),
+  );
+  if (associationWarning >= 0) warnings.splice(associationWarning, 1);
+  if (unmatched.length)
+    warnings.push(
+      `${unmatched.length} resources lack a reliable calendar association; retained in library.`,
+    );
   const hashes = new Map<string, string[]>();
   for (const r of resources.filter((r) => r.path)) {
     const hash = crypto
@@ -489,13 +499,13 @@ export function importCourse(root: string, relativeRoot: string) {
     course,
     report: {
       metadata: meta,
-      detectedLectures: lecture,
+      detectedLectures: course.items.filter((i) => i.type === "lecture").length,
       lectures: course.items.filter((i) => i.type === "lecture"),
-      readings: items
+      readings: course.items
         .filter((i) => i.reading)
         .map((i) => ({ item: i.id, reading: i.reading })),
-      assignments: items.filter((i) => i.type === "problem-set"),
-      exams: items.filter((i) => i.type === "exam"),
+      assignments: course.items.filter((i) => i.type === "problem-set"),
+      exams: course.items.filter((i) => i.type === "exam"),
       unassociatedResources: unmatched.map((r) => r.id),
       unresolvedFiles: unresolved,
       duplicateResources: [...hashes.values()].filter((v) => v.length > 1),
@@ -505,6 +515,7 @@ export function importCourse(root: string, relativeRoot: string) {
         "Readings/notes/recitations joined by exact normalized topic title.",
         "Problem sets placed after final topic in due week.",
       ],
+      overrideApplied: fs.existsSync(overridePath),
       inventory: files,
       pages: pages.map((p) => ({
         title: p.title,

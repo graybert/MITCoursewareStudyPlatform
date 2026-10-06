@@ -32,3 +32,7 @@ Six unit tests pass: rowspan handling, override attachments/order/hiding, progre
 ## Milestone 4 — browser verification and visual polish
 
 Desktop and mobile smoke tests all pass (4/4), including note/bookmark persistence after reload, complete/next, theme persistence, search, PDF byte ranges and no horizontal overflow. Browser tests exposed a real refresh race in debounced local theme saving; local writes are now immediate, cloud writes remain debounced. Inspected dashboard/course/player/mobile screenshots. Improved single-course dashboard composition and collapsed navigation by default on mobile so the study content opens immediately. Added resource-provider/context module, completion undo and a comprehensive README with exact setup, override format, backend migration and candid limitations. Optional cloud remains unverified against a live Supabase project. Final expanded checks and documentation cleanup follow.
+
+## Milestone 5 — declarative source correction
+
+Verified metadata and the actual unlinked Chapter 6 PDF content/filenames. Added a small tracked `9.01-fall-2007/course.override.json` attaching those two presentations to synaptic transmission chemistry, preserving the original PDFs. Parser code contains no course-specific exception. Only the two course images remain unassociated; all educational PDFs now attach to appropriate sequence items. Ignore rules permit override files while retaining local-only course content. Unit tests still pass. Desktop/mobile browser checks also pass following mobile/default-navigation changes.

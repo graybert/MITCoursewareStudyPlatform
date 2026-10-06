@@ -117,7 +117,9 @@
         "reading": "Chapter 6",
         "resources": [
           "e03e6647-b289-df96-7f19-ec1e73b908c4",
-          "4f88df62-96f3-8f25-3574-cc41fff5a118"
+          "4f88df62-96f3-8f25-3574-cc41fff5a118",
+          "49ce116a-8617-053b-d222-140c80b46a0f",
+          "ad26337e-97ce-9619-0b12-5bd88d0bab75"
         ],
         "previous": "problem-set-1",
         "next": "exam-1"
@@ -450,7 +452,7 @@
       {
         "id": "49ce116a-8617-053b-d222-140c80b46a0f",
         "title": "Neurotransmitters",
-        "type": "lecture notes",
+        "type": "lecture-notes",
         "path": "static_resources/49ce116a8617053bd222140c80b46a0f_05_ch6_neuro_lec.pdf",
         "mime": "application/pdf",
         "description": "Lecture presentation on neurotransmitters.",
@@ -459,7 +461,7 @@
       {
         "id": "ad26337e-97ce-9619-0b12-5bd88d0bab75",
         "title": "Synaptic Transmission",
-        "type": "lecture notes",
+        "type": "lecture-notes",
         "path": "static_resources/ad26337e97ce96190b125bd88d0bab75_06_ch6_neur_lecb.pdf",
         "mime": "application/pdf",
         "description": "Lecture presentation on synaptic transmission.",

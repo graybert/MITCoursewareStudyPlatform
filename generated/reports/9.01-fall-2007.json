@@ -168,7 +168,9 @@
       "reading": "Chapter 6",
       "resources": [
         "e03e6647-b289-df96-7f19-ec1e73b908c4",
-        "4f88df62-96f3-8f25-3574-cc41fff5a118"
+        "4f88df62-96f3-8f25-3574-cc41fff5a118",
+        "49ce116a-8617-053b-d222-140c80b46a0f",
+        "ad26337e-97ce-9619-0b12-5bd88d0bab75"
       ],
       "previous": "problem-set-1",
       "next": "exam-1"
@@ -605,26 +607,26 @@
     }
   ],
   "unassociatedResources": [
-    "49ce116a-8617-053b-d222-140c80b46a0f",
-    "ad26337e-97ce-9619-0b12-5bd88d0bab75",
     "29eda4c6-5c28-0528-6068-412b63b2ad5b",
     "bf103e73-788d-6a0a-93e7-3889de160460"
   ],
   "unresolvedFiles": [],
   "duplicateResources": [],
   "warnings": [
-    "4 resources lack a reliable calendar association; retained in library.",
     "No lecture videos in this download.",
-    "Reading references may require material not included in this download."
+    "Reading references may require material not included in this download.",
+    "2 resources lack a reliable calendar association; retained in library."
   ],
   "heuristics": [
     "Syllabus/calendar table order is authoritative; rowspan cells expanded.",
     "Readings/notes/recitations joined by exact normalized topic title.",
     "Problem sets placed after final topic in due week."
   ],
+  "overrideApplied": true,
   "inventory": [
     ".keep",
     "content_map.json",
+    "course.override.json",
     "data.json",
     "download/index.html",
     "download/index.xml",
