@@ -630,12 +630,14 @@ export default function StudyApp({ courses }: { courses: Course[] }) {
                 <BookOpen size={20} />
                 <div>
                   <strong>Read before this lecture</strong>
-                  <p>
-                    {item.reading} · <em>Neuroscience: Exploring the Brain</em>,
-                    3rd edition
-                  </p>
+                  <p>{item.reading}</p>
                   <small>
-                    Textbook referenced by MIT; not included in this download.
+                    {course.readingCitation ||
+                      "See the original syllabus for reading instructions."}
+                  </small>
+                  <small className="reading-availability">
+                    Referenced books may need to be obtained separately from the
+                    course download.
                   </small>
                 </div>
               </div>

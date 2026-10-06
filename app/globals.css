@@ -1298,3 +1298,7 @@ progress::-webkit-progress-value {
   white-space: nowrap;
   border: 0;
 }
+.reading-availability {
+  display: block;
+  margin-top: 8px;
+}

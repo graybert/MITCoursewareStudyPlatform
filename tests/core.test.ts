@@ -127,6 +127,7 @@ test(
     assert.equal(report.unresolvedFiles.length, 0);
     assert.equal(c.items[0].id, "orientation");
     assert.equal(c.items[1].reading, "Chapter 1");
+    assert.match(c.readingCitation || "", /Neuroscience: Exploring the Brain/);
     for (const [id, prev] of [
       ["problem-set-1", "synaptic-transmission-1-physiology"],
       ["problem-set-2", "olfaction"],

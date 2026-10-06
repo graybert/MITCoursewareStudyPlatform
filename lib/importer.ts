@@ -434,11 +434,22 @@ export function importCourse(root: string, relativeRoot: string) {
     warnings.push(
       "Reading references may require material not included in this download.",
     );
+  const readingSource = cheerio.load(
+    readings?.content || syllabus?.content || "",
+  );
+  const textbookHeading = readingSource("h2,h3,h4")
+    .filter((_, heading) =>
+      /^textbooks?$/i.test(clean(readingSource(heading).text())),
+    )
+    .first();
+  const readingCitation =
+    clean(textbookHeading.nextAll("p").first().text()) || undefined;
   const course: Course = {
     id: meta.site_short_id || stableId(path.basename(root)),
     title: meta.course_title || meta.title,
     number: meta.primary_course_number || "",
     description: meta.course_description || "",
+    readingCitation,
     instructors: (meta.instructors || []).map(
       (i: { title: string }) => i.title,
     ),

@@ -40,6 +40,7 @@ export interface Course {
   title: string;
   number: string;
   description: string;
+  readingCitation?: string;
   instructors: string[];
   department: string;
   source: string;

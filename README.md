@@ -117,6 +117,8 @@ npm run test
 npm run build
 npx playwright install chromium
 npm run test:e2e
+# Optionally test the production build instead:
+PLAYWRIGHT_PRODUCTION=1 npm run test:e2e
 ```
 
 Browser tests launch the development server on port 3000 if necessary. They exercise desktop/mobile dashboard → course map → player → complete → next → note/bookmark → refresh, themes, search, PDF page rendering/navigation/zoom, response/ranges and viewport overflow. Screenshots and failure traces appear in ignored `test-results/`. Unit tests skip the real-course assertions when that local source folder is absent, while synthetic-course/security tests still run.
