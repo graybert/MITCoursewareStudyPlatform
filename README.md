@@ -133,7 +133,7 @@ Browser tests launch the development server on port 3000 if necessary. They exer
 
 ## Known limitations
 
-- Downloaded course omissions cannot be supplied by the player. The first introduction lecture has a reading reference but no supplied lecture PDF/video; recitation material starts later.
+- Downloaded course omissions cannot be supplied by the player. The first introduction lecture has no OCW lecture PDF/video; recitation material starts later. The user-supplied textbook now makes its assigned Chapter 1 available directly in the player.
 - PDF.js renders one page at a time with page navigation and zoom on desktop/mobile; Open externally remains available. External PDF providers must allow browser CORS access for in-app rendering. PDF position is not persisted yet.
 - Import inference is deliberately conservative. Unknown calendar layouts may need declarative overrides; broader OCW coverage needs additional real course fixtures.
 - Search covers titles, reading labels and resource types, not full PDF text.

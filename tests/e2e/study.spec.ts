@@ -28,6 +28,12 @@ test("study, complete, bookmark, take notes and resume after refresh", async ({
   await expect(
     page.getByRole("heading", { name: "Introduction", exact: true }),
   ).toBeVisible();
+  if (await page.getByRole("button", { name: /Read Chapter 1 / }).count())
+    await expect(page.locator(".pdf-viewer canvas")).toHaveAttribute(
+      "data-rendered-page",
+      "43",
+      { timeout: 15000 },
+    );
   await page
     .getByRole("button", { name: "Bookmark item", exact: true })
     .click();
