@@ -5,7 +5,7 @@ export function resolveResource(base: string, root: string, relative: string) {
     throw Error("Invalid resource path");
   const safeBase = fs.realpathSync(base);
   const courseRoot = fs.realpathSync(path.resolve(base, root));
-  if (!courseRoot.startsWith(safeBase + path.sep))
+  if (courseRoot !== safeBase && !courseRoot.startsWith(safeBase + path.sep))
     throw Error("Course outside repository");
   const resolved = fs.realpathSync(path.resolve(courseRoot, relative));
   if (!resolved.startsWith(courseRoot + path.sep))

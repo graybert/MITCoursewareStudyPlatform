@@ -141,3 +141,35 @@ Browser tests launch the development server on port 3000 if necessary. They exer
 - Supabase uses a whole study document and last-write-wins. Remote behavior requires configured credentials; no live backend was available for verification.
 - No service worker/offline content cache is included.
 - Runtime `npm audit --omit=dev` is clean. An upstream advisory in ESLint's development-only glob/braces dependency tree currently lacks a compatible fix.
+
+## Integrating a local textbook
+
+The supplied `Neuroscience - Bear.pdf` stays at the repository root and is excluded from Git. Its third edition and 25 chapter bookmark destinations were verified against the PDF's own outline and printed page labels. All 22 lecture reading assignments now have **Read Chapter…** buttons in the player. Clicking one opens the original book in-app at that chapter; **Open externally** also carries `#page=<PDF-page>`. Lectures with two assigned chapters have two buttons, and the selected chapter link survives refresh. Lecture/recitation PDFs remain available in the resource selector.
+
+The existing `9.01-fall-2007/course.override.json` has a reusable `textbooks` configuration:
+
+```json
+{
+  "textbooks": [
+    {
+      "resource": {
+        "id": "my-textbook",
+        "title": "My textbook",
+        "type": "textbook",
+        "mime": "application/pdf",
+        "path": "My Book.pdf",
+        "localRoot": ".",
+        "description": "User-supplied local copy"
+      },
+      "chapters": {
+        "1": { "pdfPage": 43, "printedPage": "3" },
+        "2": { "pdfPage": 63, "printedPage": "23" }
+      }
+    }
+  ]
+}
+```
+
+Use **one-based physical PDF pages**, which often differ from printed numbers because of front matter. Chapter matching follows the original course's `Chapter 1` / `Chapters 15 and 16` assignments; ranges are supported too. `localRoot` is an explicitly registered directory relative to the repository; omit it for a file inside the course folder. The server still checks canonical paths and rejects traversal/symlink escapes. No large-file copy or chapter splitting is needed. PDF.js requests page data through byte ranges instead of eagerly fetching the whole book.
+
+After changing a textbook mapping, run `npm run import:courses` and restart/rebuild the app. If the private book is missing on another machine, importing still works: the report identifies the missing book and the player falls back to course resources and original reading references. The book does not acquire the MIT course's license, is not committed/pushed, and is not uploaded by account synchronization.

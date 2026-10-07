@@ -1,6 +1,6 @@
 import { NextRequest } from "next/server";
 import fs from "node:fs";
-import { Readable } from "node:stream";
+import { fileStream } from "../../../../../lib/file-stream";
 import { courses } from "../../../../../lib/courses";
 import { resolveResource } from "../../../../../lib/resolver";
 export async function GET(
@@ -12,7 +12,7 @@ export async function GET(
   const r = c?.resources.find((r) => r.id === p.resource && !r.hidden);
   if (!c || !r?.path) return new Response("Not found", { status: 404 });
   try {
-    const file = resolveResource(process.cwd(), c.root, r.path);
+    const file = resolveResource(process.cwd(), r.localRoot ?? c.root, r.path);
     const size = fs.statSync(file).size;
     const headers: Record<string, string> = {
       "Content-Type": r.mime,
@@ -45,12 +45,7 @@ export async function GET(
       headers["Content-Range"] = `bytes ${start}-${end}/${size}`;
     }
     headers["Content-Length"] = String(end - start + 1);
-    return new Response(
-      Readable.toWeb(
-        fs.createReadStream(file, { start, end }),
-      ) as ReadableStream,
-      { status, headers },
-    );
+    return new Response(fileStream(file, start, end), { status, headers });
   } catch {
     return new Response("Not found", { status: 404 });
   }

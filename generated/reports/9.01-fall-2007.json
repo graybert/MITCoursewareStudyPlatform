@@ -95,7 +95,18 @@
       "date": "",
       "lecturer": "Seung",
       "reading": "Chapter 1",
-      "resources": [],
+      "resources": [
+        "neuroscience-bear-3e"
+      ],
+      "readingLinks": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 1,
+          "pdfPage": 43,
+          "printedPage": "3",
+          "title": "Neuroscience: Past, Present, and Future"
+        }
+      ],
       "previous": "orientation",
       "next": "cellular-neuroanatomy-neurons-and-glia"
     },
@@ -110,7 +121,17 @@
       "reading": "Chapter 2",
       "resources": [
         "5d0a34d6-1307-6973-3815-477bf0a5978f",
-        "4577791f-4c87-b819-b3e3-4700eb7d3028"
+        "4577791f-4c87-b819-b3e3-4700eb7d3028",
+        "neuroscience-bear-3e"
+      ],
+      "readingLinks": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 2,
+          "pdfPage": 63,
+          "printedPage": "23",
+          "title": "Neurons and Glia"
+        }
       ],
       "previous": "introduction",
       "next": "neurophysiology-1-resting-potential"
@@ -126,7 +147,17 @@
       "reading": "Chapter 3",
       "resources": [
         "5d0a34d6-1307-6973-3815-477bf0a5978f",
-        "4577791f-4c87-b819-b3e3-4700eb7d3028"
+        "4577791f-4c87-b819-b3e3-4700eb7d3028",
+        "neuroscience-bear-3e"
+      ],
+      "readingLinks": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 3,
+          "pdfPage": 91,
+          "printedPage": "51",
+          "title": "The Neuronal Membrane at Rest"
+        }
       ],
       "previous": "cellular-neuroanatomy-neurons-and-glia",
       "next": "neurophysiology-2-action-potential"
@@ -142,7 +173,17 @@
       "reading": "Chapter 4",
       "resources": [
         "b4f9a58d-7ac3-f75f-1785-4685b5d84c04",
-        "3a2fa425-7849-9c13-587b-e8fa06437abe"
+        "3a2fa425-7849-9c13-587b-e8fa06437abe",
+        "neuroscience-bear-3e"
+      ],
+      "readingLinks": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 4,
+          "pdfPage": 115,
+          "printedPage": "75",
+          "title": "The Action Potential"
+        }
       ],
       "previous": "neurophysiology-1-resting-potential",
       "next": "synaptic-transmission-1-physiology"
@@ -158,7 +199,17 @@
       "reading": "Chapter 5",
       "resources": [
         "b4f9a58d-7ac3-f75f-1785-4685b5d84c04",
-        "3a2fa425-7849-9c13-587b-e8fa06437abe"
+        "3a2fa425-7849-9c13-587b-e8fa06437abe",
+        "neuroscience-bear-3e"
+      ],
+      "readingLinks": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 5,
+          "pdfPage": 141,
+          "printedPage": "101",
+          "title": "Synaptic Transmission"
+        }
       ],
       "previous": "neurophysiology-2-action-potential",
       "next": "problem-set-1"
@@ -176,7 +227,17 @@
         "49ce116a-8617-053b-d222-140c80b46a0f",
         "ad26337e-97ce-9619-0b12-5bd88d0bab75",
         "e03e6647-b289-df96-7f19-ec1e73b908c4",
-        "4f88df62-96f3-8f25-3574-cc41fff5a118"
+        "4f88df62-96f3-8f25-3574-cc41fff5a118",
+        "neuroscience-bear-3e"
+      ],
+      "readingLinks": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 6,
+          "pdfPage": 173,
+          "printedPage": "133",
+          "title": "Neurotransmitter Systems"
+        }
       ],
       "previous": "problem-set-1",
       "next": "exam-1"
@@ -190,7 +251,18 @@
       "date": "",
       "lecturer": "Graybiel",
       "reading": "Chapter 7",
-      "resources": [],
+      "resources": [
+        "neuroscience-bear-3e"
+      ],
+      "readingLinks": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 7,
+          "pdfPage": 207,
+          "printedPage": "167",
+          "title": "The Structure of the Nervous System"
+        }
+      ],
       "previous": "exam-1",
       "next": "vision-1-the-eye"
     },
@@ -204,7 +276,17 @@
       "lecturer": "Seung",
       "reading": "Chapter 9",
       "resources": [
-        "918a3e33-ec70-9072-082f-742bdbac8c44"
+        "918a3e33-ec70-9072-082f-742bdbac8c44",
+        "neuroscience-bear-3e"
+      ],
+      "readingLinks": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 9,
+          "pdfPage": 317,
+          "printedPage": "277",
+          "title": "The Eye"
+        }
       ],
       "previous": "organization-of-the-vertebrate-brain",
       "next": "anatomy-quiz-vision-2-thalamus-and-v1-cortex"
@@ -222,7 +304,17 @@
         "e16c00ee-c1cc-935f-93dd-94f47b95b67e",
         "ec0a36e0-eda2-be35-4518-1cd389369664",
         "aeda0ca1-42a9-f4c0-062c-4b0e791027b4",
-        "cf44a0a9-2374-294c-07d5-cf273aef0fb1"
+        "cf44a0a9-2374-294c-07d5-cf273aef0fb1",
+        "neuroscience-bear-3e"
+      ],
+      "readingLinks": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 10,
+          "pdfPage": 349,
+          "printedPage": "309",
+          "title": "The Central Visual System"
+        }
       ],
       "previous": "vision-1-the-eye",
       "next": "vision-3-beyond-v1"
@@ -240,7 +332,17 @@
         "5e6f0adf-a8a0-e954-70df-9b9810a6be06",
         "ec0a36e0-eda2-be35-4518-1cd389369664",
         "aeda0ca1-42a9-f4c0-062c-4b0e791027b4",
-        "cf44a0a9-2374-294c-07d5-cf273aef0fb1"
+        "cf44a0a9-2374-294c-07d5-cf273aef0fb1",
+        "neuroscience-bear-3e"
+      ],
+      "readingLinks": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 10,
+          "pdfPage": 349,
+          "printedPage": "309",
+          "title": "The Central Visual System"
+        }
       ],
       "previous": "anatomy-quiz-vision-2-thalamus-and-v1-cortex",
       "next": "hearing"
@@ -258,7 +360,17 @@
         "789180c4-f020-757d-cec7-5bdab822f590",
         "33a524e1-06d8-016e-5b1b-870e0058a395",
         "34922e7d-994f-f4c1-80ec-bca7817c1831",
-        "0f22ee8f-3f06-7dc4-bd80-88131a9485d3"
+        "0f22ee8f-3f06-7dc4-bd80-88131a9485d3",
+        "neuroscience-bear-3e"
+      ],
+      "readingLinks": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 11,
+          "pdfPage": 383,
+          "printedPage": "343",
+          "title": "The Auditory and Vestibular Systems"
+        }
       ],
       "previous": "vision-3-beyond-v1",
       "next": "olfaction"
@@ -276,7 +388,17 @@
         "b1d56ee6-b5ba-bc13-55b5-273730ef62d3",
         "33a524e1-06d8-016e-5b1b-870e0058a395",
         "34922e7d-994f-f4c1-80ec-bca7817c1831",
-        "0f22ee8f-3f06-7dc4-bd80-88131a9485d3"
+        "0f22ee8f-3f06-7dc4-bd80-88131a9485d3",
+        "neuroscience-bear-3e"
+      ],
+      "readingLinks": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 8,
+          "pdfPage": 291,
+          "printedPage": "251",
+          "title": "The Chemical Senses"
+        }
       ],
       "previous": "hearing",
       "next": "problem-set-2"
@@ -294,7 +416,17 @@
         "35fbc750-c2a6-2f7b-0d2d-15ccaf34b80a",
         "c0918423-f3e0-e6f1-7407-36d49b2144d7",
         "2efeec65-8566-4532-2f68-18d74cc3715d",
-        "5c288de1-be71-a31f-d849-b9f3c062dfd6"
+        "5c288de1-be71-a31f-d849-b9f3c062dfd6",
+        "neuroscience-bear-3e"
+      ],
+      "readingLinks": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 13,
+          "pdfPage": 463,
+          "printedPage": "423",
+          "title": "Spinal Control of Movement"
+        }
       ],
       "previous": "problem-set-2",
       "next": "motor-system-2"
@@ -312,7 +444,17 @@
         "b81b265b-817b-e0fe-cfb6-d534bbe55588",
         "c0918423-f3e0-e6f1-7407-36d49b2144d7",
         "2efeec65-8566-4532-2f68-18d74cc3715d",
-        "5c288de1-be71-a31f-d849-b9f3c062dfd6"
+        "5c288de1-be71-a31f-d849-b9f3c062dfd6",
+        "neuroscience-bear-3e"
+      ],
+      "readingLinks": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 14,
+          "pdfPage": 491,
+          "printedPage": "451",
+          "title": "Brain Control of Movement"
+        }
       ],
       "previous": "motor-system-1",
       "next": "exam-2"
@@ -326,7 +468,18 @@
       "date": "",
       "lecturer": "Bear",
       "reading": "Chapter 15",
-      "resources": [],
+      "resources": [
+        "neuroscience-bear-3e"
+      ],
+      "readingLinks": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 15,
+          "pdfPage": 521,
+          "printedPage": "481",
+          "title": "Chemical Control of the Brain and Behavior"
+        }
+      ],
       "previous": "exam-2",
       "next": "brain-disorders"
     },
@@ -341,7 +494,17 @@
       "reading": "Chapter 22",
       "resources": [
         "1339c1f0-8c60-e94e-ceb6-96358462d9f9",
-        "2ab25c71-8320-2407-406a-bd72a3a15b1d"
+        "2ab25c71-8320-2407-406a-bd72a3a15b1d",
+        "neuroscience-bear-3e"
+      ],
+      "readingLinks": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 22,
+          "pdfPage": 701,
+          "printedPage": "661",
+          "title": "Mental Illness"
+        }
       ],
       "previous": "chemical-control-of-brain-1",
       "next": "chemical-control-of-brain-2-motivation"
@@ -357,7 +520,24 @@
       "reading": "Chapters 15 and 16",
       "resources": [
         "6434e1aa-333b-4c7e-11d0-419ae07611a6",
-        "5bf39ae1-111b-657e-5d9e-4426a572835a"
+        "5bf39ae1-111b-657e-5d9e-4426a572835a",
+        "neuroscience-bear-3e"
+      ],
+      "readingLinks": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 15,
+          "pdfPage": 521,
+          "printedPage": "481",
+          "title": "Chemical Control of the Brain and Behavior"
+        },
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 16,
+          "pdfPage": 549,
+          "printedPage": "509",
+          "title": "Motivation"
+        }
       ],
       "previous": "brain-disorders",
       "next": "learning-and-memory-1"
@@ -374,7 +554,17 @@
       "resources": [
         "486d67fe-991c-0d6a-3836-601480b456f0",
         "6434e1aa-333b-4c7e-11d0-419ae07611a6",
-        "5bf39ae1-111b-657e-5d9e-4426a572835a"
+        "5bf39ae1-111b-657e-5d9e-4426a572835a",
+        "neuroscience-bear-3e"
+      ],
+      "readingLinks": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 24,
+          "pdfPage": 765,
+          "printedPage": "725",
+          "title": "Memory Systems"
+        }
       ],
       "previous": "chemical-control-of-brain-2-motivation",
       "next": "attention"
@@ -392,7 +582,17 @@
         "a4f3665f-7c98-664b-8353-88ff6678f165",
         "6434e1aa-333b-4c7e-11d0-419ae07611a6",
         "d3f598d5-68d2-3b69-a3ca-832bcd1d693c",
-        "7a1683d2-c782-0418-c8df-95c1fe95d0b9"
+        "7a1683d2-c782-0418-c8df-95c1fe95d0b9",
+        "neuroscience-bear-3e"
+      ],
+      "readingLinks": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 21,
+          "pdfPage": 683,
+          "printedPage": "643",
+          "title": "Attention"
+        }
       ],
       "previous": "learning-and-memory-1",
       "next": "learning-and-memory-2"
@@ -410,7 +610,17 @@
         "213b7615-4caa-fa7c-1970-30c08e5bca33",
         "6434e1aa-333b-4c7e-11d0-419ae07611a6",
         "d3f598d5-68d2-3b69-a3ca-832bcd1d693c",
-        "7a1683d2-c782-0418-c8df-95c1fe95d0b9"
+        "7a1683d2-c782-0418-c8df-95c1fe95d0b9",
+        "neuroscience-bear-3e"
+      ],
+      "readingLinks": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 25,
+          "pdfPage": 801,
+          "printedPage": "761",
+          "title": "Molecular Mechanisms of Learning and Memory"
+        }
       ],
       "previous": "attention",
       "next": "problem-set-3"
@@ -427,7 +637,17 @@
       "resources": [
         "5025b44f-121b-e4c9-e979-778c54842b73",
         "63c9fdd7-7ffa-e961-c933-2b8574413d97",
-        "a6eafa79-eebf-a273-cbe2-fcc9f08aff1e"
+        "a6eafa79-eebf-a273-cbe2-fcc9f08aff1e",
+        "neuroscience-bear-3e"
+      ],
+      "readingLinks": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 18,
+          "pdfPage": 603,
+          "printedPage": "563",
+          "title": "Brain Mechanisms of Emotion"
+        }
       ],
       "previous": "problem-set-3",
       "next": "sleep"
@@ -442,100 +662,324 @@
       "lecturer": "Hobson",
       "reading": "Chapter 19",
       "resources": [
-        "63c9fdd7-7ffa-e961-c933-2b8574413d97"
+        "63c9fdd7-7ffa-e961-c933-2b8574413d97",
+        "neuroscience-bear-3e"
+      ],
+      "readingLinks": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 19,
+          "pdfPage": 625,
+          "printedPage": "585",
+          "title": "Brain Rhythms and Sleep"
+        }
       ],
       "previous": "emotion",
       "next": "final-exam"
     }
   ],
+  "textbooks": [
+    {
+      "id": "neuroscience-bear-3e",
+      "title": "Neuroscience: Exploring the Brain (3rd edition)",
+      "path": "Neuroscience - Bear.pdf",
+      "localRoot": ".",
+      "userSupplied": true
+    }
+  ],
   "readings": [
     {
       "item": "introduction",
-      "reading": "Chapter 1"
+      "reading": "Chapter 1",
+      "links": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 1,
+          "pdfPage": 43,
+          "printedPage": "3",
+          "title": "Neuroscience: Past, Present, and Future"
+        }
+      ]
     },
     {
       "item": "cellular-neuroanatomy-neurons-and-glia",
-      "reading": "Chapter 2"
+      "reading": "Chapter 2",
+      "links": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 2,
+          "pdfPage": 63,
+          "printedPage": "23",
+          "title": "Neurons and Glia"
+        }
+      ]
     },
     {
       "item": "neurophysiology-1-resting-potential",
-      "reading": "Chapter 3"
+      "reading": "Chapter 3",
+      "links": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 3,
+          "pdfPage": 91,
+          "printedPage": "51",
+          "title": "The Neuronal Membrane at Rest"
+        }
+      ]
     },
     {
       "item": "neurophysiology-2-action-potential",
-      "reading": "Chapter 4"
+      "reading": "Chapter 4",
+      "links": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 4,
+          "pdfPage": 115,
+          "printedPage": "75",
+          "title": "The Action Potential"
+        }
+      ]
     },
     {
       "item": "synaptic-transmission-1-physiology",
-      "reading": "Chapter 5"
+      "reading": "Chapter 5",
+      "links": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 5,
+          "pdfPage": 141,
+          "printedPage": "101",
+          "title": "Synaptic Transmission"
+        }
+      ]
     },
     {
       "item": "synaptic-transmission-2-chemistry",
-      "reading": "Chapter 6"
+      "reading": "Chapter 6",
+      "links": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 6,
+          "pdfPage": 173,
+          "printedPage": "133",
+          "title": "Neurotransmitter Systems"
+        }
+      ]
     },
     {
       "item": "organization-of-the-vertebrate-brain",
-      "reading": "Chapter 7"
+      "reading": "Chapter 7",
+      "links": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 7,
+          "pdfPage": 207,
+          "printedPage": "167",
+          "title": "The Structure of the Nervous System"
+        }
+      ]
     },
     {
       "item": "vision-1-the-eye",
-      "reading": "Chapter 9"
+      "reading": "Chapter 9",
+      "links": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 9,
+          "pdfPage": 317,
+          "printedPage": "277",
+          "title": "The Eye"
+        }
+      ]
     },
     {
       "item": "anatomy-quiz-vision-2-thalamus-and-v1-cortex",
-      "reading": "Chapter 10"
+      "reading": "Chapter 10",
+      "links": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 10,
+          "pdfPage": 349,
+          "printedPage": "309",
+          "title": "The Central Visual System"
+        }
+      ]
     },
     {
       "item": "vision-3-beyond-v1",
-      "reading": "Chapter 10"
+      "reading": "Chapter 10",
+      "links": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 10,
+          "pdfPage": 349,
+          "printedPage": "309",
+          "title": "The Central Visual System"
+        }
+      ]
     },
     {
       "item": "hearing",
-      "reading": "Chapter 11"
+      "reading": "Chapter 11",
+      "links": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 11,
+          "pdfPage": 383,
+          "printedPage": "343",
+          "title": "The Auditory and Vestibular Systems"
+        }
+      ]
     },
     {
       "item": "olfaction",
-      "reading": "Chapter 8"
+      "reading": "Chapter 8",
+      "links": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 8,
+          "pdfPage": 291,
+          "printedPage": "251",
+          "title": "The Chemical Senses"
+        }
+      ]
     },
     {
       "item": "motor-system-1",
-      "reading": "Chapter 13"
+      "reading": "Chapter 13",
+      "links": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 13,
+          "pdfPage": 463,
+          "printedPage": "423",
+          "title": "Spinal Control of Movement"
+        }
+      ]
     },
     {
       "item": "motor-system-2",
-      "reading": "Chapter 14"
+      "reading": "Chapter 14",
+      "links": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 14,
+          "pdfPage": 491,
+          "printedPage": "451",
+          "title": "Brain Control of Movement"
+        }
+      ]
     },
     {
       "item": "chemical-control-of-brain-1",
-      "reading": "Chapter 15"
+      "reading": "Chapter 15",
+      "links": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 15,
+          "pdfPage": 521,
+          "printedPage": "481",
+          "title": "Chemical Control of the Brain and Behavior"
+        }
+      ]
     },
     {
       "item": "brain-disorders",
-      "reading": "Chapter 22"
+      "reading": "Chapter 22",
+      "links": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 22,
+          "pdfPage": 701,
+          "printedPage": "661",
+          "title": "Mental Illness"
+        }
+      ]
     },
     {
       "item": "chemical-control-of-brain-2-motivation",
-      "reading": "Chapters 15 and 16"
+      "reading": "Chapters 15 and 16",
+      "links": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 15,
+          "pdfPage": 521,
+          "printedPage": "481",
+          "title": "Chemical Control of the Brain and Behavior"
+        },
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 16,
+          "pdfPage": 549,
+          "printedPage": "509",
+          "title": "Motivation"
+        }
+      ]
     },
     {
       "item": "learning-and-memory-1",
-      "reading": "Chapter 24"
+      "reading": "Chapter 24",
+      "links": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 24,
+          "pdfPage": 765,
+          "printedPage": "725",
+          "title": "Memory Systems"
+        }
+      ]
     },
     {
       "item": "attention",
-      "reading": "Chapter 21"
+      "reading": "Chapter 21",
+      "links": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 21,
+          "pdfPage": 683,
+          "printedPage": "643",
+          "title": "Attention"
+        }
+      ]
     },
     {
       "item": "learning-and-memory-2",
-      "reading": "Chapter 25"
+      "reading": "Chapter 25",
+      "links": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 25,
+          "pdfPage": 801,
+          "printedPage": "761",
+          "title": "Molecular Mechanisms of Learning and Memory"
+        }
+      ]
     },
     {
       "item": "emotion",
-      "reading": "Chapter 18"
+      "reading": "Chapter 18",
+      "links": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 18,
+          "pdfPage": 603,
+          "printedPage": "563",
+          "title": "Brain Mechanisms of Emotion"
+        }
+      ]
     },
     {
       "item": "sleep",
-      "reading": "Chapter 19"
+      "reading": "Chapter 19",
+      "links": [
+        {
+          "resourceId": "neuroscience-bear-3e",
+          "chapter": 19,
+          "pdfPage": 625,
+          "printedPage": "585",
+          "title": "Brain Rhythms and Sleep"
+        }
+      ]
     }
   ],
   "assignments": [
@@ -636,7 +1080,6 @@
   "duplicateResources": [],
   "warnings": [
     "No lecture videos in this download.",
-    "Reading references may require material not included in this download.",
     "2 resources lack a reliable calendar association; retained in library."
   ],
   "heuristics": [

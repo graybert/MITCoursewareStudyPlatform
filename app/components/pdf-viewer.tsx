@@ -6,12 +6,18 @@ import type { PDFDocumentProxy, RenderTask } from "pdfjs-dist";
 export default function PdfViewer({
   url,
   title,
+  initialPage = 1,
+  pageRequestId = 0,
 }: {
   url: string;
   title: string;
+  initialPage?: number;
+  pageRequestId?: number;
 }) {
   const [document, setDocument] = useState<PDFDocumentProxy | null>(null);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(initialPage);
+  const initialPageRef = useRef(initialPage);
+  initialPageRef.current = initialPage;
   const [zoom, setZoom] = useState(1);
   const [width, setWidth] = useState(600);
   const [pageHeight, setPageHeight] = useState(550);
@@ -34,7 +40,7 @@ export default function PdfViewer({
     let canceled = false;
     let task: ReturnType<typeof import("pdfjs-dist").getDocument> | undefined;
     setDocument(null);
-    setPage(1);
+    setPage(initialPageRef.current);
     setError("");
     setBusy(true);
     setRendered(0);
@@ -45,6 +51,8 @@ export default function PdfViewer({
         task = pdfjs.getDocument({
           url,
           standardFontDataUrl: "/pdfjs/standard_fonts/",
+          disableAutoFetch: true,
+          disableStream: true,
         });
         const doc = await task.promise;
         if (!canceled) setDocument(doc);
@@ -61,7 +69,11 @@ export default function PdfViewer({
     };
   }, [url]);
   useEffect(() => {
-    if (!document || !canvas.current) return;
+    if (document)
+      setPage(Math.max(1, Math.min(document.numPages, initialPage)));
+  }, [document, initialPage, pageRequestId]);
+  useEffect(() => {
+    if (!document || !canvas.current || page > document.numPages) return;
     let canceled = false;
     let render: RenderTask | undefined;
     setBusy(true);

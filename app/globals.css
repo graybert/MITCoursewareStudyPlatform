@@ -1302,3 +1302,24 @@ progress::-webkit-progress-value {
   display: block;
   margin-top: 8px;
 }
+.reading-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+.reading-links button {
+  background: var(--raised);
+  color: var(--accent);
+  font-size: 12px;
+  border-color: var(--line);
+}
+.reading-links button span {
+  font-size: 10px;
+  color: var(--muted);
+  margin-left: 4px;
+}
+.reading-links > small {
+  flex-basis: 100%;
+  margin-top: 2px;
+}

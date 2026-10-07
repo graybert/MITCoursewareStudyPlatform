@@ -35,6 +35,8 @@ export default function StudyApp({ courses }: { courses: Course[] }) {
   const [courseId, setCourseId] = useState(courses[0]?.id || "");
   const [itemId, setItemId] = useState("orientation");
   const [resourceId, setResourceId] = useState("");
+  const [resourcePage, setResourcePage] = useState<number | undefined>();
+  const [pageRequestId, setPageRequestId] = useState(0);
   const [query, setQuery] = useState("");
   const [nav, setNav] = useState(true);
   const [notesPane, setNotesPane] = useState(true);
@@ -62,6 +64,11 @@ export default function StudyApp({ courses }: { courses: Course[] }) {
         setCourseId(parts[1]);
         setItemId(parts[2]);
         setResourceId(parts[3] || "");
+        setResourcePage(
+          /^\d+$/.test(parts[4] || "") && Number(parts[4]) > 0
+            ? Number(parts[4])
+            : undefined,
+        );
         setView("player");
       } else if (
         parts[0] === "course" &&
@@ -96,14 +103,16 @@ export default function StudyApp({ courses }: { courses: Course[] }) {
       },
     }));
   }, [ready, view, course, item, setState]);
-  function open(c: Course, i: CourseItem, r = "") {
+  function open(c: Course, i: CourseItem, r = "", page?: number) {
     setCourseId(c.id);
     setItemId(i.id);
     setResourceId(r);
+    setResourcePage(page);
+    setPageRequestId((n) => n + 1);
     setTab("content");
     setView("player");
     setNoteId("");
-    location.hash = `study/${encodeURIComponent(c.id)}/${encodeURIComponent(i.id)}${r ? "/" + encodeURIComponent(r) : ""}`;
+    location.hash = `study/${encodeURIComponent(c.id)}/${encodeURIComponent(i.id)}${r ? "/" + encodeURIComponent(r) : ""}${r && page ? "/" + page : ""}`;
   }
   function home(c: Course) {
     setCourseId(c.id);
@@ -163,6 +172,16 @@ export default function StudyApp({ courses }: { courses: Course[] }) {
   const selected =
     course?.resources.find((r) => r.id === resourceId && !r.hidden) ||
     activeResources[0];
+  const selectedPage =
+    resourcePage ??
+    item?.readingLinks?.find((link) => link.resourceId === selected?.id)
+      ?.pdfPage ??
+    1;
+  const selectedUrl =
+    course && selected
+      ? resourceUrl(course, selected) +
+        (selected.mime.includes("pdf") ? `#page=${selectedPage}` : "")
+      : "";
   const currentNotes = state.notes.filter(
     (n) => n.courseId === courseId && (n.itemId === item?.id || !n.itemId),
   );
@@ -635,10 +654,35 @@ export default function StudyApp({ courses }: { courses: Course[] }) {
                     {course.readingCitation ||
                       "See the original syllabus for reading instructions."}
                   </small>
-                  <small className="reading-availability">
-                    Referenced books may need to be obtained separately from the
-                    course download.
-                  </small>
+                  {item.readingLinks?.length ? (
+                    <div className="reading-links">
+                      {item.readingLinks.map((link) => (
+                        <button
+                          key={`${link.resourceId}/${link.chapter}`}
+                          onClick={() => {
+                            open(course, item, link.resourceId, link.pdfPage);
+                          }}
+                          title={link.title}
+                        >
+                          <BookOpen size={15} />
+                          Read Chapter {link.chapter}
+                          <span>
+                            {link.printedPage
+                              ? `p. ${link.printedPage}`
+                              : `PDF p. ${link.pdfPage}`}
+                          </span>
+                        </button>
+                      ))}
+                      <small>
+                        Your local textbook · opens at the assigned chapter.
+                      </small>
+                    </div>
+                  ) : (
+                    <small className="reading-availability">
+                      Referenced books may need to be obtained separately from
+                      the course download.
+                    </small>
+                  )}
                 </div>
               </div>
             )}
@@ -659,7 +703,7 @@ export default function StudyApp({ courses }: { courses: Course[] }) {
               {selected && tab === "content" && (
                 <a
                   className="external"
-                  href={resourceUrl(course, selected)}
+                  href={selectedUrl}
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -714,7 +758,12 @@ export default function StudyApp({ courses }: { courses: Course[] }) {
                           Download ↗
                         </a>
                       </div>
-                      <ResourceViewer course={course} resource={selected} />
+                      <ResourceViewer
+                        course={course}
+                        resource={selected}
+                        initialPage={selectedPage}
+                        pageRequestId={pageRequestId}
+                      />
                     </>
                   ) : item.html ? (
                     <div
@@ -1071,13 +1120,25 @@ function Attribution({ course }: { course: Course }) {
 function ResourceViewer({
   course,
   resource: r,
+  initialPage = 1,
+  pageRequestId = 0,
 }: {
   course: Course;
   resource: Resource;
+  initialPage?: number;
+  pageRequestId?: number;
 }) {
   const url = resourceUrl(course, r);
   if (r.mime.includes("pdf"))
-    return <PdfViewer key={r.id} url={url} title={r.title} />;
+    return (
+      <PdfViewer
+        key={r.id}
+        url={url}
+        title={r.title}
+        initialPage={initialPage}
+        pageRequestId={pageRequestId}
+      />
+    );
   if (r.mime === "video/youtube") {
     const id = new URL(url).searchParams.get("v");
     return (

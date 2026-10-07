@@ -127,3 +127,77 @@ test("PDF is served safely with byte ranges and topic search works", async ({
   );
   expect(overflow).toBe(false);
 });
+
+test("assigned textbook chapters open at verified pages and survive refresh", async ({
+  page,
+  request,
+}) => {
+  const response = await request.get(
+    "/api/resources/9.01-fall-2007/neuroscience-bear-3e",
+    { headers: { range: "bytes=0-9" } },
+  );
+  test.skip(
+    response.status() === 404,
+    "User-supplied textbook is not present on this machine.",
+  );
+  expect(response.status()).toBe(206);
+  await page.goto("/#study/9.01-fall-2007/vision-1-the-eye");
+  await expect(
+    page.getByRole("button", { name: /Read Chapter 9/ }),
+  ).toBeVisible();
+  await page.getByRole("button", { name: /Read Chapter 9/ }).click();
+  await expect(page.locator(".pdf-viewer canvas")).toHaveAttribute(
+    "data-rendered-page",
+    "317",
+    { timeout: 15000 },
+  );
+  await expect(page.getByRole("spinbutton", { name: "PDF page" })).toHaveValue(
+    "317",
+  );
+  await expect(page.locator(".tabs .external")).toHaveAttribute(
+    "href",
+    /bear-3e#page=317$/,
+  );
+  await page.reload();
+  await expect(page.locator(".pdf-viewer canvas")).toHaveAttribute(
+    "data-rendered-page",
+    "317",
+    { timeout: 15000 },
+  );
+  await page.goto(
+    "/#study/9.01-fall-2007/chemical-control-of-brain-2-motivation",
+  );
+  await page.getByRole("button", { name: /Read Chapter 15/ }).click();
+  await expect(page.locator(".pdf-viewer canvas")).toHaveAttribute(
+    "data-rendered-page",
+    "521",
+    { timeout: 15000 },
+  );
+  await page.getByRole("button", { name: /Read Chapter 16/ }).click();
+  await expect(page.locator(".pdf-viewer canvas")).toHaveAttribute(
+    "data-rendered-page",
+    "549",
+    { timeout: 15000 },
+  );
+  await page
+    .getByRole("button", { name: "Next PDF page", exact: true })
+    .click();
+  await expect(page.locator(".pdf-viewer canvas")).toHaveAttribute(
+    "data-rendered-page",
+    "550",
+  );
+  await page.getByRole("button", { name: /Read Chapter 16/ }).click();
+  await expect(page.locator(".pdf-viewer canvas")).toHaveAttribute(
+    "data-rendered-page",
+    "549",
+  );
+  await page.screenshot({
+    path: `test-results/${test.info().project.name}-textbook.png`,
+    fullPage: true,
+  });
+  expect(
+    await page.evaluate(
+      () => document.documentElement.scrollWidth > innerWidth,
+    ),
+  ).toBe(false);
+});

@@ -2,6 +2,8 @@
 
 ## Current stage — ready for local study (2026-10-07)
 
+Latest enhancement: the user-supplied third-edition neuroscience textbook is integrated locally. Verified all 25 chapter destinations from the actual PDF bookmarks; all 22 lecture reading assignments now open the book at their assigned chapters, including separate links for Chapters 15 and 16. Physical PDF pages differ from printed page labels (e.g. Chapter 9: PDF 317 / printed 277). Book is excluded from Git, retains separate provenance, and is served without copying. Testing of the new textbook flow is in progress.
+
 The complete local MIT OCW study flow is implemented and verified. Open MIT 9.01, Start/Resume, study original PDFs/readings in syllabus order, complete items, and keep persistent notes/bookmarks. All significant milestones are committed and pushed to `origin/main`. Downloaded assets remain local; only the small override is tracked.
 
 Current import: 29 items, 22 lecture topics, 3 problem sets, 3 exams; 50 resources including all 48 PDFs. All educational PDFs have sequence associations. Only two course images remain unassociated and available in the library. No unresolved learning files.
@@ -77,3 +79,11 @@ Fresh `npm ci` successfully generates PDF.js worker/fonts through postinstall; p
 ## Final handoff
 
 Production browser tests pass (4/4). Final generated manifest includes the original reading citation. Source remains unchanged except the declarative override. No AI features or APIs are present. Repository is runnable, documented and pushed; remaining work is optional enhancement/live backend setup, not a blocker to local study.
+
+## Textbook integration milestone — implementation
+
+Added typed textbook override configuration, deterministic chapter-reference parsing, reading links on items, safe registration of a local file outside the OCW folder, PDF initial-page targeting, refreshable chapter URLs, external page fragments and range-only loading. Verified the actual book matches the assigned third edition (898 PDF pages, 25 chapter bookmarks). Existing course import now has 51 resources (the original 50 plus one private textbook), while the 29-item course sequence is unchanged. Added parser, attachment, path-boundary and desktop/mobile chapter-navigation tests. No textbook content was uploaded, rewritten, or copied. Pending final browser/build checks.
+
+## Textbook integration milestone — verification
+
+14 unit tests and all 6 desktop/mobile browser tests pass. Verified actual textbook chapter rendering at PDF pages 317, 521 and 549, refresh persistence, and switching chapters inside the same loaded book. Screenshots inspected. Fixed large-file request cancellation errors by replacing the Node/Web stream bridge with cancellation-aware streaming, backed by a unit test. Missing optional textbooks warn without breaking imports. Lint/typecheck pass, and the textbook is confirmed ignored by Git. Final production build/smoke run pending.

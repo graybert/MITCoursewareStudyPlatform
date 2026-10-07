@@ -8,5 +8,146 @@
       "itemId": "synaptic-transmission-2-chemistry",
       "type": "lecture-notes"
     }
-  }
+  },
+  "textbooks": [
+    {
+      "resource": {
+        "id": "neuroscience-bear-3e",
+        "title": "Neuroscience: Exploring the Brain (3rd edition)",
+        "type": "textbook",
+        "path": "Neuroscience - Bear.pdf",
+        "localRoot": ".",
+        "mime": "application/pdf",
+        "description": "User-supplied local textbook. Chapter locations verified against the PDF bookmarks and printed page labels.",
+        "userSupplied": true
+      },
+      "chapters": {
+        "1": {
+          "pdfPage": 43,
+          "printedPage": "3",
+          "title": "Neuroscience: Past, Present, and Future"
+        },
+        "2": {
+          "pdfPage": 63,
+          "printedPage": "23",
+          "title": "Neurons and Glia"
+        },
+        "3": {
+          "pdfPage": 91,
+          "printedPage": "51",
+          "title": "The Neuronal Membrane at Rest"
+        },
+        "4": {
+          "pdfPage": 115,
+          "printedPage": "75",
+          "title": "The Action Potential"
+        },
+        "5": {
+          "pdfPage": 141,
+          "printedPage": "101",
+          "title": "Synaptic Transmission"
+        },
+        "6": {
+          "pdfPage": 173,
+          "printedPage": "133",
+          "title": "Neurotransmitter Systems"
+        },
+        "7": {
+          "pdfPage": 207,
+          "printedPage": "167",
+          "title": "The Structure of the Nervous System"
+        },
+        "8": {
+          "pdfPage": 291,
+          "printedPage": "251",
+          "title": "The Chemical Senses"
+        },
+        "9": {
+          "pdfPage": 317,
+          "printedPage": "277",
+          "title": "The Eye"
+        },
+        "10": {
+          "pdfPage": 349,
+          "printedPage": "309",
+          "title": "The Central Visual System"
+        },
+        "11": {
+          "pdfPage": 383,
+          "printedPage": "343",
+          "title": "The Auditory and Vestibular Systems"
+        },
+        "12": {
+          "pdfPage": 427,
+          "printedPage": "387",
+          "title": "The Somatic Sensory System"
+        },
+        "13": {
+          "pdfPage": 463,
+          "printedPage": "423",
+          "title": "Spinal Control of Movement"
+        },
+        "14": {
+          "pdfPage": 491,
+          "printedPage": "451",
+          "title": "Brain Control of Movement"
+        },
+        "15": {
+          "pdfPage": 521,
+          "printedPage": "481",
+          "title": "Chemical Control of the Brain and Behavior"
+        },
+        "16": {
+          "pdfPage": 549,
+          "printedPage": "509",
+          "title": "Motivation"
+        },
+        "17": {
+          "pdfPage": 573,
+          "printedPage": "533",
+          "title": "Sex and the Brain"
+        },
+        "18": {
+          "pdfPage": 603,
+          "printedPage": "563",
+          "title": "Brain Mechanisms of Emotion"
+        },
+        "19": {
+          "pdfPage": 625,
+          "printedPage": "585",
+          "title": "Brain Rhythms and Sleep"
+        },
+        "20": {
+          "pdfPage": 657,
+          "printedPage": "617",
+          "title": "Language"
+        },
+        "21": {
+          "pdfPage": 683,
+          "printedPage": "643",
+          "title": "Attention"
+        },
+        "22": {
+          "pdfPage": 701,
+          "printedPage": "661",
+          "title": "Mental Illness"
+        },
+        "23": {
+          "pdfPage": 729,
+          "printedPage": "689",
+          "title": "Wiring the Brain"
+        },
+        "24": {
+          "pdfPage": 765,
+          "printedPage": "725",
+          "title": "Memory Systems"
+        },
+        "25": {
+          "pdfPage": 801,
+          "printedPage": "761",
+          "title": "Molecular Mechanisms of Learning and Memory"
+        }
+      }
+    }
+  ]
 }

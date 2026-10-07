@@ -13,11 +13,28 @@ export interface Resource {
   title: string;
   type: string;
   path?: string;
+  /** Explicit manifest-registered directory relative to the repository. */
+  localRoot?: string;
+  userSupplied?: boolean;
   url?: string;
   mime: string;
   description: string;
   license?: string;
   hidden?: boolean;
+}
+export interface ReadingLink {
+  resourceId: string;
+  chapter: number;
+  pdfPage: number;
+  printedPage?: string;
+  title?: string;
+}
+export interface Textbook {
+  resource: Resource;
+  chapters: Record<
+    string,
+    { pdfPage: number; printedPage?: string; title?: string }
+  >;
 }
 export interface CourseItem {
   id: string;
@@ -29,6 +46,7 @@ export interface CourseItem {
   lectureNumber?: number;
   lecturer?: string;
   reading?: string;
+  readingLinks?: ReadingLink[];
   html?: string;
   resources: string[];
   previous?: string;
@@ -51,6 +69,7 @@ export interface Course {
   metadata: Record<string, unknown>;
 }
 export interface Override {
+  textbooks?: Textbook[];
   title?: string;
   items?: Record<string, Partial<CourseItem> & { after?: string }>;
   resources?: Record<string, Partial<Resource> & { itemId?: string }>;

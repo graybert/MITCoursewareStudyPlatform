@@ -3,6 +3,8 @@ import path from "node:path";
 import crypto from "node:crypto";
 import * as cheerio from "cheerio";
 import sanitize from "sanitize-html";
+import { attachTextbooks, readingChapters } from "./readings";
+import { resolveResource } from "./resolver";
 import { Course, CourseItem, Override, Resource } from "./schema";
 const natural = new Intl.Collator("en", { numeric: true });
 const clean = (s: string) => s.replace(/\s+/g, " ").trim();
@@ -97,6 +99,7 @@ export function applyOverride(course: Course, override: Override) {
       course.items.splice(course.items.indexOf(target) + 1, 0, item);
     }
   }
+  attachTextbooks(course, override.textbooks || []);
   for (const [id, patch] of Object.entries(override.resources || {})) {
     const r = course.resources.find((r) => r.id === id);
     if (!r) throw Error(`Unknown override resource ${id}`);
@@ -123,8 +126,13 @@ export function applyOverride(course: Course, override: Override) {
   const hidden = new Set(
     course.resources.filter((r) => r.hidden).map((r) => r.id),
   );
-  for (const i of course.items)
+  for (const i of course.items) {
     i.resources = i.resources.filter((id) => !hidden.has(id));
+    if (i.readingLinks)
+      i.readingLinks = i.readingLinks.filter(
+        (link) => !hidden.has(link.resourceId),
+      );
+  }
   course.items.forEach((i, n) => {
     i.previous = course.items[n - 1]?.id;
     i.next = course.items[n + 1]?.id;
@@ -493,10 +501,48 @@ export function importCourse(root: string, relativeRoot: string) {
       });
     }
   const overridePath = path.join(root, "course.override.json");
-  applyOverride(
-    course,
-    fs.existsSync(overridePath) ? read("course.override.json") : {},
-  );
+  const override: Override = fs.existsSync(overridePath)
+    ? read("course.override.json")
+    : {};
+  override.textbooks = override.textbooks?.filter((book) => {
+    if (!book.resource.path) return true;
+    try {
+      if (book.resource.localRoot)
+        resolveResource(
+          process.cwd(),
+          book.resource.localRoot,
+          book.resource.path,
+        );
+      else
+        resolveResource(
+          path.dirname(root),
+          path.basename(root),
+          book.resource.path,
+        );
+      return true;
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+      warnings.push(
+        `User-supplied textbook unavailable: ${book.resource.path}; reading links omitted.`,
+      );
+      return false;
+    }
+  });
+  applyOverride(course, override);
+  if (
+    course.items
+      .filter((i) => i.reading)
+      .every((i) =>
+        readingChapters(i.reading!).every((chapter) =>
+          i.readingLinks?.some((link) => link.chapter === chapter),
+        ),
+      )
+  ) {
+    const index = warnings.indexOf(
+      "Reading references may require material not included in this download.",
+    );
+    if (index >= 0) warnings.splice(index, 1);
+  }
   unmatched = course.resources.filter(
     (r) => !r.hidden && !course.items.some((i) => i.resources.includes(r.id)),
   );
@@ -525,7 +571,12 @@ export function importCourse(root: string, relativeRoot: string) {
   const hashes = new Map<string, string[]>();
   for (const r of resources.filter((r) => r.path)) {
     const hasher = crypto.createHash("sha256");
-    const descriptor = fs.openSync(path.join(root, r.path!), "r");
+    const descriptor = fs.openSync(
+      r.localRoot
+        ? resolveResource(process.cwd(), r.localRoot, r.path!)
+        : resolveResource(path.dirname(root), path.basename(root), r.path!),
+      "r",
+    );
     const buffer = Buffer.alloc(1024 * 1024);
     try {
       let length;
@@ -539,7 +590,11 @@ export function importCourse(root: string, relativeRoot: string) {
     const hash = hasher.digest("hex");
     hashes.set(hash, [...(hashes.get(hash) || []), r.id]);
   }
-  const registered = new Set(resources.map((r) => r.path));
+  const registered = new Set(
+    resources
+      .filter((r) => !r.localRoot || r.localRoot === relativeRoot)
+      .map((r) => r.path),
+  );
   const unresolved = files.filter(
     (f) =>
       (f.startsWith("static_resources/") ||
@@ -578,9 +633,22 @@ export function importCourse(root: string, relativeRoot: string) {
       metadata: meta,
       detectedLectures: course.items.filter((i) => i.type === "lecture").length,
       lectures: course.items.filter((i) => i.type === "lecture"),
+      textbooks: course.resources
+        .filter((r) => r.type === "textbook")
+        .map((r) => ({
+          id: r.id,
+          title: r.title,
+          path: r.path,
+          localRoot: r.localRoot,
+          userSupplied: r.userSupplied,
+        })),
       readings: course.items
         .filter((i) => i.reading)
-        .map((i) => ({ item: i.id, reading: i.reading })),
+        .map((i) => ({
+          item: i.id,
+          reading: i.reading,
+          links: i.readingLinks,
+        })),
       assignments: course.items.filter((i) => i.type === "problem-set"),
       exams: course.items.filter((i) => i.type === "exam"),
       unassociatedResources: unmatched.map((r) => r.id),

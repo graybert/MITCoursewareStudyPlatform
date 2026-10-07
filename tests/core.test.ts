@@ -121,7 +121,8 @@ test(
     assert.equal(c.items.filter((i) => i.type === "lecture").length, 22);
     assert.equal(c.items.filter((i) => i.type === "exam").length, 3);
     assert.equal(
-      c.resources.filter((r) => r.mime === "application/pdf").length,
+      c.resources.filter((r) => r.mime === "application/pdf" && !r.userSupplied)
+        .length,
       48,
     );
     assert.equal(report.unresolvedFiles.length, 0);
@@ -149,7 +150,9 @@ test(
     for (const r of c.resources)
       if (r.path)
         assert.ok(
-          fs.existsSync(resolveResource(process.cwd(), c.root, r.path)),
+          fs.existsSync(
+            resolveResource(process.cwd(), r.localRoot ?? c.root, r.path),
+          ),
         );
   },
 );
@@ -260,6 +263,131 @@ test("repeated calendar titles get deterministic distinct IDs", () => {
       ["orientation", "fourier-transforms", "fourier-transforms-2"],
     );
     assert.equal(c.items[1].next, "fourier-transforms-2");
+  } finally {
+    fs.rmSync(base, { recursive: true, force: true });
+  }
+});
+
+test("reading chapters support multiple chapters/ranges without confusing page numbers", async () => {
+  const { readingChapters } = await import("../lib/readings");
+  assert.deepEqual(readingChapters("Chapters 15 and 16"), [15, 16]);
+  assert.deepEqual(readingChapters("Chapter 9, pp. 277–308"), [9]);
+  assert.deepEqual(readingChapters("Chapters 2–4, 6 & 8"), [2, 3, 4, 6, 8]);
+  assert.deepEqual(readingChapters("Pages 15 and 16"), []);
+  assert.throws(() => readingChapters("Chapters 4-2"));
+});
+test("textbook overrides associate readings without changing course order or granting OCW licensing", () => {
+  const c = fixture();
+  c.items[0].reading = "Chapters 1 and 2";
+  const originalIds = c.items.map((i) => i.id);
+  applyOverride(c, {
+    textbooks: [
+      {
+        resource: {
+          id: "book",
+          title: "Private book",
+          path: "Book.pdf",
+          localRoot: ".",
+          mime: "application/pdf",
+          type: "textbook",
+          description: "",
+        },
+        chapters: {
+          "1": { pdfPage: 43, printedPage: "3" },
+          "2": { pdfPage: 63, printedPage: "23" },
+        },
+      },
+    ],
+  });
+  assert.deepEqual(
+    c.items.map((i) => i.id),
+    originalIds,
+  );
+  assert.deepEqual(
+    c.items[0].readingLinks?.map((l) => l.pdfPage),
+    [43, 63],
+  );
+  assert.deepEqual(c.items[0].resources, ["pdf", "book"]);
+  assert.equal(c.resources.at(-1)?.userSupplied, true);
+  assert.equal(c.resources.at(-1)?.license, undefined);
+  assert.throws(() =>
+    applyOverride(fixture(), {
+      textbooks: [
+        {
+          resource: {
+            id: "book",
+            title: "Book",
+            mime: "application/pdf",
+            type: "textbook",
+            description: "",
+          },
+          chapters: { "1": { pdfPage: 0 } },
+        },
+      ],
+    }),
+  );
+});
+test("explicit repository-root resource registration still rejects traversal and escapes", () => {
+  const base = fs.mkdtempSync(path.join(os.tmpdir(), "ocw-book-"));
+  try {
+    fs.writeFileSync(path.join(base, "Book.pdf"), "PDF");
+    assert.equal(
+      resolveResource(base, ".", "Book.pdf"),
+      fs.realpathSync(path.join(base, "Book.pdf")),
+    );
+    assert.throws(() => resolveResource(base, ".", "../private.pdf"));
+    assert.throws(() => resolveResource(base, "..", "Book.pdf"));
+  } finally {
+    fs.rmSync(base, { recursive: true, force: true });
+  }
+});
+
+test("file streams preserve ranges and tolerate cancellation of large requests", async () => {
+  const { fileStream } = await import("../lib/file-stream");
+  const base = fs.mkdtempSync(path.join(os.tmpdir(), "ocw-stream-"));
+  try {
+    const file = path.join(base, "large.pdf");
+    fs.writeFileSync(file, Buffer.alloc(1024 * 1024, 65));
+    const partial = await new Response(fileStream(file, 10, 109)).arrayBuffer();
+    assert.equal(partial.byteLength, 100);
+    assert.equal(new Uint8Array(partial)[0], 65);
+    const reader = fileStream(file, 0, 1024 * 1024 - 1).getReader();
+    const first = await reader.read();
+    assert.ok(first.value?.byteLength);
+    await reader.cancel();
+    assert.equal((await reader.read()).done, true);
+  } finally {
+    fs.rmSync(base, { recursive: true, force: true });
+  }
+});
+test("missing optional textbook does not block course importing", () => {
+  const base = fs.mkdtempSync(path.join(os.tmpdir(), "ocw-missing-book-"));
+  try {
+    fs.writeFileSync(
+      path.join(base, "data.json"),
+      JSON.stringify({ course_title: "Course", site_short_id: "missing-book" }),
+    );
+    fs.writeFileSync(
+      path.join(base, "course.override.json"),
+      JSON.stringify({
+        textbooks: [
+          {
+            resource: {
+              id: "missing",
+              title: "Missing book",
+              path: "missing.pdf",
+              type: "textbook",
+              mime: "application/pdf",
+              description: "",
+            },
+            chapters: { "1": { pdfPage: 43 } },
+          },
+        ],
+      }),
+    );
+    const { course, report } = importCourse(base, "courses/missing");
+    assert.equal(course.resources.length, 0);
+    assert.ok(report.warnings.some((w) => /textbook unavailable/.test(w)));
   } finally {
     fs.rmSync(base, { recursive: true, force: true });
   }
