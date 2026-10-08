@@ -207,3 +207,80 @@ test("assigned textbook chapters open at verified pages and survive refresh", as
     ),
   ).toBe(false);
 });
+
+test("textbook text can be selected, copied and pasted into a study note", async ({
+  page,
+  context,
+  request,
+}) => {
+  const response = await request.get(
+    "/api/resources/9.01-fall-2007/neuroscience-bear-3e",
+    { headers: { range: "bytes=0-9" } },
+  );
+  test.skip(response.status() === 404, "Private textbook is not installed.");
+  await context.grantPermissions(["clipboard-read", "clipboard-write"]);
+  await page.goto(
+    "/#study/9.01-fall-2007/chemical-control-of-brain-2-motivation",
+  );
+  await page.getByRole("button", { name: /Read Chapter 16/ }).click();
+  await expect(page.locator(".pdf-viewer canvas")).toHaveAttribute(
+    "data-rendered-page",
+    "549",
+    { timeout: 15000 },
+  );
+  const heading = page
+    .locator(".pdf-text-layer span")
+    .filter({ hasText: /^Motivation$/ })
+    .first();
+  await expect(heading).toBeVisible();
+  const selectHeading = async () => {
+    await heading.scrollIntoViewIfNeeded();
+    const box = (await heading.boundingBox())!;
+    await page.mouse.move(box.x + 1, box.y + box.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(box.x + box.width - 1, box.y + box.height / 2, {
+      steps: 12,
+    });
+    await page.mouse.up();
+    await expect
+      .poll(() => page.evaluate(() => window.getSelection()?.toString()))
+      .toMatch(/otivatio/);
+  };
+  await selectHeading();
+  const selected = await page.evaluate(() => window.getSelection()!.toString());
+  await page.screenshot({
+    path: `test-results/${test.info().project.name}-text-selection.png`,
+    fullPage: true,
+  });
+  await page.keyboard.press(
+    process.platform === "darwin" ? "Meta+c" : "Control+c",
+  );
+  await expect
+    .poll(() => page.evaluate(() => navigator.clipboard.readText()))
+    .toBe(selected);
+  await page.getByRole("button", { name: "+ Item note", exact: true }).click();
+  const note = page.getByRole("textbox", { name: "Note text" });
+  await note.focus();
+  await page.keyboard.press(
+    process.platform === "darwin" ? "Meta+v" : "Control+v",
+  );
+  await expect(note).toHaveValue(selected);
+  await page.getByRole("combobox", { name: "PDF zoom" }).selectOption("1.25");
+  await expect(page.locator(".pdf-viewer canvas")).toHaveAttribute(
+    "data-rendered-page",
+    "549",
+  );
+  await expect(heading).toBeVisible();
+  await selectHeading();
+  await page
+    .getByRole("button", { name: "Next PDF page", exact: true })
+    .click();
+  await expect(page.locator(".pdf-viewer canvas")).toHaveAttribute(
+    "data-rendered-page",
+    "550",
+  );
+  await expect(heading).toHaveCount(0);
+  expect(await page.locator(".pdf-text-layer").innerText()).toContain(
+    "INTRODUCTION",
+  );
+});

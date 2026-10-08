@@ -100,7 +100,7 @@ Use the project's public anon key, never a service-role key. RLS limits every ro
 - `lib/resolver.ts`, `app/api/resources/...`: manifest-registered local assets; normalized canonical paths reject traversal and symlink escapes. Files stream on demand with byte ranges and inline/download headers.
 - `lib/study.ts`, `lib/supabase.ts`, `lib/use-study-workspace.ts`: storage contracts, local/account caches, authentication lifecycle and serialized cloud persistence.
 - `app/study-app.tsx`: dashboard, course map, player and personal workspace.
-- `app/components/pdf-viewer.tsx`: lazy-loaded PDF.js worker/canvas rendering, page navigation, zoom and original text for screen readers. `scripts/prepare-pdf.mjs` installs licensed PDF.js worker/font files during `npm ci`.
+- `app/components/pdf-viewer.tsx`: lazy-loaded PDF.js worker/canvas rendering, page navigation, zoom and an aligned selectable text layer for copying and screen readers. `scripts/prepare-pdf.mjs` installs licensed PDF.js worker/font files during `npm ci`.
 - `app/globals.css`: responsive layouts and theme tokens. Plain CSS avoids a second component styling framework for this compact first version.
 - `supabase/migrations/`: private state schema and RLS.
 - `tests/`: importer, security, state and desktop/mobile browser coverage.
@@ -134,13 +134,17 @@ Browser tests launch the development server on port 3000 if necessary. They exer
 ## Known limitations
 
 - Downloaded course omissions cannot be supplied by the player. The first introduction lecture has no OCW lecture PDF/video; recitation material starts later. The user-supplied textbook now makes its assigned Chapter 1 available directly in the player.
-- PDF.js renders one page at a time with page navigation and zoom on desktop/mobile; Open externally remains available. External PDF providers must allow browser CORS access for in-app rendering. PDF position is not persisted yet.
+- PDF.js renders one page at a time with page navigation, zoom and selectable original text on desktop/mobile; Open externally remains available. External PDF providers must allow browser CORS access for in-app rendering. PDF position is not persisted yet.
 - Import inference is deliberately conservative. Unknown calendar layouts may need declarative overrides; broader OCW coverage needs additional real course fixtures.
 - Search covers titles, reading labels and resource types, not full PDF text.
 - Notes and bookmarks can reference resources but not exact PDF pages/video timestamps yet.
 - Supabase uses a whole study document and last-write-wins. Remote behavior requires configured credentials; no live backend was available for verification.
 - No service worker/offline content cache is included.
 - Runtime `npm audit --omit=dev` is clean. An upstream advisory in ESLint's development-only glob/braces dependency tree currently lacks a compatible fix.
+
+## Selecting and copying PDF text
+
+Drag across textbook or lecture PDF text to highlight it, then press **Cmd+C** (Mac) or **Ctrl+C** (Windows/Linux) and paste into your notes or another app. On touch devices, long-press text to select it using the browser selection controls. Selection stays aligned when zooming or changing pages. The highlight is a normal browser selection, not a saved annotation. Image-only scanned pages need a source text layer before they can support text selection; no OCR is performed.
 
 ## Integrating a local textbook
 

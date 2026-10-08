@@ -1,14 +1,16 @@
 # Project status
 
-## Current stage — ready for local study (2026-10-07)
+## Current stage — ready for local study (2026-10-08)
 
-Latest enhancement: the user-supplied third-edition neuroscience textbook is integrated locally. Verified all 25 chapter destinations from the actual PDF bookmarks; all 22 lecture reading assignments now open the book at their assigned chapters, including separate links for Chapters 15 and 16. Physical PDF pages differ from printed page labels (e.g. Chapter 9: PDF 317 / printed 277). Book is excluded from Git, retains separate provenance, and is served without copying. Textbook integration is complete and verified in production on desktop/mobile.
+Latest enhancement: original PDF text can now be selected and copied directly in the website using an aligned PDF.js text layer. Browser selection highlights appear over the printed text, and clipboard paste into study notes is verified on desktop/mobile. Selection is transient; saved PDF annotations are future work.
+
+Previous enhancement: the user-supplied third-edition neuroscience textbook is integrated locally. Verified all 25 chapter destinations from the actual PDF bookmarks; all 22 lecture reading assignments now open the book at their assigned chapters, including separate links for Chapters 15 and 16. Physical PDF pages differ from printed page labels (e.g. Chapter 9: PDF 317 / printed 277). Book is excluded from Git, retains separate provenance, and is served without copying. Textbook integration is complete and verified in production on desktop/mobile.
 
 The complete local MIT OCW study flow is implemented and verified. Open MIT 9.01, Start/Resume, study original PDFs/readings in syllabus order, complete items, and keep persistent notes/bookmarks. All significant milestones are committed and pushed to `origin/main`. Downloaded assets remain local; only the small override is tracked.
 
 Current import: 29 items, 22 lecture topics, 3 problem sets, 3 exams; 51 resources including all 48 original OCW PDFs and the private textbook. All educational PDFs have sequence associations. Only two course images remain unassociated and available in the library. No unresolved learning files.
 
-Final verification: clean Node 22 `npm ci`; formatting check; lint with no warnings; strict typecheck; 14/14 unit tests; production build; 6/6 desktop/mobile browser tests against the production server; actual PDF page rendering, page navigation, zoom, notes/bookmarks/progress/theme persistence and byte ranges. Runtime audit: zero vulnerabilities. Major screenshots, including actual lecture PDF content on page 2, inspected.
+Final verification: clean Node 22 `npm ci`; formatting check; lint with no warnings; strict typecheck; 14/14 unit tests; production build; 8/8 desktop/mobile browser tests against the production server; actual PDF page rendering, page navigation, zoom, notes/bookmarks/progress/theme persistence and byte ranges. Runtime audit: zero vulnerabilities. Major screenshots, including actual lecture PDF content on page 2, inspected.
 
 No input is required to use the local application. Optional Supabase accounts require the environment variables and SQL migration documented in README; live cloud verification was not possible without credentials. Remote state uses last-write-wins and loads on sign-in/reload. Offline content caching, exact PDF/video-position persistence and legacy HTML-only imports are future improvements. Development-only ESLint glob/braces advisory remains upstream; runtime dependencies are clean.
 
@@ -91,3 +93,7 @@ Added typed textbook override configuration, deterministic chapter-reference par
 ## Textbook integration — final handoff
 
 Production build passed and all 6 production desktop/mobile browser tests passed without streaming exceptions. Tests verify Chapter 1 opens at PDF page 43, Chapter 9 at 317, separate Chapter 15/16 targets at 521/549, refresh preservation, and returning to a chapter start after paging ahead. All 14 unit tests pass. Inspected desktop/mobile screenshots of the original textbook pages. Formatter, lint and typecheck pass. Feature and documentation are committed/pushed; the original 41 MB book is confirmed excluded from Git. No further user input is needed. Open any lecture and use Read Chapter buttons; original notes remain in the resource selector.
+
+## Selectable textbook text — verified implementation
+
+Added an aligned PDF.js TextLayer to every in-app PDF page. Original text can be drag-selected, copied with Cmd/Ctrl+C and pasted into notes or other applications, without changing the material or adding OCR/AI. Layer geometry follows the canvas viewport and font transforms; page changes cancel stale work and replace the previous text. Normal browser selection is highlighted without painting duplicate text. Added desktop/mobile tests for real mouse selection, system clipboard copy/paste, zoom and replacement on page changes. Inspected both screenshots of selected textbook text. Production build, all 14 unit tests and all 8 browser tests pass; formatter, lint and typecheck pass. PDF request destruction now handles expected cancellation rejection during navigation. Image-only pages have no selectable source text; highlights are not saved annotations. No user input needed.

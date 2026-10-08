@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight, LoaderCircle } from "lucide-react";
-import type { PDFDocumentProxy, RenderTask } from "pdfjs-dist";
+import type { PDFDocumentProxy, RenderTask, TextLayer } from "pdfjs-dist";
 /** One page at a time, lazily decoded. Large originals stay streamed on the server. */
 export default function PdfViewer({
   url,
@@ -23,7 +23,8 @@ export default function PdfViewer({
   const [pageHeight, setPageHeight] = useState(550);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(true);
-  const [text, setText] = useState("");
+  const pageContainer = useRef<HTMLDivElement>(null);
+  const textContainer = useRef<HTMLDivElement>(null);
   const [rendered, setRendered] = useState(0);
   const container = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
@@ -65,7 +66,9 @@ export default function PdfViewer({
       });
     return () => {
       canceled = true;
-      void task?.destroy();
+      void task?.destroy().catch(() => {
+        // Navigation can abort outstanding PDF byte-range requests.
+      });
     };
   }, [url]);
   useEffect(() => {
@@ -76,6 +79,9 @@ export default function PdfViewer({
     if (!document || !canvas.current || page > document.numPages) return;
     let canceled = false;
     let render: RenderTask | undefined;
+    let textLayer: TextLayer | undefined;
+    textContainer.current?.replaceChildren();
+    setError("");
     setBusy(true);
     setRendered(0);
     document
@@ -87,6 +93,14 @@ export default function PdfViewer({
           scale: (Math.min(width, 1000) / original.width) * zoom,
         });
         setPageHeight(viewport.height);
+        if (pageContainer.current) {
+          pageContainer.current.style.width = `${viewport.width}px`;
+          pageContainer.current.style.height = `${viewport.height}px`;
+          pageContainer.current.style.setProperty(
+            "--total-scale-factor",
+            String(viewport.scale),
+          );
+        }
         const target = canvas.current;
         const ratio = Math.min(window.devicePixelRatio || 1, 2);
         target.width = Math.ceil(viewport.width * ratio);
@@ -100,13 +114,18 @@ export default function PdfViewer({
         });
         await render.promise;
         if (canceled) return;
+        const content = await pdfPage.getTextContent();
+        const pdfjs = await import("pdfjs-dist");
+        if (canceled || !textContainer.current) return;
+        textLayer = new pdfjs.TextLayer({
+          textContentSource: content,
+          container: textContainer.current,
+          viewport,
+        });
+        await textLayer.render();
+        if (canceled) return;
         setRendered(page);
         setBusy(false);
-        const content = await pdfPage.getTextContent();
-        if (!canceled)
-          setText(
-            content.items.map((i) => ("str" in i ? i.str : "")).join(" "),
-          );
       })
       .catch((e) => {
         if (!canceled && e.name !== "RenderingCancelledException") {
@@ -117,6 +136,7 @@ export default function PdfViewer({
     return () => {
       canceled = true;
       render?.cancel();
+      textLayer?.cancel();
     };
   }, [document, page, zoom, width]);
   return (
@@ -189,14 +209,20 @@ export default function PdfViewer({
             </a>
           </div>
         ) : (
-          <canvas
-            ref={canvas}
-            role="img"
-            aria-label={`${title}, page ${page}`}
-            data-rendered-page={rendered}
-          />
+          <div className="pdf-page" ref={pageContainer}>
+            <canvas
+              ref={canvas}
+              aria-hidden="true"
+              data-rendered-page={rendered}
+            />
+            <div
+              className="pdf-text-layer"
+              ref={textContainer}
+              role="region"
+              aria-label={`${title}, page ${page}, selectable text`}
+            />
+          </div>
         )}
-        <div className="sr-only">{text}</div>
       </div>
     </div>
   );
